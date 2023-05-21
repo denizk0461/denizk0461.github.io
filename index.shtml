@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            * {
-                font-family: 'Lato', sans-serif;
-            }
-        </style>
+        <!--#include virtual="/resources/html/head.inc.html" -->
     </head>
     <body>
         <h1>Hi there!</h1>

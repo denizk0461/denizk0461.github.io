@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!--#include virtual="/resources/html/head.inc.html" -->
         <style>
             .center {
                 display: block;
