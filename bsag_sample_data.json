@@ -1,0 +1,17 @@
+{
+    "announcement": "",
+    "diversions": [
+        {
+            "lineId": 1,
+            "diversion": "this is a diversion for the line 1"
+        },
+        {
+            "lineId": 1,
+            "diversion": "this is another diversion for the line 1"
+        },
+        {
+            "lineId": 5,
+            "diversion": "5555"
+        }
+    ]
+}
