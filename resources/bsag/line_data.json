@@ -1,0 +1,394 @@
+[
+    {
+        "lineId": 1,
+        "name": "1",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 2,
+        "name": "2",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "BLUE"
+    },
+    {
+        "lineId": 3,
+        "name": "3",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 4,
+        "name": "4",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "RED"
+    },
+    {
+        "lineId": 5,
+        "name": "5",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "TURQUOISE"
+    },
+    {
+        "lineId": 6,
+        "name": "6",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 7,
+        "name": "8",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 8,
+        "name": "10",
+        "vehicleType": "TRAM",
+        "operationTime": "DAY",
+        "color": "BLUE_DARK"
+    },
+    {
+        "lineId": 9,
+        "name": "20",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 10,
+        "name": "21",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 11,
+        "name": "22",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "LAVENDER"
+    },
+    {
+        "lineId": 12,
+        "name": "24",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "VIOLET"
+    },
+    {
+        "lineId": 13,
+        "name": "25",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 14,
+        "name": "26",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "RED"
+    },
+    {
+        "lineId": 15,
+        "name": "27",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 16,
+        "name": "28",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 17,
+        "name": "29",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 18,
+        "name": "31",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 19,
+        "name": "33",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 20,
+        "name": "34",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 21,
+        "name": "37",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "VIOLET"
+    },
+    {
+        "lineId": 22,
+        "name": "38",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 23,
+        "name": "39",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 24,
+        "name": "40",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "RED"
+    },
+    {
+        "lineId": 25,
+        "name": "41",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "RED"
+    },
+    {
+        "lineId": 26,
+        "name": "42",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 27,
+        "name": "44",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 28,
+        "name": "52",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 29,
+        "name": "55",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 30,
+        "name": "57",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 31,
+        "name": "58",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 32,
+        "name": "61",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 33,
+        "name": "62",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 34,
+        "name": "63",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_DARK"
+    },
+    {
+        "lineId": 35,
+        "name": "65",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 36,
+        "name": "66",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 37,
+        "name": "80",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 38,
+        "name": "81",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 39,
+        "name": "82",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 40,
+        "name": "90",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_DARK"
+    },
+    {
+        "lineId": 41,
+        "name": "91",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 42,
+        "name": "92",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 43,
+        "name": "93",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 44,
+        "name": "94",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "RED"
+    },
+    {
+        "lineId": 45,
+        "name": "95",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 46,
+        "name": "96",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "VIOLET"
+    },
+    {
+        "lineId": 47,
+        "name": "98",
+        "vehicleType": "BUS",
+        "operationTime": "DAY",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 48,
+        "name": "N1",
+        "vehicleType": "TRAM",
+        "operationTime": "NIGHT",
+        "color": "GREEN_DARK"
+    },
+    {
+        "lineId": 49,
+        "name": "N3",
+        "vehicleType": "BUS",
+        "operationTime": "NIGHT",
+        "color": "PINK"
+    },
+    {
+        "lineId": 50,
+        "name": "N4",
+        "vehicleType": "TRAM",
+        "operationTime": "NIGHT",
+        "color": "RED"
+    },
+    {
+        "lineId": 51,
+        "name": "N5",
+        "vehicleType": "BUS",
+        "operationTime": "NIGHT",
+        "color": "ORANGE"
+    },
+    {
+        "lineId": 52,
+        "name": "N6",
+        "vehicleType": "BUS",
+        "operationTime": "NIGHT",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 53,
+        "name": "N7",
+        "vehicleType": "BUS",
+        "operationTime": "NIGHT",
+        "color": "GREEN_LIGHT"
+    },
+    {
+        "lineId": 54,
+        "name": "N9",
+        "vehicleType": "BUS",
+        "operationTime": "NIGHT",
+        "color": "YELLOW"
+    },
+    {
+        "lineId": 55,
+        "name": "N10",
+        "vehicleType": "TRAM",
+        "operationTime": "NIGHT",
+        "color": "BLUE_LIGHT"
+    },
+    {
+        "lineId": 56,
+        "name": "N94",
+        "vehicleType": "TAXI",
+        "operationTime": "NIGHT",
+        "color": "LAVENDER"
+    }
+]
