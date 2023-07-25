@@ -33,7 +33,7 @@
                     null, true),
                 new Question(
                     "Who said this? 'The empire writes back.'", 
-                    "Bill Ashcroft, Gareth Griffiths, and Helen Tiffin", 
+                    ["Bill Ashcroft, Gareth Griffiths, and Helen Tiffin"], 
                     ["Homi Bhabha, Edward Said, and Gayatri Spivak", "Ferdinand de Saussure, Claude Lévi-Strauss, and Roland Barthes", "Roman Jakobson, Osip Brik, and Petr Bogatyrev"],
                     null, true),
                 new Question(
@@ -91,15 +91,15 @@
                 new Question(
                     "Name the critic!", 
                     ["Roland Barthes"], 
-                    null, null, false),
+                    null, "barthes", false),
                 new Question(
                     "Name the critic!", 
                     ["Boris Eichenbaum"], 
-                    null, null, false),
+                    null, "eichenbaum", false),
                 new Question(
                     "Name the critic!", 
                     ["Roman Jakobson", "Roman Jacobson"], 
-                    null, null, false),
+                    null, "jakobson", false),
                 new Question(
                     "Name three main characteristics of Orientalist discourse identified by Edward Said (this question is a TODO)", 
                     ["Orientalism constructs binary divisions", "Orientalism is legitimating", "Orientalism is a Western fantasy"], 
@@ -225,15 +225,25 @@
 
                     document.getElementById("result").innerText = "";
                     document.getElementById("input").value = "";
+                    document.getElementById("answers").innerText = "";
 
                     document.getElementById("question").innerText = questions[questionIndex].question;
 
-                    let potentialAnswers = questions[questionIndex].wrongAnswers;
-                    potentialAnswers.push(questions[questionIndex].correctAnswers);
-                    potentialAnswers.forEach((element, index) => {
-                        potentialAnswers[index] = `- ${element}`;
-                    });
-                    document.getElementById("answers").innerText = shuffle(potentialAnswers).join("\n");
+                    if (questions[questionIndex].showAnswers) {
+                        let potentialAnswers = questions[questionIndex].wrongAnswers;
+                        questions[questionIndex].correctAnswers.forEach(answer => {
+                            potentialAnswers.push(answer);
+                        })
+                        potentialAnswers.forEach((element, index) => {
+                            potentialAnswers[index] = `- ${element}`;
+                        });
+                        document.getElementById("answers").innerText = shuffle(potentialAnswers).join("\n");
+                    }
+
+                    document.getElementById("image").src = null;
+                    if (questions[questionIndex].imgTitle != null) {
+                        document.getElementById("image").src = getImage(questions[questionIndex].imgTitle);
+                    }
                 }
                 isAnswering = !isAnswering;
             }
