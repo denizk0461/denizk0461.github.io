@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+        </style>
+        <script>
+            // strings
+            let title = "Introduction to English Literatures II – Quiz";
+            let description = "A quiz including all questions from Dr. Jana Nittel's Kahoot, but shuffled";
+            let positiveAnswer = "That's correct!";
+            let negativeAnswer = "That's false.";
+
+            let emptyQuestion = 
+                new Question(
+                    "", 
+                    "", 
+                    [ "", "", "" ]);
+
+            // questions go here
+            const questions = [
+                new Question(
+                    "Who said this? 'The death of the author.'", 
+                    "Roland Barthes", 
+                    [ "Ferdinand de Saussure", "Roman Jakobson", "W. K. Wimsatt" ]),
+                new Question(
+                    "Who said this? 'Being determines consciousness.'", 
+                    "Karl Marx", 
+                    [ "Georg Wilhelm Friedrich Hegel", "Friedrich Engels", "György Lukács" ]),
+                new Question(
+                    "Who said this? 'The empire writes back.'", 
+                    "Bill Ashcroft, Gareth Griffiths, and Helen Tiffin", 
+                    [ "Homi Bhabha, Edward Said, and Gayatri Spivak", "Ferdinand de Saussure, Claude Lévi-Strauss, and Roland Barthes", "Roman Jakobson, Osip Brik, and Petr Bogatyrev" ])
+            ];
+
+            // don't modify from this point on if you just want to make a quiz
+
+            function Question(question, correctAnswer, wrongAnswers) {
+                this.question = question;
+                this.correctAnswer = correctAnswer;
+                this.wrongAnswers = wrongAnswers;
+            }
+
+            // whether the user is currently trying to answer a question
+            var isAnswering = false;
+            var questionIndex = -1;
+            var correctAnswerCount = 0;
+
+            window.onload = function() {
+                
+                document.getElementById("question").innerText = title;
+                document.getElementById("answers").innerText = description;
+
+                // ?? doesn';t work LOL
+                document.getElementById("input").addEventListener("keypress", function(event) {
+                    // If the user presses the "Enter" key on the keyboard
+                    if (event.key === "Enter") {
+                        // Cancel the default action, if needed
+                        event.preventDefault();
+                        // Trigger the button element with a click
+                        document.getElementById("button").click();
+                    }
+                });
+            };
+
+            // thanks stackoverflow
+            function shuffle(array) {
+                let currentIndex = array.length,  randomIndex;
+
+                // While there remain elements to shuffle.
+                while (currentIndex != 0) {
+
+                    // Pick a remaining element.
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]];
+                }
+
+                return array;
+            }
+
+            function next() {
+                if (questionIndex == questions.length - 1 && !isAnswering) {
+                    document.getElementById("question").innerText = "DONE!";
+
+                    let correctAnswerRatio = ((correctAnswerCount / questions.length) * 100.0).toFixed(2);
+
+                    document.getElementById("answers").innerText = 
+                        `Correct answers: ${correctAnswerCount} out of ${questions.length} (${correctAnswerRatio}%)`;
+
+                    document.getElementById("result").innerText = "";
+                    document.getElementById("input").value = "";
+
+                    return;
+                }
+
+                if (isAnswering) {
+
+                    var result = questions[questionIndex].correctAnswer == document.getElementById("input").value;
+
+                    if (result) {
+                        correctAnswerCount += 1;
+                    }
+
+                    var resultText = result ? positiveAnswer : negativeAnswer;
+                    
+                    document.getElementById("result").innerText = resultText;
+                } else {
+                    questionIndex += 1;
+
+                    document.getElementById("result").innerText = "";
+                    document.getElementById("input").value = "";
+
+
+                    document.getElementById("question").innerText = questions[questionIndex].question;
+
+                    let potentialAnswers = questions[questionIndex].wrongAnswers;
+                    potentialAnswers.push(questions[questionIndex].correctAnswer);
+                    potentialAnswers.forEach((element, index) => {
+                        potentialAnswers[index] = `- ${element}`;
+                    });
+                    document.getElementById("answers").innerText = shuffle(potentialAnswers).join("\n");
+                }
+                isAnswering = !isAnswering;
+            }
+        </script>
+    </head>
+    <body>
+        <h3 id="question"></h3>
+        <p id="answers"></p>
+        <input id="input"/>
+        <button id="button" onclick="next()">next</button>
+        <h5 id="result"></h5>
+    </body>
+</html>
