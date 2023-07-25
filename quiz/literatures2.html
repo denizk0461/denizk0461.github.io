@@ -23,24 +23,129 @@
             const questions = [
                 new Question(
                     "Who said this? 'The death of the author.'", 
-                    "Roland Barthes", 
-                    [ "Ferdinand de Saussure", "Roman Jakobson", "W. K. Wimsatt" ]),
+                    ["Roland Barthes"], 
+                    ["Ferdinand de Saussure", "Roman Jakobson", "W. K. Wimsatt"],
+                    null, true),
                 new Question(
                     "Who said this? 'Being determines consciousness.'", 
-                    "Karl Marx", 
-                    [ "Georg Wilhelm Friedrich Hegel", "Friedrich Engels", "György Lukács" ]),
+                    ["Karl Marx"], 
+                    ["Georg Wilhelm Friedrich Hegel", "Friedrich Engels", "György Lukács"],
+                    null, true),
                 new Question(
                     "Who said this? 'The empire writes back.'", 
                     "Bill Ashcroft, Gareth Griffiths, and Helen Tiffin", 
-                    [ "Homi Bhabha, Edward Said, and Gayatri Spivak", "Ferdinand de Saussure, Claude Lévi-Strauss, and Roland Barthes", "Roman Jakobson, Osip Brik, and Petr Bogatyrev" ])
+                    ["Homi Bhabha, Edward Said, and Gayatri Spivak", "Ferdinand de Saussure, Claude Lévi-Strauss, and Roland Barthes", "Roman Jakobson, Osip Brik, and Petr Bogatyrev"],
+                    null, true),
+                new Question(
+                    "Which theory is this picture representing?", 
+                    ["Postcolonial studies"], 
+                    ["Gender studies", "Structuralism", "Critical theory"], 
+                    "postcolonial", true),
+                new Question(
+                    "Which theory is this picture representing?", 
+                    ["New historicism"], 
+                    ["Formalism", "Narratology", "Psychoanalysis"], 
+                    "newhistoricism", true),
+                new Question(
+                    "Which theory is this picture representing?", 
+                    ["Psychoanalysis"], 
+                    ["Gender studies", "Hermeneutics", "Formalism"], 
+                    "psychoanalysis", true),
+                new Question(
+                    "Which theory is this picture representing?", 
+                    ["Cultural memory studies"], 
+                    ["Deconstruction", "Gender studies", "Structuralism"], 
+                    "memorystudies", true),
+                new Question(
+                    "Which theory is this meme representing?", 
+                    ["Marxist theory"], 
+                    null, "marxist", false),
+                new Question(
+                    "Which theory is this meme representing?", 
+                    ["Poststructuralism", "Deconstruction"], 
+                    null, "poststructuralism", false),
+                new Question(
+                    "Which theory is this meme representing?", 
+                    ["Postcolonial", "Postcolonialism", "Postcolonial theory"], 
+                    null, "postcolonial2", false),
+                new Question(
+                    "Which theory is this meme representing?", 
+                    ["Formalism", "New criticism"], 
+                    null, "formalism", false),
+                new Question(
+                    "Which theory is this meme representing?", 
+                    ["Gender studies", "Feminism", "Feminist criticism"], 
+                    null, "genderstudies", false),
+                new Question(
+                    "A theoretical approach that argues that we can never fully control language. Therefore, objective truth does not exist and meanings are always unstable.", 
+                    ["Deconstruction", "Poststructuralism"], 
+                    null, null, false),
+                new Question(
+                    "A theoretical approach that aims at making literary theory more 'scientific' by using the empiricism of formal linguistics.", 
+                    ["Formalism", "Russian formalism"], 
+                    null, null, false),
+                new Question(
+                    "A term that describes a system of beliefs and cultural practices that justify a particular arrangement of power. It makes the status quo appear natural, inevitable, and ahistorical.", 
+                    ["Ideology"], 
+                    null, null, false),
+                new Question(
+                    "Name the critic!", 
+                    ["Roland Barthes"], 
+                    null, null, false),
+                new Question(
+                    "Name the critic!", 
+                    ["Boris Eichenbaum"], 
+                    null, null, false),
+                new Question(
+                    "Name the critic!", 
+                    ["Roman Jakobson", "Roman Jacobson"], 
+                    null, null, false),
+                new Question(
+                    "Name three main characteristics of Orientalist discourse identified by Edward Said (this question is a TODO)", 
+                    ["Orientalism constructs binary divisions", "Orientalism is legitimating", "Orientalism is a Western fantasy"], 
+                    ["Orientalism supports progress in the Middle East"], null, true),
+                new Question(
+                    "Which two concepts are important for narratology?", 
+                    ["Unreliable narrator", "Story and discourse"], 
+                    ["Author", "Knowledge and power"], null, true),
+                new Question(
+                    "Identify three psychic instances according to Sigmund Freud", 
+                    ["id", "superego", "ego"], 
+                    ["object of desire"], null, true),
+                new Question(
+                    "Which two statements might be uttered by critics in the field of narratology?", 
+                    ["Narratology analyses on a textual level how narratives work", "Narratology is a methodological tool used by other literary theories"], 
+                    ["Narratology is the ‘art of interpretation", "Narratology is a literary theory that uses methods from other theories"], null, true),
+                new Question(
+                    "Name two vital concepts of psychological criticism", 
+                    ["Oedipus complex", "Object of desire"], 
+                    ["Ontology", "Symbolism"], null, true),
+                new Question(
+                    "Select two important concepts of the New Critical School", 
+                    ["Intentional fallacy", "Close reading"], 
+                    ["Intentional apathy", "Dialectical materialism"], null, true),
+                new Question(
+                    "Select a statement that might be uttered by poststructuralist critics", 
+                    ["Meanings are always highly unstable"], 
+                    ["The reader gives meaning to a text", "Binary opposites are robust constructs that give order to our existence", "History proceeds organically towards a better future"], null, true),
+                new Question(
+                    "Who describes Ecocriticism as taking an 'earth centered approach to literary studies'?", 
+                    ["Cheryll Glotfelty"], 
+                    ["Peter Barry", "Raymond Williams", "William Wordsworth"], null, true),
+                new Question(
+                    "Name three characteristic metaphorical concepts or tropes within the discourse of ecocriticism", 
+                    ["Wilderness", "Apocalypse", "Pollution"], 
+                    ["Cultural Ecology"], null, true)
             ];
 
             // don't modify from this point on if you just want to make a quiz
 
-            function Question(question, correctAnswer, wrongAnswers) {
+            function Question(question, correctAnswers, wrongAnswers, imgTitle, showAnswers) {
                 this.question = question;
-                this.correctAnswer = correctAnswer;
+                this.correctAnswers = correctAnswers;
                 this.wrongAnswers = wrongAnswers;
+                this.imgTitle = imgTitle;
+                this.showAnswers = showAnswers;
             }
 
             // whether the user is currently trying to answer a question
@@ -84,6 +189,10 @@
                 return array;
             }
 
+            function getImage(imgTitle) {
+                return `https://denizk0461.github.io/resources/quiz/literatures2/${imgTitle}.webp`;
+            }
+
             function next() {
                 if (questionIndex == questions.length - 1 && !isAnswering) {
                     document.getElementById("question").innerText = "DONE!";
@@ -101,7 +210,8 @@
 
                 if (isAnswering) {
 
-                    var result = questions[questionIndex].correctAnswer == document.getElementById("input").value;
+                    let inputValue = document.getElementById("input").value;
+                    var result = inputValue != "" && questions[questionIndex].correctAnswers.includes(inputValue);
 
                     if (result) {
                         correctAnswerCount += 1;
@@ -116,11 +226,10 @@
                     document.getElementById("result").innerText = "";
                     document.getElementById("input").value = "";
 
-
                     document.getElementById("question").innerText = questions[questionIndex].question;
 
                     let potentialAnswers = questions[questionIndex].wrongAnswers;
-                    potentialAnswers.push(questions[questionIndex].correctAnswer);
+                    potentialAnswers.push(questions[questionIndex].correctAnswers);
                     potentialAnswers.forEach((element, index) => {
                         potentialAnswers[index] = `- ${element}`;
                     });
@@ -133,6 +242,7 @@
     <body>
         <h3 id="question"></h3>
         <p id="answers"></p>
+        <img id="image"/>
         <input id="input"/>
         <button id="button" onclick="next()">next</button>
         <h5 id="result"></h5>
