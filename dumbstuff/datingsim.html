@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Borel');
+            @import url('https://fonts.googleapis.com/css?family=Lato');
+
+            h1 {
+                font-family: 'Borel', sans-serif;
+            }
+            * {
+                font-family: 'Lato', sans-serif;
+            }
+
+        </style>
+        <script>
+            let playerNameEmptyError = "Your name cannot be nothing, silly.";
+            let promisingButtonText = "Find hot girls";
+            let disillusionedButtonText = "Continue being sad";
+            let loserText = "There are hot girls around, but they are not interested in ";
+        
+            var isButtonClicked = false;
+
+            var playerName;
+
+            window.onload = function() {
+                document.getElementById("button").innerText = promisingButtonText;
+
+                document.getElementById("datingsim").style.display = "none";
+            }
+
+            function finishPrep() {
+                let name = document.getElementById("playerName").value;
+
+                if (name.trim() === "") {
+                    document.getElementById("error").innerText = playerNameEmptyError;
+                    return;
+                }
+
+                playerName = name;
+                document.getElementById("prep").style.display = "none";
+                document.getElementById("datingsim").style.display = "block";
+            }
+
+            function datingSimButton() {
+                if (isButtonClicked) {
+                    document.getElementById("text").innerText = "";
+                    document.getElementById("button").innerText = promisingButtonText;
+                } else {
+                    document.getElementById("text").innerText = loserText + playerName + ".";
+                    document.getElementById("button").innerText = disillusionedButtonText;
+                }
+                isButtonClicked = !isButtonClicked;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Totally Accurate Dating Simulator</h1>
+        <div id="prep">
+            <input id="playerName"/>
+            <p id="error"></p>
+            <button onclick="finishPrep()">Get dating!</button>
+        </div>
+        <div id="datingsim">
+            <p id="text"></p>
+            <button id="button" onclick="datingSimButton()">Find hot girls</button>
+        </div>
+    </body>
+</html>
