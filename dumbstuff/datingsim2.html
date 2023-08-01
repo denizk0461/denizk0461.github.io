@@ -19,37 +19,70 @@
             let disillusionedButtonText = "Continue being sad";
 
             let baldiImages = [
-                "baldicampertalk.webp",
+                "baldicampertalk.webp", // 1
                 "baldiwaveparty.webp",
                 "baldifarmerspank.webp",
                 "baldicrying.webp",
-                "spacerat.png",
+                "spacerat.png", // 5
                 "red.webp",
                 "cena.jpeg",
                 "vaso1.png",
                 "vaso2.png",
-                "dannyass.png",
+                "dannyass.png", // 10
                 "batman.jpeg",
                 "homersweet.jpg",
                 "california.jpg",
                 "dream.gif",
-                "frax.png",
+                "frax.png", // 15
                 "sandwich.png",
                 "sonicgood.png",
                 "sonicbad.png",
                 "toilet.jpg",
-                "nook.png",
+                "nook.png", // 20
                 "garry.jpg",
                 "bigsmoke.png",
                 "biden.png",
                 "burn.jpg",
-                "reigns.png",
+                "reigns.png", // 25
                 "helga.png",
                 "deniz.gif",
                 "isa.png"
             ];
 
             let baldiTexts;
+
+            function initBaldiTexts() {
+                baldiTexts = [
+                    `${playerName} just met Baldi as he returned from a camping trip! Baldi is eager to talk to ${playerName} and they form a lasting friendship`,
+                    `${playerName} just met Baldi after he went to a party and he is drunk as fuck, he touches ${playerName}'s bum and ${playerName} reports Baldi to the police for sexual assault`,
+                    `${playerName} meets Baldi, and he is horny as fuck. Fortunately, ${playerName} is also in the mood for it. Baldi has a stick ready to spank ${playerName}`,
+                    `${playerName} meets Baldi as he is having an existential crisis. Baldi doesn't know what to do with his life and neither does ${playerName} so they cry together`,
+                    `${playerName} meets a space rat from 3000 years into the future. The space rat does not speak ${playerName}'s language. The space rat pulls out a rocket launcher and ${playerName} runs away`,
+                    `${playerName} meets red\n\nthat's kinda sus`,
+                    `${playerName} meets John Cena. Or at least ${playerName} thinks so, because ${playerName} cannot see him`,
+                    `${playerName} encounters Vaso, but he doesn't look too well. ${playerName} calls an ambulance and Vaso dies in the hospital, holding ${playerName}'s hand, sharing his last moments with ${playerName}`,
+                    `${playerName} meets Vaso! He is excited to tell ${playerName} all about how Outer Wilds has changed his life, and how it will change ${playerName}'s life as well`,
+                    `${playerName} bears witness to a weird couple doing fetish things in public. They ask ${playerName} if they would like to join, but ${playerName} declines and dies alone`,
+                    `${playerName} encounters plagiarism Batman and Robin. They discover that ${playerName} didn't correctly cite Karl Marx in an essay ${playerName} submitted 4 years ago, and they run over ${playerName} with the Batmobile`,
+                    `${playerName} sees Homer Simpson wielding a bat. Homer wants to protect ${playerName}. ${playerName} and Homer live happily ever after`,
+                    `${playerName} meets the US state California. It is on fire due to climate change and ${playerName} suffocates from smoke inhalation`,
+                    `${playerName} approaches Vaso's dream girl. Vaso notices and punches ${playerName} to death`,
+                    `${playerName} meets Fraxiom at a rave. Fraxiom wants to fantasize about being or kissing Skrillex. Rejected, ${playerName} walks away and drowns their sadness in alcohol`,
+                    `${playerName} sees a sandwich lying on the floor. ${playerName} picks it up and begins to eat it. ${playerName} realizes that they just ate a potential lover, and that they will be forever alone`,
+                    `${playerName} meets Sonic from the Sonic the Hedgehog series! Sonic takes one look at ${playerName} and proceeds to run away as far as possible at top speed`,
+                    `${playerName} meets Sonic from the Sonic the Hedgehog series! But it's the original design from the movie, so ${playerName} decides to pretend they don't speak Sonic's language and walks away`,
+                    `${playerName} sees a cool toilet. ${playerName} realizes that the toilet is a metaphor for how ${playerName}'s life is going down the shitter, so ${playerName} goes to cry in the shower`,
+                    `${playerName} meets Tom Nook. Tom Nook is here to collect the 2,498,000 bell debt that ${playerName} has not paid off in 28 months. Tom Nook shoots ${playerName}`,
+                    `${playerName} meets Garry! But Garry is too busy with creating the base game groundwork for renowned fantasy shooter Team Fortress 2`,
+                    `${playerName} meets up with Big Smoke from Grand Theft Auto: San Andreas, and they go out for a meal at the Cluckin' Bell. Big Smoke orders two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda. ${playerName} is embarrassed, runs away, and gets caught in the crossfire of a drive-by shooting`,
+                    `${playerName} gets invited to the White House and has the pleasure of meeting Joe Biden. ${playerName} tells Joe Biden their name, and Joe Biden responds: "nice to meet you ${playerName.shuffle()}!" ${playerName} decides to leave the state of Washington`,
+                    `Unable to find a lover, ${playerName} travels towards the sun and burns to death`,
+                    `${playerName} meets Roman Reigns! ${playerName} boos him and quickly regrets it, as Roman Reigns is filled with hatred and all members of the Bloodline body slams ${playerName} out of existence`,
+                    `${playerName} meets Helga von Streissenburgen! She tells ${playerName} that they are too weak, weak, weak, and that they could eat them for breakfast, so Helga fries up some robot bacon alongside ${playerName} and eats them`,
+                    `${playerName} meets Deniz! Unfortunately, Deniz is busy creating a dating simulator and has no time for ${playerName}`,
+                    `${playerName} meets Isabel! She is lonely and watches all the cool kids from her window. ${playerName} joins Isabel and they are lonely together`
+                ];
+            }
 
             let viewPrep, viewButtons, viewAnswer, text;
 
@@ -66,6 +99,7 @@
                 viewPrep.style.display = "block";
                 viewButtons.style.display = "none";
                 viewAnswer.style.display = "none";
+                document.getElementById("viewCheater").style.display = "none";
 
                 document.getElementById("buttonHotGirls").style.display = "block";
                 document.getElementById("buttonHotGuys").style.display = "block";
@@ -99,40 +133,18 @@
                     return;
                 }
 
-                playerName = name;
+                if (name.trim() === "cheater") {
+                    showCheaterMenu();
+                    return;
+                }
+
+                playerName = name.trim();
                 viewPrep.style.display = "none";
                 viewButtons.style.display = "block";
 
-                baldiTexts = [
-                    `${playerName} just met Baldi as he returned from a camping trip! Baldi is eager to talk to ${playerName} and they form a lasting friendship`,
-                    `${playerName} just met Baldi after he went to a party and he is drunk as fuck, he touches ${playerName}'s bum and ${playerName} reports Baldi to the police for sexual assault`,
-                    `${playerName} meets Baldi, and he is horny as fuck. Fortunately, ${playerName} is also in the mood for it. Baldi has a stick ready to spank ${playerName}`,
-                    `${playerName} meets Baldi as he is having an existential crisis. Baldi doesn't know what to do with his life and neither does ${playerName} so they cry together`,
-                    `${playerName} meets a space rat from 3000 years into the future. The space rat does not speak ${playerName}'s language. The space rat pulls out a rocket launcher and ${playerName} runs away`,
-                    `${playerName} meets red\n\nthat's kinda sus`,
-                    `${playerName} meets John Cena. Or at least ${playerName} thinks so, because ${playerName} cannot see him`,
-                    `${playerName} encounters Vaso, but he doesn't look too well. ${playerName} calls an ambulance and Vaso dies in the hospital, holding ${playerName}'s hand, sharing his last moments with ${playerName}`,
-                    `${playerName} meets Vaso! He is excited to tell ${playerName} all about how Outer Wilds has changed his life, and how it will change ${playerName}'s life as well`,
-                    `${playerName} bears witness to a weird couple doing fetish things in public. They ask ${playerName} if they would like to join, but ${playerName} declines and dies alone`,
-                    `${playerName} encounters plagiarism Batman and Robin. They discover that ${playerName} didn't correctly cite Karl Marx in an essay ${playerName} submitted 4 years ago, and they run over ${playerName} with the Batmobile`,
-                    `${playerName} sees Homer Simpson wielding a bat. Homer wants to protect ${playerName}. ${playerName} and Homer live happily ever after`,
-                    `${playerName} meets the US state California. It is on fire due to climate change and ${playerName} suffocates from smoke inhalation`,
-                    `${playerName} approaches Vaso's dream girl. Vaso notices and punches ${playerName} to death`,
-                    `${playerName} meets Fraxiom at a rave. Fraxiom wants to fantasize about being or kissing Skrillex. Rejected, ${playerName} walks away and drowns their sadness in alcohol`,
-                    `${playerName} sees a sandwich lying on the floor. ${playerName} picks it up and begins to eat it. ${playerName} realizes that they just ate a potential lover, and that they will be forever alone`,
-                    `${playerName} meets Sonic from the Sonic the Hedgehog series! Sonic takes one look at ${playerName} and proceeds to run away as far as possible at top speed`,
-                    `${playerName} meets Sonic from the Sonic the Hedgehog series! But it's the original design from the movie, so ${playerName} decides to pretend they don't speak Sonic's language and walks away`,
-                    `${playerName} sees a cool toilet. ${playerName} realizes that the toilet is a metaphor for how ${playerName}'s life is going down the shitter, so ${playerName} goes to cry in the shower`,
-                    `${playerName} meets Tom Nook. Tom Nook is here to collect the 2,498,000 bell debt that ${playerName} has not paid off in 28 months. Tom Nook shoots ${playerName}`,
-                    `${playerName} meets Garry! But Garry is too busy with creating the base game groundwork for renowned fantasy shooter Team Fortress 2`,
-                    `${playerName} meets up with Big Smoke from Grand Theft Auto: San Andreas, and they go out for a meal at the Cluckin' Bell. Big Smoke orders two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda. ${playerName} is embarrassed, runs away, and gets caught in the crossfire of a drive-by shooting`,
-                    `${playerName} gets invited to the White House and has the pleasure of meeting Joe Biden. ${playerName} tells Joe Biden their name, and Joe Biden responds: "nice to meet you ${playerName.shuffle()}!" ${playerName} decides to leave the state of Washington`,
-                    `Unable to find a lover, ${playerName} travels towards the sun and burns to death`,
-                    `${playerName} meets Roman Reigns! ${playerName} boos him and quickly regrets it, as Roman Reigns is filled with hatred and all members of the Bloodline body slams ${playerName} out of existence`,
-                    `${playerName} meets Helga von Streissenburgen! She tells ${playerName} that they are too weak, weak, weak, and that they could eat them for breakfast, so Helga fries up some robot bacon alongside ${playerName} and eats them`,
-                    `${playerName} meets Deniz! Unfortunately, Deniz is busy creating a dating simulator and has no time for ${playerName}`,
-                    `${playerName} meets Isabel! She is lonely and watches all the cool kids from her window. ${playerName} joins Isabel and they are lonely together`
-                ];
+                document.getElementById("cheaterDescription").innerText = `Pick a number from 1-${baldiImages.length + 1}`;
+
+                initBaldiTexts();
             }
 
             function hotGirls() {
@@ -204,15 +216,18 @@
                 return Math.floor((Math.random())*(max-min+1))+min;
             }
 
-            function literallyany() {
-                let index = random(0, baldiImages.length - 1);
+            function literallyany(i) {
                 document.getElementById("answerButton").onclick = null;
                 showAnswer(
-                    baldiTexts[index],
-                    `Ending ${index + 1} of ${baldiImages.length}`
+                    baldiTexts[i],
+                    `Ending ${i + 1} of ${baldiImages.length}`
                 );
 
-                document.getElementById("baldiImage").src = `../resources/datingsim2/${baldiImages[index]}`;
+                document.getElementById("baldiImage").src = `../resources/datingsim2/${baldiImages[i]}`;
+            }
+
+            function literallyanyButton() {
+                literallyany(random(0, baldiImages.length - 1));
             }
 
             function returnToOverview() {
@@ -234,6 +249,28 @@
                 viewButtons.style.display = "none";
                 viewAnswer.style.display = "block";
             }
+
+            function showCheaterMenu() {
+                viewPrep.style.display = "none";
+                document.getElementById("viewCheater").style.display = "block";
+            }
+
+            function buttonCheater() {
+                let index = document.getElementById("cheater").value;
+
+                if (baldiImages[index - 1] == undefined) {
+                    document.getElementById("cheaterError").innerText = `'${index}' does not exist`;
+                    return;
+                }
+
+
+                playerName = "cheater";
+                initBaldiTexts();
+
+
+                document.getElementById("viewCheater").style.display = "none";
+                literallyany(index - 1);
+            }
         </script>
     </head>
     <body>
@@ -253,12 +290,19 @@
             <button id="buttonNormalGuys" onclick="normal()">Find normal guys</button>
             <button id="buttonAnyGirl" onclick="any()">Find any girl</button>
             <button id="buttonAnyGuy" onclick="any()">Find any guy</button>
-            <button id="buttonLiterallyAny" onclick="literallyany()">Really, no one??</button>
+            <button id="buttonLiterallyAny" onclick="literallyanyButton()">Really, no one??</button>
         </div>
         <div id="viewAnswer">
             <p id="text"></p>
             <img id="baldiImage"/>
             <button id="answerButton" onclick="returnToOverview()"></button>
+        </div>
+        <div id="viewCheater">
+            <h3>CHEATER CHEATER CHEATER</h3>
+            <p id="cheaterDescription"></p>
+            <input id="cheater"/>
+            <p id="cheaterError"></p>
+            <button onclick="buttonCheater()">THAT'S RIGHT WE'RE GONNA CHEAT</button>
         </div>
     </body>
 </html>
