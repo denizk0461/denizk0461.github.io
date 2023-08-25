@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+        <title>Love Tester</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pagestyle.css">
+        <script>
+            var previousName1 = "";
+            var previousName2 = "";
+
+            function findSum(no) {
+                var sum = 0;
+                while (no > 0) {
+                    sum += no % 10;
+                    no /= 10;
+                }
+                return sum;
+            }
+
+            function getFunnyQuote(love) {
+                if (love > 99) {
+                    return "FUCK that's GOOD. have fun fucking.";
+                } else if (love > 90) {
+                    return "It's time to make babies!";
+                } else if (love > 80) {
+                    return "I see there's love! I have prepared a bed for you two.";
+                } else if (love > 60) {
+                    return "There's potential. Try with a cute kiss.";
+                } else if (love > 40) {
+                    return "Might be enough for a one-night stand.";
+                } else if (love > 20) {
+                    return "You should look for someone else...";
+                } else if (love > 0) {
+                    return "Have you heard of Tinder?";
+                } else {
+                    return "Nope. Repulsive combination. How dare you even ask me this!";
+                }
+            }
+
+            function calculate() {
+                var firstName = document.getElementById("name1").value.trim();
+                var secondName = document.getElementById("name2").value.trim();
+
+                if (!firstName || !secondName) {
+                    document.getElementById("result").innerText = "cringe you didn't enter both names. that's cringe."
+                    return;
+                }
+
+                if (previousName1 == firstName && previousName2 == secondName) {
+                    document.getElementById("result").innerText = "you're trying your luck again? that's sad. marry your right hand instead. or your left i guess.";
+                    return;
+                }
+
+                previousName1 = firstName;
+                previousName2 = secondName;
+
+                var LOVE = "love";
+
+                var firstSum = 0;
+                var secondSum = 0;
+                var loveSum = 0;
+                var totalSum = 0;
+
+                for (var i = 0; i < firstName.length; i++) {
+                    firstSum += firstName.toLowerCase().charAt(i).charCodeAt();
+                }
+
+                for (var i = 0; i < secondName.length; i++) {
+                    secondSum += secondName.toLowerCase().charAt(i).charCodeAt();
+                }
+
+                for (var i = 0; i < LOVE.length; i++) { 
+                    loveSum += LOVE.charAt(i).charCodeAt();
+                } 
+                totalSum = findSum(firstSum + secondSum); 
+                loveSum = findSum(loveSum); 
+                if (totalSum > loveSum) {
+                    totalSum = loveSum - (totalSum - loveSum);
+                }
+                totalSum = totalSum * 100 / loveSum;
+
+                document.getElementById("result").innerText = `${firstName} and ${secondName} fit together this much: ${totalSum.toFixed(2)}%. ${getFunnyQuote(totalSum)}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h1 class="fancy-header">Love Tester</h1>
+        <p>Test how well two souls fit together 🥰💘</p>
+        <input id="name1" required/>
+        <input id="name2" required/>
+        <button onclick="calculate()">Calculate the love!</button>
+        <h3 id="result"></h3>
+    </body>
+</html>

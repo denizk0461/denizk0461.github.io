@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Bricolage+Grotesque');
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Borel');
 
 * {
     font-family: 'Lato', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Bricolage Grotesque', sans-serif;
+}
+.fancy-header {
+    font-family: 'Borel', serif;
 }
