@@ -8,6 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/pagestyle.css">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display&family=Raleway:wght@500&display=swap');
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Lato', sans-serif;
+            }
+
             .page {
                 max-width: 35cm;
                 margin: auto;
@@ -47,14 +53,120 @@
             }
         </style>
         <script>
-            function setUpDreamworld() {
-                setUpPage("Dreamworld", "2021-09-22", "sadf", "sadf", "sadf", "sadf");
+            function getPage(key) {
+                switch (key) {
+                    case "tads":
+                        return {
+                            header: "Totally Accurate Dating Simulator",
+                            subheader: "2023-08-01",
+                            link: "./dumbstuff/datingsim.html",
+                            headerFont: "Borel",
+                            descriptionFont: "",
+                            description: "'Totally Accurate Dating Simulator' is the accurate representation, as requested by one of my friends, of what it is like for me to date someone. Enjoy this totally realistic experience."
+                        }
+                    case "tads2":
+                        return {
+                            header: "Totally Accurate Dating Simulator 2",
+                            subheader: "2023-08-01",
+                            link: "./dumbstuff/datingsim2.html",
+                            headerFont: "Borel",
+                            descriptionFont: "",
+                            description: ""
+                        }
+                    case "lovetester":
+                        return {
+                            header: "Lovetester",
+                            subheader: "",
+                            link: "./dumbstuff/lovetester.html",
+                            headerFont: "Borel",
+                            descriptionFont: "",
+                            description: ""
+                        }
+                    case "litquiz":
+                        return {
+                            header: "Introduction to English Literatures II – Quiz",
+                            subheader: "2023-07-25",
+                            link: "./quiz/literatures2.html",
+                            headerFont: "IBM Plex Sans",
+                            descriptionFont: "",
+                            description: ""
+                        }
+                    case "swordsnstuff":
+                        return {
+                            header: "Swords & Stuff",
+                            subheader: "",
+                            link: "./swordsnstuff",
+                            headerFont: "Bricolage Grotesque",
+                            descriptionFont: "",
+                            description: "'Swords & Stuff' is a very early work-in-progress role-playing game meant to be similar to games such as Dragon Quest. Travel the world in a party of up to 4 characters while fighting monsters and levelling up your characters. Equip your characters with gear you find or buy throughout the world, and sharpen your character's skills by assigning skill points and changing vocations.<br><br>Not a lot of this is currently implemented."
+                        }
+                    case "anewbeginning":
+                        return {
+                            header: "A New Beginning (EP)",
+                            subheader: "2021-07-02",
+                            link: "https://open.spotify.com/album/1OKwmD2ir1mnEOlsh01Woy",
+                            headerFont: "Raleway",
+                            descriptionFont: "",
+                            description: ""
+                        }
+                    case "dreamworld":
+                        return {
+                            header: "Dreamworld (Album)",
+                            subheader: "2021-09-22",
+                            link: "https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw",
+                            headerFont: "Playfair Display",
+                            descriptionFont: "",
+                            description: "aaaa"
+                        }
+                    case "scdemodump":
+                        return {
+                            header: "Soundcloud Demo Dump",
+                            subheader: "",
+                            link: "https://soundcloud.com/denizk0461",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: ""
+                        }
+                    case "404":
+                        return {
+                            header: "404 Page",
+                            subheader: "",
+                            link: "./404.html",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "The 404 (object not found) page for this website. I found this template at some point somewhere on the internet, and I figured that, with a bit of modification, it could serve as a clever 404 page.<br><br>Everyone on the internet needs a clever 404 page, after all."
+                        }
+                    case "rat":
+                        return {
+                            header: "rat",
+                            subheader: "favicon for this website",
+                            link: "./rat.ico",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "A proud rat that serves as the favicon of this wonderful spot on the internet.<br><br><a href='https://youtu.be/SLldM7OM7q8'>ohhhhhh shit! a rat!</a>"
+                        }
+                    default:
+                        return {
+                            header: "nothing here",
+                            subheader: "nothing",
+                            link: "",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "404"
+                        }
+                }
             }
 
-            function setUpPage(header, subheader, link, headerFont, descriptionFont, description) {
-                document.getElementById("pheader").innerText = header;
-                document.getElementById("psubheader").innerText = subheader;
-                document.getElementById("pdesc").innerText = description;
+            function setUpPage(key) {
+                var page = getPage(key);
+                document.getElementById("pheader").innerText = page.header;
+                document.getElementById("psubheader").innerText = page.subheader;
+                document.getElementById("pheader").style.fontFamily = page.headerFont;
+                document.getElementById("psubheader").style.fontFamily = page.headerFont;
+                document.getElementById("plink").onclick = () => {
+                    window.location = page.link;
+                };
+                document.getElementById("pdesc").innerHTML = page.description;
             }
         </script>
     </head>
@@ -63,19 +175,19 @@
             <div class="page-content-parent">
                 <div class="page-content-child">
                     <p class="list-item list-subheader">Web Projects</p>
-                    <button class="list-item list-button">Totally Accurate Dating Simulator</button>
-                    <button class="list-item list-button">Totally Accurate Dating Simulator 2</button>
-                    <button class="list-item list-button">Lovetester (very accurate)</button>
-                    <button class="list-item list-button">Introduction to English Literatures II – Quiz (unfinished)</button>
+                    <button class="list-item list-button" onclick="setUpPage('tads')">Totally Accurate Dating Simulator</button>
+                    <button class="list-item list-button" onclick="setUpPage('tads2')">Totally Accurate Dating Simulator 2</button>
+                    <button class="list-item list-button" onclick="setUpPage('lovetester')">Lovetester</button>
+                    <button class="list-item list-button" onclick="setUpPage('litquiz')">Introduction to English Literatures II – Quiz</button>
                     <p class="list-item list-subheader">Unity Projects</p>
-                    <button class="list-item list-button">Swords & Stuff (very early WIP RPG)</button>
+                    <button class="list-item list-button" onclick="setUpPage('swordsnstuff')">Swords & Stuff</button>
                     <p class="list-item list-subheader">Music</p>
-                    <button class="list-item list-button">A New Beginning (EP)</button>
-                    <button class="list-item list-button" onclick="setUpDreamworld()">Dreamworld (Album)</button>
-                    <button class="list-item list-button">Soundcloud demo dump</button>
+                    <button class="list-item list-button" onclick="setUpPage('anewbeginning')">A New Beginning (EP)</button>
+                    <button class="list-item list-button" onclick="setUpPage('dreamworld')">Dreamworld (Album)</button>
+                    <button class="list-item list-button" onclick="setUpPage('scdemodump')">Soundcloud demo dump</button>
                     <p class="list-item list-subheader">Website Stuff</p>
-                    <button class="list-item list-button">404 page</button>
-                    <button class="list-item list-button">rat</button>
+                    <button class="list-item list-button" onclick="setUpPage('404')">404 page</button>
+                    <button class="list-item list-button" onclick="setUpPage('rat')">rat</button>
                 </div>
                 <div class="page-content-child">
                     <h2 id="pheader" class="project-header">Header</h2>
@@ -89,13 +201,13 @@
         <h1>My Projects</h1>
         <h5><a href="index.html">← go back</a></h5>
         <p>Here's a list of my projects you can find on my website.</p>
-        <h4><a href="./dumbstuff/datingsim.html">Totally Accurate Dating Simulator</a></h4>
-        <h4><a href="./dumbstuff/datingsim2.html">Totally Accurate Dating Simulator 2</a></h4>
-        <h4><a href="./dumbstuff/lovetester.html">Lovetester (very accurate)</a></h4>
-        <h4><a href="./quiz/literatures2.html">Introduction to English Literatures II – Quiz (unfinished)</a></h4>
-        <h4><a href="./swordsnstuff">Swords & Stuff (very early WIP RPG)</a></h4>
-        <h4><a href="./404.html">404 page</a></h4>
-        <h4><a href="./rat.ico">rat</a></h4>
-        <h4><a href="https://youtu.be/kFEdhamh9BE">ohhhhhh shit! a rat!</a></h4>
+        <h4><a href="">Totally Accurate Dating Simulator</a></h4>
+        <h4><a href="">Totally Accurate Dating Simulator 2</a></h4>
+        <h4><a href="">Lovetester (very accurate)</a></h4>
+        <h4><a href=""> (unfinished)</a></h4>
+        <h4><a href="">Swords & Stuff (very early WIP RPG)</a></h4>
+        <h4><a href="">404 page</a></h4>
+        <h4><a href="">rat</a></h4>
+        <h4></h4>
     </body>
 </html>
