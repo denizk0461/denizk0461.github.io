@@ -1,0 +1,55 @@
+<head>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        /* unvisited link */
+        a:link {
+            color: #dedede;
+        }
+
+        /* visited link */
+        a:visited {
+            color: #e0e0e0;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* selected link */
+        a:active {
+            color: #ffffff;
+        }
+        .banner-link {
+            font-size: 1em;
+            display: inline-block;
+        }
+        .banner {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin: 12px 0px;
+        }
+        .banner > * {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .banner-image {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img class="clickable-image banner-image" src="/favicon.ico" onclick="window.location = '/'" role="button"/>
+        <h5 class="banner-link"><a href="/">Home</a></h5>
+        <h5 class="banner-link"><a href="/projects.html">Projects</a></h5>
+        <h5 class="banner-link"><a href="/404.html">Something Else</a></h5>
+        <h5 class="banner-link"><a href="/404.html">Contact Me</a></h5>
+    </div>
+</body>

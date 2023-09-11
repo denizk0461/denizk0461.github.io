@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+        <title>My Projects – denizk0461</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/pagestyle.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display&family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Lato', sans-serif;
+                color: var(--color-on-primary);
+            }
+            .page-content-parent {
+                display: flex;
+            }
+            .page-content-child {
+                flex: 1;
+                display: flex;
+                height: 90vh;
+                overflow-y: auto;
+                flex-direction: column;
+            }
+            .list-item {
+                margin: 4px 0px;
+            }
+            .list-subheader {
+                font-size: 1.2em;
+                font-style: italic;
+            }
+            .list-button {
+            }
+            .project-header {
+                margin: 4px 0px 0px 0px;
+                font-size: 2.2em;
+            }
+            .project-subheader {
+                margin: 4px 0px 8px 0px;
+                font-size: 1.1em;
+            }
+            .project-link-button {
+                width: fit-content;
+            }
+            .project-description {
+                margin: 8px 0px;
+            }
+            .page-content-header {
+                margin: 16px 8px;
+            }
+            .list-content {
+                margin: 0px 8px;
+            }
+            .project-text-content {
+                margin: 0px 8px;
+            }
+        </style>
+        <script>
+            function getPage(key) {
+                switch (key) {
+                    case "weserplaner":
+                        return {
+                            header: "WeserPlaner",
+                            subheader: "published: 2023-05-07",
+                            link: "https://play.google.com/store/apps/details?id=com.denizk0461.weserplaner",
+                            headerFont: "'Lato', sans-serif",
+                            descriptionFont: "",
+                            description: "",
+                            imageLink: ""
+                        }
+                    case "textbasic":
+                        return {
+                            header: "Text Basic",
+                            subheader: "published: 2022-03-09",
+                            link: "https://play.google.com/store/apps/details?id=com.denizk0461.textbasic",
+                            headerFont: "'Roboto Mono', monospace",
+                            descriptionFont: "",
+                            description: "",
+                            imageLink: ""
+                        }
+                    case "tads":
+                        return {
+                            header: "Totally Accurate Dating Simulator",
+                            subheader: "2023-08-01",
+                            link: "./dumbstuff/datingsim.html",
+                            headerFont: "'Borel', sans-serif",
+                            descriptionFont: "",
+                            description: "'Totally Accurate Dating Simulator' is the accurate representation, as requested by one of my friends, of what it is like for me to date someone. Enjoy this totally realistic experience.",
+                            imageLink: ""
+                        }
+                    case "tads2":
+                        return {
+                            header: "Totally Accurate Dating Simulator 2",
+                            subheader: "2023-08-01",
+                            link: "./dumbstuff/datingsim2.html",
+                            headerFont: "'Borel', sans-serif",
+                            descriptionFont: "",
+                            description: "'Totally Accurate Dating Simulator 2' is the real and (currently) definitive depiction of my dating experience. Pick your side by choosing whether you want to date girls or boys (innovative features!) and then proceed to fight your way through the ranks. The ending might surprise you...",
+                            imageLink: ""
+                        }
+                    case "lovetester":
+                        return {
+                            header: "Lovetester",
+                            subheader: "2023-08-25",
+                            link: "./dumbstuff/lovetester.html",
+                            headerFont: "'Borel', sans-serif",
+                            descriptionFont: "",
+                            description: "This lovetester is a quick tool I designed while on the train from gamescom in Cologne back home. It accurately tells you how likely you are to match up with someone based on your name and theirs. It also comments on the match result.",
+                            imageLink: ""
+                        }
+                    case "litquiz":
+                        return {
+                            header: "Introduction to English Literatures II – Quiz",
+                            subheader: "2023-07-25",
+                            link: "./quiz/literatures2.html",
+                            headerFont: "'IBM Plex Sans', monospace",
+                            descriptionFont: "",
+                            description: "This is a quiz I quickly designed in order to prepare for my Literatures II exam at university. The questions are based off the Kahoot quiz my lecturer created, but the answers shuffle in order, requiring the user to memorise the answers themselves rather than the spots they appear in. I didn't finish the quiz, however, instead leaving it in a broken, half-functioning state. Giving multiple answers does not produce the desired result, and overall it just looks bad.<br><br>I failed the exam.",
+                            imageLink: ""
+                        }
+                    case "swordsnstuff":
+                        return {
+                            header: "Swords & Stuff",
+                            subheader: "",
+                            link: "./swordsnstuff",
+                            headerFont: "'Bricolage Grotesque', sans-serif",
+                            descriptionFont: "",
+                            description: "'Swords & Stuff' is a very early work-in-progress role-playing game meant to be similar to games such as Dragon Quest. Travel the world in a party of up to 4 characters while fighting monsters and levelling up your characters. Equip your characters with gear you find or buy throughout the world, and sharpen your character's skills by assigning skill points and changing vocations.<br><br>Not a lot of this is currently implemented.",
+                            imageLink: ""
+                        }
+                    case "anewbeginning":
+                        return {
+                            header: "A New Beginning (EP)",
+                            subheader: "2021-07-02",
+                            link: "https://open.spotify.com/album/1OKwmD2ir1mnEOlsh01Woy",
+                            headerFont: "'Raleway', sans-serif",
+                            descriptionFont: "",
+                            description: "",
+                            imageLink: "/resources/projects/anewbeginning.jpg"
+                        }
+                    case "dreamworld":
+                        return {
+                            header: "Dreamworld (Album)",
+                            subheader: "2021-09-22",
+                            link: "https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw",
+                            headerFont: "'Playfair Display', serif",
+                            descriptionFont: "",
+                            description: "aaaa",
+                            imageLink: "/resources/projects/dreamworld.jpg"
+                        }
+                    case "scdemodump":
+                        return {
+                            header: "Soundcloud Demo Dump",
+                            subheader: "scarcely active",
+                            link: "https://soundcloud.com/denizk0461",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "",
+                            imageLink: ""
+                        }
+                    case "404":
+                        return {
+                            header: "404 Page",
+                            subheader: "Page not found",
+                            link: "./404.html",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "The 404 (page not found) page for this website. I found this template at some point somewhere on the internet, and I figured that, with a bit of modification, it could serve as a clever 404 page.<br><br>Everyone on the internet needs a clever 404 page, after all.",
+                            imageLink: ""
+                        }
+                    case "rat":
+                        return {
+                            header: "rat",
+                            subheader: "favicon for this website",
+                            link: "./favicon.ico",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "A proud rat that serves as the favicon of this wonderful spot on the internet.<br><br><a href='https://youtu.be/SLldM7OM7q8'>ohhhhhh shit! a rat!</a>",
+                            imageLink: ""
+                        }
+                    default:
+                        return {
+                            header: "nothing here",
+                            subheader: "nothing",
+                            link: "",
+                            headerFont: "",
+                            descriptionFont: "",
+                            description: "404",
+                            imageLink: ""
+                        }
+                }
+            }
+
+            function setUpPage(key) {
+                var page = getPage(key);
+                document.getElementById("pheader").innerText = page.header;
+                document.getElementById("psubheader").innerText = page.subheader;
+                document.getElementById("pheader").style.fontFamily = page.headerFont;
+                document.getElementById("psubheader").style.fontFamily = page.headerFont;
+                document.getElementById("plink").onclick = () => {
+                    window.location = page.link;
+                };
+                document.getElementById("pdesc").innerHTML = page.description;
+                document.getElementById("pimg").src = page.imageLink;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <h1 id="page-title" class="page-content-header">My Projects</h1>
+            <div class="page-content-parent">
+                <div class="page-content-child list-content">
+                    <p class="list-item list-subheader">Android Apps</p>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('weserplaner')">WeserPlaner</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('textbasic')">Text Basic</button>
+                    <p class="list-item list-subheader">Web Projects</p>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('tads')">Totally Accurate Dating Simulator</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('tads2')">Totally Accurate Dating Simulator 2</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('lovetester')">Lovetester</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('litquiz')">Introduction to English Literatures II – Quiz</button>
+                    <p class="list-item list-subheader">Unity Projects</p>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('swordsnstuff')">Swords & Stuff</button>
+                    <p class="list-item list-subheader">Music</p>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('anewbeginning')">A New Beginning (EP)</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('dreamworld')">Dreamworld (Album)</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('scdemodump')">Soundcloud demo dump</button>
+                    <p class="list-item list-subheader">Website Stuff</p>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('404')">404 page</button>
+                    <button class="list-item list-button styled-button" onclick="setUpPage('rat')">rat</button>
+                </div>
+                <div class="page-content-child">
+                    <img id="pimg" class="project-image" width="100%" src="./resources/misc/404.jpg"/>
+                    <div class="project-text-content">
+                        <h2 id="pheader" class="project-header">Header</h2>
+                        <h4 id="psubheader" class="project-subheader">2023-09-10</h2>
+                        <button id="plink" class="project-link-button styled-button">Go to project</button>
+                        <p id="pdesc" class="project-description">This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description.<br><br>This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description. This is an example description.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
