@@ -18,14 +18,27 @@
                 flex-direction: column;
                 margin: 64px 32px;
             }
+            .gallery-item-text {
+                margin: auto 32px;
+            }
             .gallery-item-header {
                 margin: 8px 0px 0px 0px;
             }
             .gallery-item-subheader {
-                margin: 0px;
+                margin: 0px 0px 8px 0px;
             }
             .gallery-item-content {
                 margin: 8px 0px;
+            }
+            .gallery-item-button {
+                padding: 4px 12px;
+                width: fit-content;
+                font-size: 0.9em;
+                font-family: 'Kanit', sans-serif;
+                border-radius: 12px;
+                color: var(--color-text);
+                /* border-color: var(--color-button-border); */
+                background-color: var(--color-background);
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -38,14 +51,140 @@
     <body>
         <div id="banner"></div>
         <div id="page-content">
+            <div class="gallery-prelude">
+
+            </div>
             <div class="gallery-item">
-                <div class="gallery-item-panel">
+                <div class="gallery-item-panel gallery-item-text">
                     <h1 class="gallery-item-header">A Collection of My Projects</h1>
-                    <h3 class="gallery-item-subheader">2023-02-02</h3>
-                    <p class="gallery-item-content">helloo this is an example paragraph</p>
+                    <h3 class="gallery-item-subheader">Anything that's on the web</h3>
+                    <button class="gallery-item-button">Go to project</button>
+                    <p class="gallery-item-content">Hello! I'm Deniz, and this is my projects page. Here, you'll find all kinds of things I've worked on in the past or am currently working on. My motivation is very sporadic, which means that I'll often switch focus and spend my time doing lots of different things, rarely finishing anything. A few projects are in finished stages, but a lot of what I will show here is in early stages.<br><br>Enjoy!</p>
                 </div>
                 <div class="gallery-item-panel">
-                    <img id="pimg" class="project-image" width="100%" src="./resources/misc/404.jpg"/>
+                    <img class="project-image" width="100%" src="/resources/misc/404.jpg"/>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/sns.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Swords & Stuff</h1>
+                    <h3 class="gallery-item-subheader">work-in-progress RPG</h3>
+                    <button class="gallery-item-button" onclick="window.location = '/swordsnstuff'">Play the game</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Totally Accurate Dating Simulator</h1>
+                    <h3 class="gallery-item-subheader">published: 2023-08-01</h3>
+                    <button class="gallery-item-button" onclick="window.location = '/dumbstuff/datingsim.html'">Play TADS</button>
+                    <button class="gallery-item-button" onclick="window.location = '/dumbstuff/datingsim2.html'">Play TADS 2</button>
+                    <p class="gallery-item-content"><b>Totally Accurate Dating Simulator</b> was created as a joke, spawning from a conversation between a friend and myself. It <i>totally</i> represents my <i>accurate</i> dating experience. This experience has been converted into a HTML website for your pleasure.<br><br><b>TADS 2</b> gives you a choice in seeking female or male partners – which is not very inclusive, I know – and a total of 28 endings! Which one will <i>you</i> get?<br><br>A third release, featuring more intricate conversation paths and a greater count of endings, is in planning, but has not yet progressed much in development.</p>
+                </div>
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/tads.jpg"/>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/weserplaner.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">WeserPlaner</h1>
+                    <h3 class="gallery-item-subheader">published: 2023-05-07</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://play.google.com/store/apps/details?id=com.denizk0461.weserplaner'">View on Google Play</button>
+                    <p class="gallery-item-content"><b>WeserPlaner</b> is an app I developed to more easily view relevant information during my studies at the University of Bremen. It can download the user's timetable from the university's learning platform Stud.IP, and it can download the menus for all canteens managed by the Studierendenwerk Bremen, allowing the user to filter for dietary preferences as well as hiding items containing substances they are allergic against.<br><br>In developing this app, I took heavy inspiration from an earlier project of mine, <a href="#avh">AvH-Vertretungsplan</a>, which was an app I developed for a school I used to attend, in order to view the substitution plan as well as the canteen offers more easily. Quite similar!</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/dreamworld.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Dreamworld (Album)</h1>
+                    <h3 class="gallery-item-subheader">released: 2021-09-22</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw'">Listen on Spotify</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/textbasic.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Text Basic</h1>
+                    <h3 class="gallery-item-subheader">2022-03-09</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://play.google.com/store/apps/details?id=com.denizk0461.textbasic'">View on Google Play</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/anewbeginning.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">A New Beginning (EP)</h1>
+                    <h3 class="gallery-item-subheader">released: 2021-07-02</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://open.spotify.com/album/1OKwmD2ir1mnEOlsh01Woy'">Listen on Spotify</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/sc.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Soundcloud Demo Dump</h1>
+                    <h3 class="gallery-item-subheader">scarcely active</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://soundcloud.com/denizk0461'">Visit the demo dump</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header"></h1>
+                    <h3 class="gallery-item-subheader"></h3>
+                    <button class="gallery-item-button" onclick="window.location = ''">Go to project</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
+                </div>
+                <div id="avh" class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">AvH-Vertretungsplan</h1>
+                    <h3 class="gallery-item-subheader">published: 2019-??-??</h3>
+                    <button class="gallery-item-button" onclick="window.location = ''">View on GitHub (still public?)</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header"></h1>
+                    <h3 class="gallery-item-subheader"></h3>
+                    <button class="gallery-item-button" onclick="window.location = ''">Go to project</button>
+                    <p class="gallery-item-content"></p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header"></h1>
+                    <h3 class="gallery-item-subheader"></h3>
+                    <button class="gallery-item-button" onclick="window.location = ''">Go to project</button>
+                    <p class="gallery-item-content"></p>
                 </div>
             </div>
         </div>
