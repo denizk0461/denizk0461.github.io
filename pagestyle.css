@@ -31,6 +31,9 @@ body {
 p {
     color: var(--color-on-primary);
 }
+span {
+    color: var(--color-on-primary);
+}
 .styled-button {
     padding: 8px;
     font-size: 0.9em;
@@ -47,6 +50,6 @@ p {
 .page-header-banner {
     background-color: #24c76c;
 }
-.clickable-image {
+.clickable {
     cursor: pointer;
 }
