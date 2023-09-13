@@ -40,6 +40,28 @@
                 /* border-color: var(--color-button-border); */
                 background-color: var(--color-background);
             }
+            .page-header {
+                position: relative;
+                text-align: center;
+            }
+            .page-header-text {
+                font-size: 3.5em;
+                /* display: flex; */
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+                text-align: center;
+            }
+            .page-header-image {
+                width: 100%;
+                filter: brightness(70%);
+            }
+            .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
@@ -51,18 +73,18 @@
     <body>
         <div id="banner"></div>
         <div id="page-content">
-            <div class="gallery-prelude">
-
+            <div class="gallery-prelude page-header">
+                <img class="page-header-image" src="/resources/projects/ratbg.jpg"/>
+                <h1 class="page-header-text centered">A Collection of My Projects</h1>
             </div>
             <div class="gallery-item">
                 <div class="gallery-item-panel gallery-item-text">
-                    <h1 class="gallery-item-header">A Collection of My Projects</h1>
-                    <h3 class="gallery-item-subheader">Anything that's on the web</h3>
-                    <button class="gallery-item-button">Go to project</button>
-                    <p class="gallery-item-content">Hello! I'm Deniz, and this is my projects page. Here, you'll find all kinds of things I've worked on in the past or am currently working on. My motivation is very sporadic, which means that I'll often switch focus and spend my time doing lots of different things, rarely finishing anything. A few projects are in finished stages, but a lot of what I will show here is in early stages.<br><br>Enjoy!</p>
+                    <h1 class="gallery-item-header">Hi there!</h1>
+                    <h3 class="gallery-item-subheader">My name is Deniz.</h3>
+                    <p class="gallery-item-content">This is my projects page. Here, you'll find all kinds of things I've worked on in the past or am currently working on. My motivation is very sporadic, which means that I'll often switch focus and spend my time doing lots of different things, rarely finishing anything. A few projects are in finished stages, but a lot of what I will show here is in early stages.<br><br>Enjoy!</p>
                 </div>
                 <div class="gallery-item-panel">
-                    <img class="project-image" width="100%" src="/resources/misc/404.jpg"/>
+                    <img class="project-image" width="100%" src="/resources/projects/pfp.jpg"/>
                 </div>
             </div>
             <div class="gallery-item">
@@ -73,7 +95,7 @@
                     <h1 class="gallery-item-header">Swords & Stuff</h1>
                     <h3 class="gallery-item-subheader">work-in-progress RPG</h3>
                     <button class="gallery-item-button" onclick="window.location = '/swordsnstuff'">Play the game</button>
-                    <p class="gallery-item-content"></p>
+                    <p class="gallery-item-content"><b>Swords & Stuff</b> (working title) is a work-in-progress role-playing game inspired by Dragon Quest IX. Traverse the world with a party of up to 4 characters, each with their individual equiment, skills, and vocations, and fight monsters to gain experience!<br><br>This game is my first shot at 2D Unity development, which has proven quite fun, but also a little cumbersome at times. Let's see how far I get!</p>
                 </div>
             </div>
             <div class="gallery-item">
@@ -100,14 +122,14 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-item-panel">
-                    <img class="project-image" width="100%" src="/resources/projects/dreamworld.jpg"/>
-                </div>
                 <div class="gallery-item-panel gallery-item-text">
-                    <h1 class="gallery-item-header">Dreamworld (Album)</h1>
-                    <h3 class="gallery-item-subheader">released: 2021-09-22</h3>
-                    <button class="gallery-item-button" onclick="window.location = 'https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw'">Listen on Spotify</button>
-                    <p class="gallery-item-content"></p>
+                    <h1 class="gallery-item-header">Soundcloud Demo Dump</h1>
+                    <h3 class="gallery-item-subheader">scarcely active since 2023-03-27</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://soundcloud.com/denizk0461'">Visit the dump</button>
+                    <p class="gallery-item-content">On my Soundcloud account, I occasionally upload demoes, rough drafts, and work-in-progress tracks that are otherwise just lying around on my SSD. I try to upload interesting ones, because to be honest, most of what I make isn't worth uploading!</p>
+                </div>
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/sc.jpg"/>
                 </div>
             </div>
             <div class="gallery-item">
@@ -116,8 +138,19 @@
                 </div>
                 <div class="gallery-item-panel gallery-item-text">
                     <h1 class="gallery-item-header">Text Basic</h1>
-                    <h3 class="gallery-item-subheader">2022-03-09</h3>
+                    <h3 class="gallery-item-subheader">published: 2022-03-09</h3>
                     <button class="gallery-item-button" onclick="window.location = 'https://play.google.com/store/apps/details?id=com.denizk0461.textbasic'">View on Google Play</button>
+                    <p class="gallery-item-content">In the pursuit of finding a simple app on the Play Store that would allow me to put any kind of text on my home screen, I failed, and all I could find were apps overfilled with features, and ad-ridden monstrosities. To fulfil my own requirements, I developed <b>Text Basic</b>, which does exactly one thing: put a text on your home screen. Upon user request, the app has grown minimally since, now allowing for text customisation (text font, text size, background style, colours) and a rotation of texts to display.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/dreamworld.jpg"/>
+                </div>
+                <div class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">Dreamworld (Album)</h1>
+                    <h3 class="gallery-item-subheader">released: 2021-09-22</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw'">Listen on Spotify</button>
                     <p class="gallery-item-content"></p>
                 </div>
             </div>
@@ -134,17 +167,6 @@
             </div>
             <div class="gallery-item">
                 <div class="gallery-item-panel">
-                    <img class="project-image" width="100%" src="/resources/projects/sc.jpg"/>
-                </div>
-                <div class="gallery-item-panel gallery-item-text">
-                    <h1 class="gallery-item-header">Soundcloud Demo Dump</h1>
-                    <h3 class="gallery-item-subheader">scarcely active</h3>
-                    <button class="gallery-item-button" onclick="window.location = 'https://soundcloud.com/denizk0461'">Visit the demo dump</button>
-                    <p class="gallery-item-content"></p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-item-panel">
                     <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
                 </div>
                 <div class="gallery-item-panel gallery-item-text">
@@ -156,24 +178,24 @@
             </div>
             <div class="gallery-item">
                 <div class="gallery-item-panel">
-                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
-                </div>
-                <div id="avh" class="gallery-item-panel gallery-item-text">
-                    <h1 class="gallery-item-header">AvH-Vertretungsplan</h1>
-                    <h3 class="gallery-item-subheader">2019-03-22 – 2020-05-03</h3>
-                    <button class="gallery-item-button" onclick="window.location = ''">View on GitHub (still public?)</button>
-                    <p class="gallery-item-content"></p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-item-panel">
-                    <img class="project-image" width="100%" src="/resources/projects/.jpg"/>
+                    <img class="project-image" width="100%" src="/resources/projects/qwark.jpg"/>
                 </div>
                 <div class="gallery-item-panel gallery-item-text">
                     <h1 class="gallery-item-header">Qwark – Grade Log</h1>
                     <h3 class="gallery-item-subheader">June 2019 – June 2020</h3>
                     <button class="gallery-item-button" onclick="window.location = 'https://github.com/denizk0461/qwark'">View on GitHub</button>
-                    <p class="gallery-item-content"></p>
+                    <p class="gallery-item-content"><b>Qwark</b> was an app I used to track relevant information for my time at gymnasium. Initially, it was only meant to track my grades in exams and whatnot, but its capabilities grew to calculate my report card grades and my final grade once I graduated. It was also able to keep simple notes which could be checked off to mark them as done, and it also had a built-in counter I used during lessons to track how often I raised my hand and how often I verbally contributed to classes! A discipline I severely struggled in.<br><br>The app was named after Captain Qwark, the clumsy hero figure from the Ratchet & Clank series who never really gets his affairs in order. I suppose this referenced me personally more so than the app, since I was the one who needed help with tracking relevant information – a task for which the app proved very helpful!<br><br>The app reached EOL when I graduated from gymnasium, since I had no use for it anymore, and no one else ever used it either.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-item-panel">
+                    <img class="project-image" width="100%" src="/resources/projects/avh.jpg"/>
+                </div>
+                <div id="avh" class="gallery-item-panel gallery-item-text">
+                    <h1 class="gallery-item-header">AvH-Vertretungsplan</h1>
+                    <h3 class="gallery-item-subheader">2019-03-22 – 2020-05-03</h3>
+                    <button class="gallery-item-button" onclick="window.location = 'https://github.com/denizk0461/avh-substitution-plan'">View on GitHub</button>
+                    <p class="gallery-item-content"><b>AvH-Vertretungsplan</b> was an app I developed back in 2019 to view the substitution plan of my school more easily, since I disliked the poor, disorganised design of the school's website. The substitution app allowed me to be more quickly informed about my courses, as it notified me about any cancellations and changes in my schedule. It also allowed me to view the canteen offers, even though I'd never eaten at the school's canteen.<br><br>The app was initially developed in Java and later converted into Kotlin as part of my Kotlin learning effort. The backend of the app, since the school website required a login to view the substitution plan, ran on a Raspberry Pi 3B using a Python script that scraped the website using Selenium and sent out notifications via Firebase. The Raspberry Pi crashed frequently and the script was not perfect, requiring me to frequently remote into the Pi using VNC, often while I was at school, to edit the script!<br><br>Since the app was written for native Android but a few of my classmates had iPhones, I had an iOS version in the works, which even got to a finished state at one point, but since I lacked funding to pay the $99-a-year fee Apple charges developers, it was never published.<br><br>This app was genuinely one of my most fun projects, not only serving me as a handy tool, but also being a great playground for my programming practice, since it taught me to build UIs, use databases, and more. The app had been downloaded by 250 other students at my school, which I was – and still am – very proud of.</p>
                 </div>
             </div>
             <div class="gallery-item">
