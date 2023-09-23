@@ -40,62 +40,27 @@
                 /* border-color: var(--color-button-border); */
                 background-color: var(--color-background);
             }
-            .page-header {
-                position: relative;
-                text-align: center;
-            }
-            .page-header-text {
-                font-size: 3.5em;
-                /* display: flex; */
-                margin-left: auto;
-                margin-right: auto;
-                width: fit-content;
-                text-align: center;
-            }
-            .page-header-image {
-                width: 100%;
-                filter: brightness(70%);
-            }
-            .centered {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            /* unvisited link */
-            a:link {
-                color: #c2e8ff;
-            }
-
-            /* visited link */
-            a:visited {
-                color: #ffd7f0;
-            }
-
-            /* mouse over link */
-            a:hover {
-                color: #ffdad5;
-            }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             $(function(){
-                $("#banner").load("/common/banner.html"); 
+                $("#banner").load("/common/banner.html");
+                $("#footer").load("/common/footer.html");
             });
         </script>
     </head>
     <body>
         <div id="banner"></div>
-        <div id="page-content">
-            <div class="gallery-prelude page-header">
-                <img class="page-header-image" src="/resources/projects/ratbg.jpg"/>
-                <h1 class="page-header-text centered">A Collection of My Projects</h1>
-            </div>
+        <div class="page-header-div">
+            <img class="page-header-image" src="/resources/projects/ratbg.jpg"/>
+            <h1 class="page-header-text centered">A Collection of My Projects</h1>
+        </div>
+        <div>
             <div class="gallery-item">
                 <div class="gallery-item-panel gallery-item-text">
                     <h1 class="gallery-item-header">Hi there!</h1>
-                    <h3 class="gallery-item-subheader">My name is Deniz.</h3>
-                    <p class="gallery-item-content">This is my projects page. Here, you'll find all kinds of things I've worked on in the past or am currently working on. My motivation is very sporadic, which means that I'll often switch focus and spend my time doing lots of different things, rarely finishing anything. A few projects are in finished stages, but a lot of what I will show here is in early stages.<br><br>Enjoy! ~denizk0461<br><br>Last updated: 2023-09-15, 21:31 CEST</p>
+                    <h3 class="gallery-item-subheader">This is my projects page.</h3>
+                    <p class="gallery-item-content">Here, you'll find all kinds of things I've worked on in the past or am currently working on. My motivation is very sporadic, which means that I'll often switch focus and spend my time doing lots of different things, rarely finishing anything. A few projects are in finished stages, but a lot of what I will show here is in early stages.<br><br>Enjoy! ~denizk0461<br><br>Last updated: 2023-09-15, 21:31 CEST</p>
                 </div>
                 <div class="gallery-item-panel">
                     <img class="project-image" width="100%" src="/resources/projects/pfp.jpg"/>
@@ -214,5 +179,6 @@
                 </div>
             </div>
         </div>
+        <div id="footer"></div>
     </body>
 </html>
