@@ -14,6 +14,8 @@
             }
 
             body {
+                max-width: 20cm;
+                margin: auto;
                 background-color: #212121;
                 color: #e0e0e0;
                 padding-left: 16px;
@@ -157,9 +159,12 @@
                     var stringifiedData = JSON.stringify(entries);
                     localStorage[CACHE_KEY] = stringifiedData;
 
-                    displayQrCode(stringifiedData);
-
-                    showSuccess(flippedTimeslots, removedIdenticalTimeslots);
+                    if (entries.length > 0) {
+                        displayQrCode(stringifiedData);
+                        showSuccess(flippedTimeslots, removedIdenticalTimeslots);
+                    } else {
+                        showEntriesRemoved(removedIdenticalTimeslots);
+                    }
 
                 } catch (error) {
                     document.getElementById("unexpected").style.display = "block";
@@ -171,6 +176,17 @@
                 qrcode.clear();
                 qrcode.makeCode(data);
                 document.getElementById("qrcode-container").style.display = "block";
+            }
+
+            function showEntriesRemoved(removedIdenticalTimeslots) {
+                document.getElementById("removed").style.display = "block";
+                var n = "";
+                var plural = "Eintrag";
+                if (removedIdenticalTimeslots != 1) {
+                    n = "n";
+                    plural = "Einträge";
+                }
+                document.getElementById("removed-message-appendix").innerText = `${removedIdenticalTimeslots} ${plural} wurde${n} entfernt, da die Start- und Endzeiten gleich waren. Daher konnte kein QR-Code generiert werden.`;
             }
 
             function showSuccess(flippedTimeslots, removedIdenticalTimeslots) {
@@ -193,6 +209,9 @@
             function clearErrors() {
                 document.getElementById("unfinished").style.display = "none";
                 document.getElementById("nothing").style.display = "none";
+                document.getElementById("removed").style.display = "none";
+                document.getElementById("success").style.display = "none";
+                document.getElementById("unexpected").style.display = "none";
             }
 
             function throwNothingError() {
@@ -340,6 +359,10 @@
         <div id="nothing" style="display: none;">
             <p class="error-text">Da fehlt was!</p>
             <p>Keine Zeiten eingetragen, kein QR-Code!</p>
+        </div>
+        <div id="removed" style="display: none;">
+            <p class="error-text">Alles weg!</p>
+            <p id="removed-message-appendix"></p>
         </div>
         <div id="unexpected" style="display: none;">
             <p class="error-text">Das hätte nicht passieren sollen!</p>
