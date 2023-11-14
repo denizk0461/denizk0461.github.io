@@ -110,12 +110,12 @@
 
             function generateQrCode() {
                 try {
+                    clearErrors();
+
                     var flippedTimeslots = 0;
                     var removedIdenticalTimeslots = 0;
 
                     var entries = [];
-
-                    clearErrors();
                     var timeslotChildren = document.getElementById("timeslots").children;
                     
                     if (timeslotChildren.length == 0) {
@@ -173,7 +173,8 @@
             }
 
             function displayQrCode(data) {
-                qrcode.clear();
+                // qrcode.clear();
+                console.log("production has commenced!");
                 qrcode.makeCode(data);
                 document.getElementById("qrcode-container").style.display = "block";
             }
@@ -207,6 +208,8 @@
             }
 
             function clearErrors() {
+                qrcode.clear();
+                document.getElementById("qrcode-container").style.display = "none";
                 document.getElementById("unfinished").style.display = "none";
                 document.getElementById("nothing").style.display = "none";
                 document.getElementById("removed").style.display = "none";
