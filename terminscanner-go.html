@@ -55,7 +55,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.2/qr-scanner.umd.min.js" integrity="sha512-a/IwksuXdv0Q60tVkQpwMk5qY+6cJ0FJgi33lrrIddoFItTRiRfSdU1qogP3uYjgHfrGY7+AC+4LU4J+b9HcgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" src="//unpkg.com/linq-es2015/dist/linq.min.js"></script>
         <script>
-            const CACHE_KEY = "stuga-go-zeitslots-ersttreffen";
             var qrscanner;
             var people = [
                 "Amelie",
@@ -110,7 +109,6 @@
                         returnDetailedScanResult: true
                     },
                 );
-                // findCommonTimeslots();
                 mockData();
             }
 
@@ -141,9 +139,7 @@
                     return;
                 }
 
-                // console.log(data);
                 dataset[selectedPerson] = JSON.parse(data);
-                // console.log(dataset);
 
                 var peopleScanned = "";
                 var peopleScannedCount = 0;
@@ -157,8 +153,6 @@
                     }
                 }
                 document.getElementById("peoplescanned").innerText = "QR-Codes für folgende Personen wurden gescannt: " + peopleScanned;
-
-                // console.log(JSON.parse(data));
 
                 if (peopleScannedCount > 1) {
                     findCommonTimeslots();
@@ -209,46 +203,22 @@
                     }
                 }
 
-                // console.log("--- FINAL ARRAY ---")
-                // console.log(finalArray);
-
-                // up to this point confirmed works
-
                 var listOfTimeslots = [];
 
-                // TODO this needs to wrap around from 60 -> 0 (not count up from 0 to 100)
-                for (var a = 0; a < finalArray.length; a += 1) {//var element of finalArray) {
-                    // var iterationsNeeded = (parseInt(element.e) - parseInt(element.s)) / 15;
+                for (var a = 0; a < finalArray.length; a += 1) {
                     var element = JSON.parse(JSON.stringify(finalArray[a]));
-                    // console.log(element);
                     var iterationsNeeded = getIterationsNeeded(element.s, element.e);
-                    // console.log(iterationsNeeded);
                     var start = parseInt(element.s);
                     var end = addWithWrapAround(start);
                     for (var i = 0; i < iterationsNeeded; i += 1) {
                         element = JSON.parse(JSON.stringify(element));
-                        // console.log(`A: ${start}, ${end}`);
-                        // console.log(parseInt(element.s));
                         element.s = start;
-                        // end = addWithWrapAround(start);
                         element.e = end;
                         listOfTimeslots.push(element);
-                        // console.log(element);
                         start = end;
                         end = addWithWrapAround(end);
                     }
                 }
-
-                // console.log(listOfTimeslots);
-                // WORKS
-
-                // console.log("--- SPLIT TIMESLOTS ---")
-                // console.log(listOfTimeslots);
-
-                // i think it works up to here too
-
-                // console.log(listOfTimeslots
-                //     .GroupBy(ts => ts.s, ts => ts.e));
 
                 for (var d = 0; d < 7; d += 1) {
                     for (var i = 0; i < timeslotStarts.length; i += 1) {
@@ -271,20 +241,64 @@
 
                 calculatedTimeslots = calculatedTimeslots.filter(c => c.availablePeopleCount > 0);
 
-                console.log(calculatedTimeslots);
-
-                // possibleTimeslotTemplate
-
-                // TODO combine timeslots back into largest segments possible
-
-                // console.log("--- COMMON TIME SLOTS ---")
                 // console.log(calculatedTimeslots);
 
-                // console.log(
-                //     Enumerable.asEnumerable(finalArray)
-                //         .SelectMany(a => Count(a.p), a.s, a.e)
-                //         .GroupBy(a => a.s, a.e)
-                // );
+                // var combinedTimeslots = [];
+
+                // for (var i = 0; i < calculatedTimeslots.length; i += 1) {
+                //     var cachedDay;
+                //     var cachedStart;
+                //     var cachedEnd;
+                //     var cachedAvailablePeople;
+
+                //     var element;
+
+                //     if (cachedDay == calculatedTimeslots[i].day &&
+                //         cachedStart == calculatedTimeslots[i].timeStart &&
+                //         // cachedEnd == calculatedTimeslots[i].timeEnd &&
+                //         cachedAvailablePeople == calculatedTimeslots[i].availablePeople
+                //     ) {
+                //         try {
+                //             if (cachedDay == calculatedTimeslots[i + 1].day &&
+                //                 cachedEnd == calculatedTimeslots[i + 1].timeStart &&
+                //                 cachedAvailablePeople == calculatedTimeslots[i + 1].availablePeople
+                //             ) {
+                //                 cachedEnd = calculatedTimeslots[i + 1].timeStart;
+                //             } else {
+                //                 combinedTimeslots.push({
+                //                     availablePeopleCount: cachedAvailablePeople.length,
+                //                     day: cachedDay,
+                //                     timeStart: cachedStart,
+                //                     timeEnd: cachedEnd,
+                //                     availablePeople: cachedAvailablePeople
+                //                 });
+                //                 cachedDay = calculatedTimeslots[i].day;
+                //                 cachedStart = calculatedTimeslots[i].timeStart;
+                //                 cachedEnd = calculatedTimeslots[i].timeEnd;
+                //                 cachedAvailablePeople = calculatedTimeslots[i].availablePeople;
+                //             }
+                //         } catch (error) {
+                //             combinedTimeslots.push({
+                //                 availablePeopleCount: cachedAvailablePeople.length,
+                //                 day: cachedDay,
+                //                 timeStart: cachedStart,
+                //                 timeEnd: cachedEnd,
+                //                 availablePeople: cachedAvailablePeople
+                //             });
+                //         }
+                //     } else {
+
+                //         console.log("iteration");
+                //         // console.log(`${cachedDay} ${cachedStart} ${cachedEnd} ${cachedAvailablePeople}`);
+                //         cachedDay = calculatedTimeslots[i].day;
+                //         cachedStart = calculatedTimeslots[i].timeStart;
+                //         cachedEnd = calculatedTimeslots[i].timeEnd;
+                //         cachedAvailablePeople = calculatedTimeslots[i].availablePeople;
+                //     }
+                }
+
+                console.log("start");
+                console.log(combinedTimeslots);
             }
             
             function getIterationsNeeded(start, end) {
