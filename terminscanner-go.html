@@ -51,6 +51,15 @@
                 width: 80%;
                 height: 80%;
             }
+            table, th, td {
+               border: 1px solid;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 4px
+            }
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.2/qr-scanner.umd.min.js" integrity="sha512-a/IwksuXdv0Q60tVkQpwMk5qY+6cJ0FJgi33lrrIddoFItTRiRfSdU1qogP3uYjgHfrGY7+AC+4LU4J+b9HcgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" src="//unpkg.com/linq-es2015/dist/linq.min.js"></script>
@@ -62,7 +71,6 @@
                 "Dana B",
                 "Deniz",
                 "Jan",
-                "Ranya",
                 "Rina",
                 "Saskia",
                 "Thilo"
@@ -109,7 +117,7 @@
                         returnDetailedScanResult: true
                     },
                 );
-                mockData();
+                // mockData();
             }
 
             function mockData() {
@@ -148,11 +156,13 @@
                         if (peopleScanned != "") {
                             peopleScanned += ", "
                         }
-                        peopleScanned += people[i];
+                        peopleScanned += `${people[i]} (${i})`;
                         peopleScannedCount += 1;
                     }
                 }
                 document.getElementById("peoplescanned").innerText = "QR-Codes für folgende Personen wurden gescannt: " + peopleScanned;
+
+                console.log(JSON.parse(data));
 
                 if (peopleScannedCount > 1) {
                     findCommonTimeslots();
@@ -172,7 +182,7 @@
                 "1700", "1715", "1730", "1745", 
                 "1800", "1815", "1830", "1845", 
                 "1900", "1915", "1930", "1945"
-            ]
+            ];
 
             var timeslotEnds = [
                 "0815", "0830", "0845", "0900", 
@@ -187,7 +197,18 @@
                 "1715", "1730", "1745", "1800", 
                 "1815", "1830", "1845", "1900", 
                 "1915", "1930", "1945", "2000"
-            ]
+            ];
+
+            var colours = [
+                "#995858", // red
+                "#A86161",
+                "#9E7659",
+                "#948B51", // yellow
+                "#749051",
+                "#549451", // green
+                "#539373",
+                "#519294"  // blue
+            ];
 
             function findCommonTimeslots() {
                 calculatedTimeslots = [];
@@ -220,6 +241,9 @@
                     }
                 }
 
+                // console.log("TIMESLOTS");
+                // console.log(listOfTimeslots);
+
                 for (var d = 0; d < 7; d += 1) {
                     for (var i = 0; i < timeslotStarts.length; i += 1) {
 
@@ -241,7 +265,9 @@
 
                 calculatedTimeslots = calculatedTimeslots.filter(c => c.availablePeopleCount > 0);
 
-                // console.log(calculatedTimeslots);
+                console.log(calculatedTimeslots);
+
+                updateTable(calculatedTimeslots);
 
                 // var combinedTimeslots = [];
 
@@ -295,10 +321,20 @@
                 //         cachedEnd = calculatedTimeslots[i].timeEnd;
                 //         cachedAvailablePeople = calculatedTimeslots[i].availablePeople;
                 //     }
-                }
+                // }
 
-                console.log("start");
-                console.log(combinedTimeslots);
+                // console.log("start");
+                // console.log(combinedTimeslots);
+            }
+            
+            function updateTable(timeslots) {
+                for (var i = 0; i < timeslots.length; i += 1) {
+                    var id = `${timeslots[i].day}-${timeslots[i].timeStart}`;
+                    console.log(id);
+                    var availablePeople = timeslots[i].availablePeople;
+                    document.getElementById(id).innerText = availablePeople.join(", ");
+                    document.getElementById(id).style.color = colours[availablePeople.length];
+                }
             }
             
             function getIterationsNeeded(start, end) {
@@ -347,5 +383,498 @@
             <p class="error-text">Keine Person ausgewählt!</p>
         </div>
         <p id="peoplescanned"></p>
+        <table>
+            <tr>
+                <th>Zeit</th>
+                <th>Montag</th>
+                <th>Dienstag</th>
+                <th>Mittwoch</th>
+                <th>Donnerstag</th>
+                <th>Freitag</th>
+                <th>Samstag</th>
+                <th>Sonntag</th>
+            </tr>
+            <tr>
+                <td>08:00</td>
+                <td id="0-0800"></td>
+                <td id="1-0800"></td>
+                <td id="2-0800"></td>
+                <td id="3-0800"></td>
+                <td id="4-0800"></td>
+                <td id="5-0800"></td>
+                <td id="6-0800"></td>
+            </tr>
+            <tr>
+                <td>08:15</td>
+                <td id="0-0815"></td>
+                <td id="1-0815"></td>
+                <td id="2-0815"></td>
+                <td id="3-0815"></td>
+                <td id="4-0815"></td>
+                <td id="5-0815"></td>
+                <td id="6-0815"></td>
+            </tr>
+            <tr>
+                <td>08:30</td>
+                <td id="0-0830"></td>
+                <td id="1-0830"></td>
+                <td id="2-0830"></td>
+                <td id="3-0830"></td>
+                <td id="4-0830"></td>
+                <td id="5-0830"></td>
+                <td id="6-0830"></td>
+            </tr>
+            <tr>
+                <td>08:45</td>
+                <td id="0-0845"></td>
+                <td id="1-0845"></td>
+                <td id="2-0845"></td>
+                <td id="3-0845"></td>
+                <td id="4-0845"></td>
+                <td id="5-0845"></td>
+                <td id="6-0845"></td>
+            </tr>
+            <tr>
+                <td>09:00</td>
+                <td id="0-0900"></td>
+                <td id="1-0900"></td>
+                <td id="2-0900"></td>
+                <td id="3-0900"></td>
+                <td id="4-0900"></td>
+                <td id="5-0900"></td>
+                <td id="6-0900"></td>
+            </tr>
+            <tr>
+                <td>09:15</td>
+                <td id="0-0915"></td>
+                <td id="1-0915"></td>
+                <td id="2-0915"></td>
+                <td id="3-0915"></td>
+                <td id="4-0915"></td>
+                <td id="5-0915"></td>
+                <td id="6-0915"></td>
+            </tr>
+            <tr>
+                <td>09:30</td>
+                <td id="0-0930"></td>
+                <td id="1-0930"></td>
+                <td id="2-0930"></td>
+                <td id="3-0930"></td>
+                <td id="4-0930"></td>
+                <td id="5-0930"></td>
+                <td id="6-0930"></td>
+            </tr>
+            <tr>
+                <td>09:45</td>
+                <td id="0-0945"></td>
+                <td id="1-0945"></td>
+                <td id="2-0945"></td>
+                <td id="3-0945"></td>
+                <td id="4-0945"></td>
+                <td id="5-0945"></td>
+                <td id="6-0945"></td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td id="0-1000"></td>
+                <td id="1-1000"></td>
+                <td id="2-1000"></td>
+                <td id="3-1000"></td>
+                <td id="4-1000"></td>
+                <td id="5-1000"></td>
+                <td id="6-1000"></td>
+            </tr>
+            <tr>
+                <td>10:15</td>
+                <td id="0-1015"></td>
+                <td id="1-1015"></td>
+                <td id="2-1015"></td>
+                <td id="3-1015"></td>
+                <td id="4-1015"></td>
+                <td id="5-1015"></td>
+                <td id="6-1015"></td>
+            </tr>
+            <tr>
+                <td>10:30</td>
+                <td id="0-1030"></td>
+                <td id="1-1030"></td>
+                <td id="2-1030"></td>
+                <td id="3-1030"></td>
+                <td id="4-1030"></td>
+                <td id="5-1030"></td>
+                <td id="6-1030"></td>
+            </tr>
+            <tr>
+                <td>10:45</td>
+                <td id="0-1045"></td>
+                <td id="1-1045"></td>
+                <td id="2-1045"></td>
+                <td id="3-1045"></td>
+                <td id="4-1045"></td>
+                <td id="5-1045"></td>
+                <td id="6-1045"></td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td id="0-1100"></td>
+                <td id="1-1100"></td>
+                <td id="2-1100"></td>
+                <td id="3-1100"></td>
+                <td id="4-1100"></td>
+                <td id="5-1100"></td>
+                <td id="6-1100"></td>
+            </tr>
+            <tr>
+                <td>11:15</td>
+                <td id="0-1115"></td>
+                <td id="1-1115"></td>
+                <td id="2-1115"></td>
+                <td id="3-1115"></td>
+                <td id="4-1115"></td>
+                <td id="5-1115"></td>
+                <td id="6-1115"></td>
+            </tr>
+            <tr>
+                <td>11:30</td>
+                <td id="0-1130"></td>
+                <td id="1-1130"></td>
+                <td id="2-1130"></td>
+                <td id="3-1130"></td>
+                <td id="4-1130"></td>
+                <td id="5-1130"></td>
+                <td id="6-1130"></td>
+            </tr>
+            <tr>
+                <td>11:45</td>
+                <td id="0-1145"></td>
+                <td id="1-1145"></td>
+                <td id="2-1145"></td>
+                <td id="3-1145"></td>
+                <td id="4-1145"></td>
+                <td id="5-1145"></td>
+                <td id="6-1145"></td>
+            </tr>
+            <tr>
+                <td>12:00</td>
+                <td id="0-1200"></td>
+                <td id="1-1200"></td>
+                <td id="2-1200"></td>
+                <td id="3-1200"></td>
+                <td id="4-1200"></td>
+                <td id="5-1200"></td>
+                <td id="6-1200"></td>
+            </tr>
+            <tr>
+                <td>12:15</td>
+                <td id="0-1215"></td>
+                <td id="1-1215"></td>
+                <td id="2-1215"></td>
+                <td id="3-1215"></td>
+                <td id="4-1215"></td>
+                <td id="5-1215"></td>
+                <td id="6-1215"></td>
+            </tr>
+            <tr>
+                <td>12:30</td>
+                <td id="0-1230"></td>
+                <td id="1-1230"></td>
+                <td id="2-1230"></td>
+                <td id="3-1230"></td>
+                <td id="4-1230"></td>
+                <td id="5-1230"></td>
+                <td id="6-1230"></td>
+            </tr>
+            <tr>
+                <td>12:45</td>
+                <td id="0-1245"></td>
+                <td id="1-1245"></td>
+                <td id="2-1245"></td>
+                <td id="3-1245"></td>
+                <td id="4-1245"></td>
+                <td id="5-1245"></td>
+                <td id="6-1245"></td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td id="0-1300"></td>
+                <td id="1-1300"></td>
+                <td id="2-1300"></td>
+                <td id="3-1300"></td>
+                <td id="4-1300"></td>
+                <td id="5-1300"></td>
+                <td id="6-1300"></td>
+            </tr>
+            <tr>
+                <td>13:15</td>
+                <td id="0-1315"></td>
+                <td id="1-1315"></td>
+                <td id="2-1315"></td>
+                <td id="3-1315"></td>
+                <td id="4-1315"></td>
+                <td id="5-1315"></td>
+                <td id="6-1315"></td>
+            </tr>
+            <tr>
+                <td>13:30</td>
+                <td id="0-1330"></td>
+                <td id="1-1330"></td>
+                <td id="2-1330"></td>
+                <td id="3-1330"></td>
+                <td id="4-1330"></td>
+                <td id="5-1330"></td>
+                <td id="6-1330"></td>
+            </tr>
+            <tr>
+                <td>13:45</td>
+                <td id="0-1345"></td>
+                <td id="1-1345"></td>
+                <td id="2-1345"></td>
+                <td id="3-1345"></td>
+                <td id="4-1345"></td>
+                <td id="5-1345"></td>
+                <td id="6-1345"></td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td id="0-1400"></td>
+                <td id="1-1400"></td>
+                <td id="2-1400"></td>
+                <td id="3-1400"></td>
+                <td id="4-1400"></td>
+                <td id="5-1400"></td>
+                <td id="6-1400"></td>
+            </tr>
+            <tr>
+                <td>14:15</td>
+                <td id="0-1415"></td>
+                <td id="1-1415"></td>
+                <td id="2-1415"></td>
+                <td id="3-1415"></td>
+                <td id="4-1415"></td>
+                <td id="5-1415"></td>
+                <td id="6-1415"></td>
+            </tr>
+            <tr>
+                <td>14:30</td>
+                <td id="0-1430"></td>
+                <td id="1-1430"></td>
+                <td id="2-1430"></td>
+                <td id="3-1430"></td>
+                <td id="4-1430"></td>
+                <td id="5-1430"></td>
+                <td id="6-1430"></td>
+            </tr>
+            <tr>
+                <td>14:45</td>
+                <td id="0-1445"></td>
+                <td id="1-1445"></td>
+                <td id="2-1445"></td>
+                <td id="3-1445"></td>
+                <td id="4-1445"></td>
+                <td id="5-1445"></td>
+                <td id="6-1445"></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td id="0-1500"></td>
+                <td id="1-1500"></td>
+                <td id="2-1500"></td>
+                <td id="3-1500"></td>
+                <td id="4-1500"></td>
+                <td id="5-1500"></td>
+                <td id="6-1500"></td>
+            </tr>
+            <tr>
+                <td>15:15</td>
+                <td id="0-1515"></td>
+                <td id="1-1515"></td>
+                <td id="2-1515"></td>
+                <td id="3-1515"></td>
+                <td id="4-1515"></td>
+                <td id="5-1515"></td>
+                <td id="6-1515"></td>
+            </tr>
+            <tr>
+                <td>15:30</td>
+                <td id="0-1530"></td>
+                <td id="1-1530"></td>
+                <td id="2-1530"></td>
+                <td id="3-1530"></td>
+                <td id="4-1530"></td>
+                <td id="5-1530"></td>
+                <td id="6-1530"></td>
+            </tr>
+            <tr>
+                <td>15:45</td>
+                <td id="0-1545"></td>
+                <td id="1-1545"></td>
+                <td id="2-1545"></td>
+                <td id="3-1545"></td>
+                <td id="4-1545"></td>
+                <td id="5-1545"></td>
+                <td id="6-1545"></td>
+            </tr>
+            <tr>
+                <td>16:00</td>
+                <td id="0-1600"></td>
+                <td id="1-1600"></td>
+                <td id="2-1600"></td>
+                <td id="3-1600"></td>
+                <td id="4-1600"></td>
+                <td id="5-1600"></td>
+                <td id="6-1600"></td>
+            </tr>
+            <tr>
+                <td>16:15</td>
+                <td id="0-1615"></td>
+                <td id="1-1615"></td>
+                <td id="2-1615"></td>
+                <td id="3-1615"></td>
+                <td id="4-1615"></td>
+                <td id="5-1615"></td>
+                <td id="6-1615"></td>
+            </tr>
+            <tr>
+                <td>16:30</td>
+                <td id="0-1630"></td>
+                <td id="1-1630"></td>
+                <td id="2-1630"></td>
+                <td id="3-1630"></td>
+                <td id="4-1630"></td>
+                <td id="5-1630"></td>
+                <td id="6-1630"></td>
+            </tr>
+            <tr>
+                <td>16:45</td>
+                <td id="0-1645"></td>
+                <td id="1-1645"></td>
+                <td id="2-1645"></td>
+                <td id="3-1645"></td>
+                <td id="4-1645"></td>
+                <td id="5-1645"></td>
+                <td id="6-1645"></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td id="0-1700"></td>
+                <td id="1-1700"></td>
+                <td id="2-1700"></td>
+                <td id="3-1700"></td>
+                <td id="4-1700"></td>
+                <td id="5-1700"></td>
+                <td id="6-1700"></td>
+            </tr>
+            <tr>
+                <td>17:15</td>
+                <td id="0-1715"></td>
+                <td id="1-1715"></td>
+                <td id="2-1715"></td>
+                <td id="3-1715"></td>
+                <td id="4-1715"></td>
+                <td id="5-1715"></td>
+                <td id="6-1715"></td>
+            </tr>
+            <tr>
+                <td>17:30</td>
+                <td id="0-1730"></td>
+                <td id="1-1730"></td>
+                <td id="2-1730"></td>
+                <td id="3-1730"></td>
+                <td id="4-1730"></td>
+                <td id="5-1730"></td>
+                <td id="6-1730"></td>
+            </tr>
+            <tr>
+                <td>17:45</td>
+                <td id="0-1745"></td>
+                <td id="1-1745"></td>
+                <td id="2-1745"></td>
+                <td id="3-1745"></td>
+                <td id="4-1745"></td>
+                <td id="5-1745"></td>
+                <td id="6-1745"></td>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td id="0-1800"></td>
+                <td id="1-1800"></td>
+                <td id="2-1800"></td>
+                <td id="3-1800"></td>
+                <td id="4-1800"></td>
+                <td id="5-1800"></td>
+                <td id="6-1800"></td>
+            </tr>
+            <tr>
+                <td>18:15</td>
+                <td id="0-1815"></td>
+                <td id="1-1815"></td>
+                <td id="2-1815"></td>
+                <td id="3-1815"></td>
+                <td id="4-1815"></td>
+                <td id="5-1815"></td>
+                <td id="6-1815"></td>
+            </tr>
+            <tr>
+                <td>18:30</td>
+                <td id="0-1830"></td>
+                <td id="1-1830"></td>
+                <td id="2-1830"></td>
+                <td id="3-1830"></td>
+                <td id="4-1830"></td>
+                <td id="5-1830"></td>
+                <td id="6-1830"></td>
+            </tr>
+            <tr>
+                <td>18:45</td>
+                <td id="0-1845"></td>
+                <td id="1-1845"></td>
+                <td id="2-1845"></td>
+                <td id="3-1845"></td>
+                <td id="4-1845"></td>
+                <td id="5-1845"></td>
+                <td id="6-1845"></td>
+            </tr>
+            <tr>
+                <td>19:00</td>
+                <td id="0-1900"></td>
+                <td id="1-1900"></td>
+                <td id="2-1900"></td>
+                <td id="3-1900"></td>
+                <td id="4-1900"></td>
+                <td id="5-1900"></td>
+                <td id="6-1900"></td>
+            </tr>
+            <tr>
+                <td>19:15</td>
+                <td id="0-1915"></td>
+                <td id="1-1915"></td>
+                <td id="2-1915"></td>
+                <td id="3-1915"></td>
+                <td id="4-1915"></td>
+                <td id="5-1915"></td>
+                <td id="6-1915"></td>
+            </tr>
+            <tr>
+                <td>19:30</td>
+                <td id="0-1930"></td>
+                <td id="1-1930"></td>
+                <td id="2-1930"></td>
+                <td id="3-1930"></td>
+                <td id="4-1930"></td>
+                <td id="5-1930"></td>
+                <td id="6-1930"></td>
+            </tr>
+            <tr>
+                <td>19:45</td>
+                <td id="0-1945"></td>
+                <td id="1-1945"></td>
+                <td id="2-1945"></td>
+                <td id="3-1945"></td>
+                <td id="4-1945"></td>
+                <td id="5-1945"></td>
+                <td id="6-1945"></td>
+            </tr>
+
+        </table>
     </body>
 </html>
