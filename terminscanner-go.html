@@ -133,6 +133,7 @@
                     dataset = JSON.parse(stored);
 
                     findCommonTimeslots();
+                    makePeopleScannedText();
                 }
             }
 
@@ -165,23 +166,11 @@
 
                 dataset[selectedPerson] = JSON.parse(data);
 
-                var peopleScanned = "";
-                var peopleScannedCount = 0;
-                for (var i = 0; i < dataset.length; i += 1) {
-                    if (dataset[i].length != 0) {
-                        if (peopleScanned != "") {
-                            peopleScanned += ", "
-                        }
-                        peopleScanned += `${people[i]} (${i})`;
-                        peopleScannedCount += 1;
-                    }
-                }
-                document.getElementById("peoplescanned").innerText = "QR-Codes für folgende Personen wurden gescannt: " + peopleScanned;
+                makePeopleScannedText();
 
                 console.log(JSON.parse(data));
 
                 localStorage[CACHE_KEY] = JSON.stringify(dataset);
-                localStorage[CACHE_KEY_COUNTED] = peopleScannedCount;
 
                 if (peopleScannedCount > 1) {
                     findCommonTimeslots();
@@ -228,6 +217,21 @@
                 "#539373",
                 "#519294"  // blue
             ];
+
+            function makePeopleScannedText() {
+                var peopleScanned = "";
+                var peopleScannedCount = 0;
+                for (var i = 0; i < dataset.length; i += 1) {
+                    if (dataset[i].length != 0) {
+                        if (peopleScanned != "") {
+                            peopleScanned += ", "
+                        }
+                        peopleScanned += `${people[i]} (${i})`;
+                        peopleScannedCount += 1;
+                    }
+                }
+                document.getElementById("peoplescanned").innerText = "QR-Codes für folgende Personen wurden gescannt: " + peopleScanned;
+            }
 
             function findCommonTimeslots() {
                 calculatedTimeslots = [];
@@ -284,72 +288,12 @@
 
                 calculatedTimeslots = calculatedTimeslots.filter(c => c.availablePeopleCount > 0);
 
-                console.log(calculatedTimeslots);
-
                 updateTable(calculatedTimeslots);
-
-                // var combinedTimeslots = [];
-
-                // for (var i = 0; i < calculatedTimeslots.length; i += 1) {
-                //     var cachedDay;
-                //     var cachedStart;
-                //     var cachedEnd;
-                //     var cachedAvailablePeople;
-
-                //     var element;
-
-                //     if (cachedDay == calculatedTimeslots[i].day &&
-                //         cachedStart == calculatedTimeslots[i].timeStart &&
-                //         // cachedEnd == calculatedTimeslots[i].timeEnd &&
-                //         cachedAvailablePeople == calculatedTimeslots[i].availablePeople
-                //     ) {
-                //         try {
-                //             if (cachedDay == calculatedTimeslots[i + 1].day &&
-                //                 cachedEnd == calculatedTimeslots[i + 1].timeStart &&
-                //                 cachedAvailablePeople == calculatedTimeslots[i + 1].availablePeople
-                //             ) {
-                //                 cachedEnd = calculatedTimeslots[i + 1].timeStart;
-                //             } else {
-                //                 combinedTimeslots.push({
-                //                     availablePeopleCount: cachedAvailablePeople.length,
-                //                     day: cachedDay,
-                //                     timeStart: cachedStart,
-                //                     timeEnd: cachedEnd,
-                //                     availablePeople: cachedAvailablePeople
-                //                 });
-                //                 cachedDay = calculatedTimeslots[i].day;
-                //                 cachedStart = calculatedTimeslots[i].timeStart;
-                //                 cachedEnd = calculatedTimeslots[i].timeEnd;
-                //                 cachedAvailablePeople = calculatedTimeslots[i].availablePeople;
-                //             }
-                //         } catch (error) {
-                //             combinedTimeslots.push({
-                //                 availablePeopleCount: cachedAvailablePeople.length,
-                //                 day: cachedDay,
-                //                 timeStart: cachedStart,
-                //                 timeEnd: cachedEnd,
-                //                 availablePeople: cachedAvailablePeople
-                //             });
-                //         }
-                //     } else {
-
-                //         console.log("iteration");
-                //         // console.log(`${cachedDay} ${cachedStart} ${cachedEnd} ${cachedAvailablePeople}`);
-                //         cachedDay = calculatedTimeslots[i].day;
-                //         cachedStart = calculatedTimeslots[i].timeStart;
-                //         cachedEnd = calculatedTimeslots[i].timeEnd;
-                //         cachedAvailablePeople = calculatedTimeslots[i].availablePeople;
-                //     }
-                // }
-
-                // console.log("start");
-                // console.log(combinedTimeslots);
             }
             
             function updateTable(timeslots) {
                 for (var i = 0; i < timeslots.length; i += 1) {
                     var id = `${timeslots[i].day}-${timeslots[i].timeStart}`;
-                    console.log(id);
                     var availablePeople = timeslots[i].availablePeople;
                     document.getElementById(id).innerText = availablePeople.join(", ");
                     document.getElementById(id).style.color = colours[availablePeople.length];
@@ -383,9 +327,7 @@
 
             function deleteCache() {
                 dataset = [ [], [], [], [], [], [], [], [] ];
-                peopleScannedCount = 0;
                 localStorage[CACHE_KEY] = JSON.stringify(dataset);
-                localStorage[CACHE_KEY_COUNTED] = peopleScannedCount;
                 document.getElementById("refresh").style.display = "block";
                 location.reload();
             }
