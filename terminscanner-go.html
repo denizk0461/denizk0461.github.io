@@ -67,6 +67,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.2/qr-scanner.umd.min.js" integrity="sha512-a/IwksuXdv0Q60tVkQpwMk5qY+6cJ0FJgi33lrrIddoFItTRiRfSdU1qogP3uYjgHfrGY7+AC+4LU4J+b9HcgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" src="//unpkg.com/linq-es2015/dist/linq.min.js"></script>
         <script>
+            const CACHE_KEY = "stuga-go-zeitslots-ersttreffen-scanner";
+            const CACHE_KEY_COUNTED = "stuga-go-zeitslots-ersttreffen-scanner-count";
             var qrscanner;
             var people = [
                 "Amelie",
@@ -123,6 +125,16 @@
                 // mockData();
             }
 
+            function restoreDataFromCache() {
+                var stored = localStorage[CACHE_KEY];
+                if (stored) {
+                    peopleScannedCount = localStorage[CACHE_KEY_COUNTED];
+                    dataset = JSON.parse(stored);
+
+                    findCommonTimeslots();
+                }
+            }
+
             function mockData() {
                 data = [{"d":"0","s":"1000","e":"1400"},{"d":"2","s":"1000","e":"1200"},{"d":"2","s":"1600","e":"2000"},{"d":"3","s":"0800","e":"1630"},{"d":"4","s":"1000","e":"1400"}];
                 var data2 = [{"d":"0","s":"1000","e":"1400"},{"d":"2","s":"1000","e":"1200"},{"d":"2","s":"1600","e":"2000"}];
@@ -166,6 +178,9 @@
                 document.getElementById("peoplescanned").innerText = "QR-Codes für folgende Personen wurden gescannt: " + peopleScanned;
 
                 console.log(JSON.parse(data));
+
+                localStorage[CACHE_KEY] = JSON.stringify(dataset);
+                localStorage[CACHE_KEY_COUNTED] = peopleScannedCount;
 
                 if (peopleScannedCount > 1) {
                     findCommonTimeslots();
@@ -364,6 +379,15 @@
                     return parseInt(num) + 15;
                 }
             }
+
+            function deleteCache() {
+                dataset = [ [], [], [], [], [], [], [], [] ];
+                peopleScannedCount = 0;
+                localStorage[CACHE_KEY] = JSON.stringify(dataset);
+                localStorage[CACHE_KEY_COUNTED] = peopleScannedCount;
+                document.getElementById("refresh").style.display = "block";
+                location.reload();
+            }
         </script>
     </head>
     <body>
@@ -386,6 +410,8 @@
             <p class="error-text">Keine Person ausgewählt!</p>
         </div>
         <p id="peoplescanned"></p>
+        <button onclick="deleteCache()">Cache löschen</button>
+        <h4 id="refresh">Cache gelöscht, Seite wird aktualisiert</h4>
         <table>
             <tr>
                 <th>Zeit</th>
