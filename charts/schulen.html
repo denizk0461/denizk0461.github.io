@@ -16,6 +16,8 @@
             }
 
             body {
+                max-width: 20cm;
+                margin: auto;
                 background-color: #161C1D;
                 color: #F3F6F6;
             }
@@ -29,6 +31,9 @@
             .horizontal-display-child {
                 width: 45%;
                 float: left;
+            }
+            .vertical-display {
+                width: 100%;
             }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -183,28 +188,32 @@
         </script>
     </head>
     <body>
-        <h1>Schulen nach Region</h1>
-        <canvas id="regionChart"></canvas>
-        <div class="horizontal-display">
-            <div class="horizontal-display-child">
-                <h2>Aufteilung aller Schulen</h2>
-                <canvas id="regionChartPieGesamt"></canvas>
-            </div>
-            <div class="horizontal-display-child">
-                <h2>Schulen mit Plakette</h2>
-                <canvas id="regionChartPiePlakette"></canvas>
+        <div class="vertical-display">
+            <h1>Schulen nach Region</h1>
+            <canvas id="regionChart"></canvas>
+            <div class="horizontal-display">
+                <div class="horizontal-display-child">
+                    <h2>Aufteilung aller Schulen</h2>
+                    <canvas id="regionChartPieGesamt"></canvas>
+                </div>
+                <div class="horizontal-display-child">
+                    <h2>Schulen mit Plakette</h2>
+                    <canvas id="regionChartPiePlakette"></canvas>
+                </div>
             </div>
         </div>
-        <h1>Schulen nach Schulart</h1>
-        <canvas id="detailedChart"></canvas>
-        <div class="horizontal-display">
-            <div class="horizontal-display-child">
-                <h2>Gesamte Schulzahl</h2>
-                <canvas id="detailedChartPieGesamt"></canvas>
-            </div>
-            <div class="horizontal-display-child">
-                <h2>Schulen mit Plakette</h2>
-                <canvas id="detailedChartPiePlakette"></canvas>
+        <div class="vertical-display">
+            <h1 style="display: block;">Schulen nach Schulart</h1>
+            <canvas id="detailedChart"></canvas>
+            <div class="horizontal-display">
+                <div class="horizontal-display-child">
+                    <h2>Gesamte Schulzahl</h2>
+                    <canvas id="detailedChartPieGesamt"></canvas>
+                </div>
+                <div class="horizontal-display-child">
+                    <h2>Schulen mit Plakette</h2>
+                    <canvas id="detailedChartPiePlakette"></canvas>
+                </div>
             </div>
         </div>
     </body>
