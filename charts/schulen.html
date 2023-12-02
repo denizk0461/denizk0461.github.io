@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: 'Apfel Grotezk';
+                src: url('/resources/fonts/apfel-grotezk-latin-400-normal.woff2') format('woff2');
+                /* font-weight: 400;
+                font-style: normal; */
+            }
+            @font-face {
+                font-family: 'Apfel Grotezk';
+                src: url('/resources/fonts/apfel-grotezk-latin-700-normal.woff2') format('woff2');
+                /* font-weight: 700;
+                font-style: normal; */
+            }
+
+            body {
+                background-color: #161C1D;
+                color: #F3F6F6;
+            }
+            h1, h2 {
+                font-family: 'Apfel Grotezk', serif;
+                font-weight: 700;
+            }
+            .horizontal-display {
+                width: 100%;
+            }
+            .horizontal-display-child {
+                width: 45%;
+                float: left;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                createCharts();
+            }, false);
+
+            function createCharts() {
+                var pieBackgroundColorsRegion = [
+                    '#ED254E', '#F9DC5C', '#00E0B7', '#011936', '#6930BA'
+                ];
+                var pieBackgroundColorsSchulart = [
+                    '#F53232', '#E39632', '#61B9E5', '#7DE174', '#B07EE8'
+                ];
+                var labelsRegionen = ['Nord', 'Ost', 'Süd', 'West', 'Mitte & Östliche Vorstadt'];
+                labelsSchulart = ['Grundschulen', 'Oberschulen', 'Gymnasien', 'Berufsbildende Schulen', 'Sonstige'];
+                var datasetRegionGesamt = [34, 51, 38, 33, 39];
+                var datasetRegionPlakette = [6, 8, 4, 8, 11];
+                var datasetSchulartGesamt = [87, 41, 10, 26, 31];
+                var datasetSchulartPlakette = [1, 21, 7, 7, 1];
+                var barChartOptions = {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#3D5252'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: '#232F2F'
+                            }
+                        }
+                    },
+                    legend: {
+                        display: true,
+                    }
+                };
+                var pieChartOptions = {
+                    tooltips: {
+                        enabled: false
+                    },
+                    plugins: {
+                        datalabels: {
+                            formatter: (value, ctx) => {
+                                const datapoints = ctx.chart.data.datasets[0].data;
+                                const total = datapoints.reduce((total, datapoint) => total + datapoint, 0);
+                                const percentage = value / total * 100;
+                                return percentage.toFixed(1) + "%\n(" + value + ")";
+                            },
+                            color: '#0'
+                        }
+                    }
+                };
+                
+                new Chart(document.getElementById("regionChart"), {
+                    type: 'bar',
+                    data: {
+                        labels: labelsRegionen,
+                        datasets: [{
+                            label: 'Gesamtzahl',
+                            data: datasetRegionGesamt,
+                            borderWidth: 1
+                        }, {
+                            label: 'Mit Plakette',
+                            data: datasetRegionPlakette,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: barChartOptions
+                });
+                
+                new Chart(document.getElementById("regionChartPieGesamt"), {
+                    type: 'pie',
+                    data: {
+                        labels: labelsRegionen,
+                        datasets: [{
+                            label: 'Gesamt',
+                            data: datasetRegionGesamt,
+                            backgroundColor: pieBackgroundColorsRegion,
+                            hoverOffset: 4
+                        }]
+                    },
+                    plugins: [ChartDataLabels],
+                    options: pieChartOptions
+                });
+                
+                new Chart(document.getElementById("regionChartPiePlakette"), {
+                    type: 'pie',
+                    data: {
+                        labels: labelsRegionen,
+                        datasets: [{
+                            label: 'Gesamt',
+                            data: datasetRegionPlakette,
+                            backgroundColor: pieBackgroundColorsRegion,
+                            hoverOffset: 4
+                        }]
+                    },
+                    plugins: [ChartDataLabels],
+                    options: pieChartOptions
+                });
+
+                new Chart(document.getElementById("detailedChart"), {
+                    type: 'bar',
+                    data: {
+                        labels: labelsSchulart,
+                        datasets: [{
+                            label: 'Gesamt',
+                            data: datasetSchulartGesamt,
+                            borderWidth: 1
+                        }, {
+                            label: 'Mit Plakette',
+                            data: datasetSchulartPlakette,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: barChartOptions
+                });
+                
+                new Chart(document.getElementById("detailedChartPieGesamt"), {
+                    type: 'pie',
+                    data: {
+                        labels: labelsSchulart,
+                        datasets: [{
+                            label: 'Gesamt',
+                            data: datasetSchulartGesamt,
+                            backgroundColor: pieBackgroundColorsSchulart,
+                            hoverOffset: 4
+                        }]
+                    },
+                    plugins: [ChartDataLabels],
+                    options: pieChartOptions
+                });
+                
+                new Chart(document.getElementById("detailedChartPiePlakette"), {
+                    type: 'pie',
+                    data: {
+                        labels: labelsSchulart,
+                        datasets: [{
+                            label: 'Gesamt',
+                            data: datasetSchulartPlakette,
+                            backgroundColor: pieBackgroundColorsSchulart,
+                            hoverOffset: 4
+                        }]
+                    },
+                    plugins: [ChartDataLabels],
+                    options: pieChartOptions
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Schulen nach Region</h1>
+        <canvas id="regionChart"></canvas>
+        <div class="horizontal-display">
+            <div class="horizontal-display-child">
+                <h2>Aufteilung aller Schulen</h2>
+                <canvas id="regionChartPieGesamt"></canvas>
+            </div>
+            <div class="horizontal-display-child">
+                <h2>Schulen mit Plakette</h2>
+                <canvas id="regionChartPiePlakette"></canvas>
+            </div>
+        </div>
+        <h1>Schulen nach Schulart</h1>
+        <canvas id="detailedChart"></canvas>
+        <div class="horizontal-display">
+            <div class="horizontal-display-child">
+                <h2>Gesamte Schulzahl</h2>
+                <canvas id="detailedChartPieGesamt"></canvas>
+            </div>
+            <div class="horizontal-display-child">
+                <h2>Schulen mit Plakette</h2>
+                <canvas id="detailedChartPiePlakette"></canvas>
+            </div>
+        </div>
+    </body>
+</html>
