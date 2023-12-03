@@ -12,24 +12,44 @@
             }
 
             body {
-                max-width: 50cm;
+                max-width: 30cm;
                 margin: auto;
                 background-color: #212121;
                 color: #F3F6F6;
             }
             h1, h2 {
-                font-family: 'Apfel Grotezk', serif;
+                font-family: 'Apfel Grotezk', sans-serif;
                 font-weight: 700;
+            }
+            p {
+                padding-top: 640px;
+                font-family: 'Apfel Grotezk', sans-serif;
             }
             .horizontal-display {
                 width: 100%;
             }
-            .horizontal-display-child {
-                width: 50%;
-                float: left;
+            @media screen and (min-width: 20cm) {
+                
+                .horizontal-display-child {
+                    width: 50%;
+                    float: left;
+                }
             }
             .vertical-display {
                 width: 100%;
+            }
+            a:link {
+                color: #c2e8ff;
+            }
+
+            /* visited link */
+            a:visited {
+                color: #ffd7f0;
+            }
+
+            /* mouse over link */
+            a:hover {
+                color: #ffdad5;
             }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -325,5 +345,8 @@
                 </div>
             </div>
         </div>
+        <p>
+            Statistiken erstellt auf Basis von Daten des <a href="https://www.bildung.bremen.de/schulwegweiser-3714">Schulwegweisers der Senatorin für Kinder und Bildung Bremen</a> sowie der <a href="https://www.courageschulen-bremen.de/in-aktion/schulen/">Auflistung von Courage-Schulen in Bremen</a> der Landeszentrale für politische Bildung Bremen.<br>Darstellungen erstellt mit <a href="https://www.chartjs.org/">Chart.js</a>.<br><br>Statistik erstellt 2023-12-03.
+        </p>
     </body>
 </html>
