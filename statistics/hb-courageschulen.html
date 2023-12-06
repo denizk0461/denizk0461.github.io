@@ -17,7 +17,7 @@
                 background-color: #212121;
                 color: #F3F6F6;
             }
-            h1, h2 {
+            h1, h2, h3, h4, h5, h6 {
                 font-family: 'Apfel Grotezk', sans-serif;
                 font-weight: 700;
             }
@@ -317,30 +317,31 @@
         </script>
     </head>
     <body>
+        <h1>Courageschulen in der Stadt Bremen</h1>
         <div class="vertical-display">
-            <h1>Schulen nach Region</h1>
+            <h2>Schulen nach Region</h2>
             <canvas id="regionChart"></canvas>
             <div class="horizontal-display">
                 <div class="horizontal-display-child">
-                    <h2>Aufteilung aller Schulen</h2>
+                    <h3>Aufteilung aller Schulen</h3>
                     <canvas id="regionChartPieGesamt"></canvas>
                 </div>
                 <div class="horizontal-display-child">
-                    <h2>Schulen mit Plakette</h2>
+                    <h3>Schulen mit Plakette</h3>
                     <canvas id="regionChartPiePlakette"></canvas>
                 </div>
             </div>
         </div>
         <div class="vertical-display">
-            <h1 style="display: block;">Schulen nach Schulart</h1>
+            <h2 style="display: block;">Schulen nach Schulart</h2>
             <canvas id="detailedChart"></canvas>
             <div class="horizontal-display">
                 <div class="horizontal-display-child">
-                    <h2>Gesamte Schulzahl</h2>
+                    <h3>Gesamte Schulzahl</h3>
                     <canvas id="detailedChartPieGesamt"></canvas>
                 </div>
                 <div class="horizontal-display-child">
-                    <h2>Schulen mit Plakette</h2>
+                    <h3>Schulen mit Plakette</h3>
                     <canvas id="detailedChartPiePlakette"></canvas>
                 </div>
             </div>
