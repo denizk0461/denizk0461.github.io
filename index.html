@@ -6,26 +6,83 @@
         <title>denizk0461's website</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/pagestyle.css">
+        <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display&family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
+
+            .link-card {
+                background-color: #292929;
+                overflow: hidden;
+                border-radius: 24px;
+            }
+            .link-card-img {
+                float: left;
+                width: 20%;
+                pointer-events: none;
+            }
+            .link-card-text-container {
+                padding: 16px;
+                float: left;
+                width: 70%;
+            }
+            .link-card-header {
+                margin-bottom: 1px;
+                line-height: 1;
+            }
+            .link-card-text {
+                line-height: 1;
+
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
         <script>
+            var gradientColours = ["3DD6D0", "85FF9E", "D36582", "2B59C3", "ff00ff", "C9A690", "47E5BC", "DB5461", "FDE74C", "90A959"];
             $(function(){
-                $("#banner").load("/common/banner.html"); 
-                $("#footer").load("/common/footer.html"); 
+                $("#banner").load("/common/banner.html");
+
+                var rand = Math.floor(Math.random() * gradientColours.length);
+                var rand2 = Math.floor(Math.random() * gradientColours.length);
+
+                // randomise page title gradient colours
+                document.getElementById("title").style = "background: -webkit-linear-gradient(0deg, #" + gradientColours[rand] + ", #" + gradientColours[rand2] + "); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;";
+
+                const colorThief = new ColorThief();
+                var cards = document.getElementsByClassName("link-card");
+                for (var i = 0; i < cards.length; i += 1) {
+                    var img = document.getElementsByClassName("link-card-img")[i];
+                    if (img.complete) {
+                        applyColour(cards[i], colorThief.getColor(img));
+                    } else {
+                        img.addEventListener('load', function() {
+                            applyColour(cards[i], colorThief.getColor(img));
+                        });
+                    }
+                }
             });
+
+            function applyColour(element, colour) {
+                var c = "rgba(" + colour.join(", ") + ", 0.4)";
+                element.style = "background-color: " + c + ";";
+            }
         </script>
     </head>
     <body>
         <div id="banner"></div>
-        <div class="page-content">
-            <h1 class="page-header">Hi there!</h1>
+        <h1 id="title" class="page-title">Hi there! This is my website.</h1>
+        <img class="page-header-image" src="/resources/homepage/cucumber.webp">
+        <div class="width-conforming">
             <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out <a href="/projects.html">my projects</a>!
             <p>~denizk0461 :)</p>
             <p><a href="/statistics/hb-courageschulen.html">Courageschulen im Land Bremen (Statistik)</a></p>
+
+            <div class="link-card clickable" onclick="location.href='/statistics/hb-courageschulen.html';">
+                <img class="link-card-img" src="/resources/datingsim2/spacerat.png">
+                <div class="link-card-text-container">
+                    <h3 class="link-card-header">Courageschulen in Bremen</h3>
+                    <p class="link-card-text">Statistik über Courageschulen in der Stadt Bremen, aufgeteilt nach Regionen sowie Schularten</p>
+                </div>
+            </div>
         </div>
-        <div id="footer"></div>
     </body>
 </html>
