@@ -9,11 +9,16 @@
         <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display&family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
-
+            
+            .body-container {
+                container-type: inline-size;
+            }
             .link-card {
                 background-color: #292929;
-                overflow: hidden;
                 border-radius: 24px;
+            }
+            .link-card-primary-container {
+                overflow: hidden;
             }
             .link-card-img {
                 float: left;
@@ -24,20 +29,35 @@
                 padding: 16px;
                 float: left;
                 width: 70%;
+                /* display: flex; */
+                /* justify-content: center;
+                align-items: center; */
             }
             .link-card-header {
-                margin-bottom: 1px;
+                margin-top: 2px;
+                margin-bottom: 2px;
                 line-height: 1;
             }
             .link-card-text {
+                margin-top: 2px;
+                margin-bottom: 2px;
                 line-height: 1;
-
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
         <script>
             var gradientColours = ["3DD6D0", "85FF9E", "D36582", "2B59C3", "ff00ff", "C9A690", "47E5BC", "DB5461", "FDE74C", "90A959"];
+            var cardData = [
+                {
+                    title: "Courageschulen HB (Statistik)",
+                    subtitle: "",
+                    description: "Courageschulen in der Stadt Bremen",
+                    link: "/statistics/hb-courageschulen.html",
+                    imgLink: "/resources/datingsim2/spacerat.png",
+                },
+            ];
+            
             $(function(){
                 $("#banner").load("/common/banner.html");
 
@@ -47,16 +67,22 @@
                 // randomise page title gradient colours
                 document.getElementById("title").style = "background: -webkit-linear-gradient(0deg, #" + gradientColours[rand] + ", #" + gradientColours[rand2] + "); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;";
 
+                for (var i = 0; i < cardData.length; i += 1) {
+                    console.log(cardData[i]);
+                    generateCard(cardData[i]);
+                }
+
                 const colorThief = new ColorThief();
-                var cards = document.getElementsByClassName("link-card");
-                for (var i = 0; i < cards.length; i += 1) {
+                var cards = document.getElementsByClassName("link-card");//.getElementById("card-container").children;
+                console.log(cards.length + cards[0] + cards[1] + cards[2]);
+                for (var i = 1; i < cards.length; i += 1) {
+                    // console.log(cards[i]);
+                    var s = i;
                     var img = document.getElementsByClassName("link-card-img")[i];
-                    if (img.complete) {
-                        applyColour(cards[i], colorThief.getColor(img));
-                    } else {
-                        img.addEventListener('load', function() {
-                            applyColour(cards[i], colorThief.getColor(img));
-                        });
+                    // console.log(i);
+                    img.onload = function() {
+                        // console.log(s);
+                        applyColour(cards[s], colorThief.getColor(img));
                     }
                 }
             });
@@ -65,23 +91,46 @@
                 var c = "rgba(" + colour.join(", ") + ", 0.4)";
                 element.style = "background-color: " + c + ";";
             }
+
+            function generateCard(data) {
+                var container = document.getElementById("card-container");
+                var newCard = document.getElementsByClassName("link-card")[0].cloneNode(true);
+                container.appendChild(newCard);
+
+                newCard.getElementsByClassName("link-card-header")[0].innerText = data.title;
+                newCard.getElementsByClassName("link-card-subheader")[0].innerText = data.subtitle;
+                newCard.getElementsByClassName("link-card-text")[0].innerText = data.description;
+                newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
+                newCard.onclick = function() {
+                    location.href = data.link;
+                };
+            }
         </script>
     </head>
     <body>
         <div id="banner"></div>
-        <h1 id="title" class="page-title">Hi there! This is my website.</h1>
-        <img class="page-header-image" src="/resources/homepage/cucumber.webp">
-        <div class="width-conforming">
-            <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out <a href="/projects.html">my projects</a>!
-            <p>~denizk0461 :)</p>
-            <p><a href="/statistics/hb-courageschulen.html">Courageschulen im Land Bremen (Statistik)</a></p>
-
-            <div class="link-card clickable" onclick="location.href='/statistics/hb-courageschulen.html';">
-                <img class="link-card-img" src="/resources/datingsim2/spacerat.png">
-                <div class="link-card-text-container">
-                    <h3 class="link-card-header">Courageschulen in Bremen</h3>
-                    <p class="link-card-text">Statistik über Courageschulen in der Stadt Bremen, aufgeteilt nach Regionen sowie Schularten</p>
+        <div class="body-container">
+            <div id="hidden" style="display: none;">
+                <div class="link-card clickable">
+                    <div class="link-card-primary-container">
+                        <img class="link-card-img">
+                        <div class="link-card-text-container">
+                            <h3 class="link-card-header"></h3>
+                            <p class="link-card-subheader"></p>
+                        </div>
+                    </div>
+                    <div class="link-card-expandable-container">
+                        <p class="link-card-text"></p>
+                    </div>
                 </div>
+            </div>
+            <h1 id="title" class="page-title">This is a Sample Title äöüß.</h1>
+            <img class="page-header-image" src="/resources/homepage/cucumber.webp">
+            <div class="width-conforming">
+                <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out <a href="/projects.html">my projects</a>!
+                <p>~denizk0461 :)</p>
+                <p><a href="/statistics/hb-courageschulen.html">Courageschulen im Land Bremen (Statistik)</a></p>
+                <div id="card-container"></div>
             </div>
         </div>
     </body>
