@@ -84,23 +84,24 @@
                 }
 
                 const colorThief = new ColorThief();
-                var cards = document.getElementsByClassName("link-card");//.getElementById("card-container").children;
+                var cards = document.getElementsByClassName("link-card");
                 console.log(cards.length + cards[0] + cards[1] + cards[2]);
                 for (var i = 1; i < cards.length; i += 1) {
-                    // console.log(cards[i]);
                     var s = i;
                     var img = document.getElementsByClassName("link-card-img")[i];
-                    // console.log(i);
                     img.onload = function() {
-                        // console.log(s);
-                        applyColour(cards[s], colorThief.getColor(img));
+                        applyColour(cards[s], cards[s].getElementsByClassName("link-card-button"), colorThief.getColor(img));
                     }
                 }
             });
 
-            function applyColour(element, colour) {
-                var c = "rgba(" + colour.join(", ") + ", 0.4)";
-                element.style = "background-color: " + c + ";";
+            function applyColour(element, buttons, colour) {
+                var c = "rgba(" + colour.join(", ");
+                element.style = "background-color: " + c + ", 0.4);";
+
+                for (var b = 0; b < buttons.length; b += 1) {
+                    buttons[b].style = "border-color: " + c + ", 1.0);"
+                }
             }
 
             function generateCard(data) {
@@ -113,7 +114,13 @@
                 newCard.getElementsByClassName("link-card-text")[0].innerText = data.description;
                 newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
                 newCard.onclick = function() {
-                    newCard.getElementsByClassName("link-card-expandable-container")[0].style = "display: block;";
+                    var display = window.getComputedStyle(newCard.getElementsByClassName("link-card-expandable-container")[0], null).display;
+                    console.log(display);
+                    if (display == "block") {
+                        newCard.getElementsByClassName("link-card-expandable-container")[0].style.display = "none";
+                    } else {
+                        newCard.getElementsByClassName("link-card-expandable-container")[0].style.display = "block";
+                    }
                 };
                 newCard.getElementsByClassName("link-card-button")[0].onclick = function() {
                     location.href = data.link;

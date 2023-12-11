@@ -42,7 +42,7 @@ span {
     font-family: 'Lato', sans-serif;
     border-radius: 12px;
     color: var(--color-text);
-    border-color: var(--color-button-border);
+    /* border-color: var(--color-button-border); */
     background-color: var(--color-background);
 }
 .page-header-image {
