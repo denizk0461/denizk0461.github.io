@@ -38,10 +38,21 @@
                 margin-bottom: 2px;
                 line-height: 1;
             }
-            .link-card-text {
+            .link-card-subtitle {
                 margin-top: 2px;
                 margin-bottom: 2px;
                 line-height: 1;
+            }
+            .link-card-text {
+                margin-left: 0px;
+                margin-right: 0px;
+                margin-top: 0px;
+                margin-bottom: 16px;
+                line-height: 1;
+            }
+            .link-card-expandable-container {
+                display: none;
+                padding: 16px
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -102,8 +113,11 @@
                 newCard.getElementsByClassName("link-card-text")[0].innerText = data.description;
                 newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
                 newCard.onclick = function() {
-                    location.href = data.link;
+                    newCard.getElementsByClassName("link-card-expandable-container")[0].style = "display: block;";
                 };
+                newCard.getElementsByClassName("link-card-button")[0].onclick = function() {
+                    location.href = data.link;
+                }
             }
         </script>
     </head>
@@ -121,6 +135,7 @@
                     </div>
                     <div class="link-card-expandable-container">
                         <p class="link-card-text"></p>
+                        <button class="link-card-button styled-button">Link</button>
                     </div>
                 </div>
             </div>
