@@ -10,6 +10,12 @@ html {
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-on-primary);
     font-family: 'Kanit', sans-serif;
+    width: max-content + 2%;
+    max-width: 100%;
+}
+h2 {
+    font-size: 2em;
+    font-style: italic;
 }
 .fancy-header {
     font-family: 'Borel', serif;
@@ -72,14 +78,14 @@ span {
         font-size: 5em;
     }
 }
-@container (min-width: 25cm) {
-    .page-title {
-        font-size: 10em;
-    }
-}
 @container (min-width: 20cm) {
     .page-title {
         font-size: 7.5em;
+    }
+}
+@container (min-width: 25cm) {
+    .page-title {
+        font-size: 10em;
     }
 }
 .clickable {

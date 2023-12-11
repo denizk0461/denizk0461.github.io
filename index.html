@@ -16,6 +16,8 @@
             .link-card {
                 background-color: #292929;
                 border-radius: 24px;
+                margin-top: 12px;
+                margin-bottom: 12px;
             }
             .link-card-primary-container {
                 overflow: hidden;
@@ -48,52 +50,57 @@
                 margin-right: 0px;
                 margin-top: 0px;
                 margin-bottom: 16px;
-                line-height: 1;
+                line-height: 1.4;
             }
             .link-card-expandable-container {
                 display: none;
-                padding: 16px
+                padding: 32px
+            }
+            .bottom-rat {
+                position: absolute;
+                right: 0px;
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+        <script type="text/javascript" src="resources/homepage/Cards.js"></script>
         <script>
             var gradientColours = ["3DD6D0", "85FF9E", "D36582", "2B59C3", "ff00ff", "C9A690", "47E5BC", "DB5461", "FDE74C", "90A959"];
-            var cardData = [
-                {
-                    title: "Courageschulen HB (Statistik)",
-                    subtitle: "",
-                    description: "Courageschulen in der Stadt Bremen",
-                    link: "/statistics/hb-courageschulen.html",
-                    imgLink: "/resources/datingsim2/spacerat.png",
-                },
-            ];
+            const colorThief = new ColorThief();
             
             $(function(){
                 $("#banner").load("/common/banner.html");
 
-                var rand = Math.floor(Math.random() * gradientColours.length);
+                var rand1 = Math.floor(Math.random() * gradientColours.length);
                 var rand2 = Math.floor(Math.random() * gradientColours.length);
 
                 // randomise page title gradient colours
-                document.getElementById("title").style = "background: -webkit-linear-gradient(0deg, #" + gradientColours[rand] + ", #" + gradientColours[rand2] + "); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;";
+                setGradient(rand1, rand2, [
+                    document.getElementById("title"),
+                    document.getElementById("hello-header"),
+                    document.getElementById("projects-header"),
+                ]);
 
                 for (var i = 0; i < cardData.length; i += 1) {
-                    console.log(cardData[i]);
                     generateCard(cardData[i]);
                 }
-
-                const colorThief = new ColorThief();
-                var cards = document.getElementsByClassName("link-card");
-                console.log(cards.length + cards[0] + cards[1] + cards[2]);
-                for (var i = 1; i < cards.length; i += 1) {
-                    var s = i;
-                    var img = document.getElementsByClassName("link-card-img")[i];
-                    img.onload = function() {
-                        applyColour(cards[s], cards[s].getElementsByClassName("link-card-button"), colorThief.getColor(img));
-                    }
-                }
             });
+
+            function onImageLoad(img) {
+                var parent = img.parentElement.parentElement;
+                applyColour(parent, parent.getElementsByClassName("link-card-button"), colorThief.getColor(img));
+            }
+
+            function setGradient(rand1, rand2, headers) {
+                var gradientStyle = "background: -webkit-linear-gradient(0deg, #" + gradientColours[rand1] + ", #" + gradientColours[rand2] + ");\n" +
+                "background-clip: text;\n" +
+                "-webkit-background-clip: text;\n" +
+                "-webkit-text-fill-color: transparent;";
+
+                for (var i = 0; i < headers.length; i += 1) {
+                    headers[i].style = gradientStyle;
+                }
+            }
 
             function applyColour(element, buttons, colour) {
                 var c = "rgba(" + colour.join(", ");
@@ -111,7 +118,7 @@
 
                 newCard.getElementsByClassName("link-card-header")[0].innerText = data.title;
                 newCard.getElementsByClassName("link-card-subheader")[0].innerText = data.subtitle;
-                newCard.getElementsByClassName("link-card-text")[0].innerText = data.description;
+                newCard.getElementsByClassName("link-card-text")[0].innerHTML = data.description;
                 newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
                 newCard.onclick = function() {
                     var display = window.getComputedStyle(newCard.getElementsByClassName("link-card-expandable-container")[0], null).display;
@@ -123,7 +130,7 @@
                     }
                 };
                 newCard.getElementsByClassName("link-card-button")[0].onclick = function() {
-                    location.href = data.link;
+                    location.href = data.buttonLink;
                 }
             }
         </script>
@@ -134,7 +141,7 @@
             <div id="hidden" style="display: none;">
                 <div class="link-card clickable">
                     <div class="link-card-primary-container">
-                        <img class="link-card-img">
+                        <img class="link-card-img" onload="onImageLoad(this)">
                         <div class="link-card-text-container">
                             <h3 class="link-card-header"></h3>
                             <p class="link-card-subheader"></p>
@@ -146,14 +153,17 @@
                     </div>
                 </div>
             </div>
-            <h1 id="title" class="page-title">This is a Sample Title äöüß.</h1>
-            <img class="page-header-image" src="/resources/homepage/cucumber.webp">
+            <h1 id="title" class="page-title">Welcome to My Website!</h1>
+            <img class="page-header-image" src="/resources/homepage/cucumber.webp" title="slice it off">
             <div class="width-conforming">
-                <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out <a href="/projects.html">my projects</a>!
+                <h2 id="hello-header">Hi! I'm Deniz~</h2>
+                <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out my projects down below!</p>
+                <p>Since I'm bilingual (🇩🇪 & 🇬🇧), both languages will be used on this website, depending on which fits a given context better.</p>
                 <p>~denizk0461 :)</p>
-                <p><a href="/statistics/hb-courageschulen.html">Courageschulen im Land Bremen (Statistik)</a></p>
+                <h2 id="projects-header">My Disordered Projects</h2>
                 <div id="card-container"></div>
             </div>
         </div>
+        <img class="bottom-rat" src="/resources/rat/spookyrat.webp">
     </body>
 </html>
