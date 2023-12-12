@@ -1,4 +1,4 @@
-var cardData = [
+var projectData = [
     {
         title: "Project N5",
         subtitle: "in-development Action-Adventure 3D Platformer made with Godot",
