@@ -48,9 +48,12 @@ span {
     color: var(--color-on-primary);
 }
 .styled-button {
-    padding: 8px;
-    font-size: 0.9em;
-    font-family: 'Lato', sans-serif;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 1.2em;
+    font-family: 'Kanit', sans-serif;
     border-radius: 12px;
     color: var(--color-text);
     /* border-color: var(--color-button-border); */
@@ -62,7 +65,7 @@ span {
 .darkened {
     filter: brightness(70%);
 }
-.page-title {
+.webpage-title {
     font-size: 4m;
     font-weight: 700;
     font-style: italic;
@@ -71,25 +74,28 @@ span {
     margin-bottom: 16px;
     line-height: 1.12;
 }
+.page-title {
+
+}
 @container (min-width: 10cm) {
-    .page-title {
+    .webpage-title {
         font-size: 4em;
         margin-left: 32px;
         margin-right: 32px;
     }
 }
 @container (min-width: 16cm) {
-    .page-title {
+    .webpage-title {
         font-size: 5em;
     }
 }
 @container (min-width: 20cm) {
-    .page-title {
+    .webpage-title {
         font-size: 7.5em;
     }
 }
 @container (min-width: 25cm) {
-    .page-title {
+    .webpage-title {
         font-size: 10em;
     }
 }
@@ -116,6 +122,11 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.centred {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .page-content {
     margin: 0px 32px;
 }
@@ -123,4 +134,9 @@ a:hover {
 .width-conforming {
     max-width: 25cm;
     margin: auto;
+}
+.bottom-rat {
+    position: fixed;
+    right: 0px;
+    bottom: 0;
 }

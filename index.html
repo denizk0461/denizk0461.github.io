@@ -3,13 +3,11 @@
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width'>
-        <title>denizk0461's website</title>
+        <title>Deniz' Website</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display&family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
-            
             .body-container {
                 container-type: inline-size;
             }
@@ -56,30 +54,20 @@
                 display: none;
                 padding: 32px
             }
-            .bottom-rat {
-                position: absolute;
-                right: 0px;
-            }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-        <script type="text/javascript" src="resources/projects/Projects.js"></script>
+        <script type="text/javascript" src="/resources/projects/Projects.js"></script>
+        <script type="text/javascript" src="/common/GradientHeaders.js"></script>
         <script>
-            var gradientColours = ["3DD6D0", "85FF9E", "D36582", "2B59C3", "ff00ff", "C9A690", "47E5BC", "DB5461", "FDE74C", "90A959"];
             const colorThief = new ColorThief();
             
             $(function(){
                 $("#banner").load("/common/banner.html");
-
-                var rand1 = Math.floor(Math.random() * gradientColours.length);
-                var rand2 = Math.floor(Math.random() * gradientColours.length);
+                $("#rat-footer").load("/common/rat-footer.html");
 
                 // randomise page title gradient colours
-                setGradient(rand1, rand2, [
-                    document.getElementById("title"),
-                    document.getElementById("hello-header"),
-                    document.getElementById("projects-header"),
-                ]);
+                applyGradientHeaders(document);
 
                 for (var i = 0; i < projectData.length; i += 1) {
                     generateCard(projectData[i]);
@@ -89,17 +77,6 @@
             function onImageLoad(img) {
                 var parent = img.parentElement.parentElement;
                 applyColour(parent, parent.getElementsByClassName("link-card-button"), colorThief.getColor(img));
-            }
-
-            function setGradient(rand1, rand2, headers) {
-                var gradientStyle = "background: -webkit-linear-gradient(0deg, #" + gradientColours[rand1] + ", #" + gradientColours[rand2] + ");\n" +
-                "background-clip: text;\n" +
-                "-webkit-background-clip: text;\n" +
-                "-webkit-text-fill-color: transparent;";
-
-                for (var i = 0; i < headers.length; i += 1) {
-                    headers[i].style = gradientStyle;
-                }
             }
 
             function applyColour(element, buttons, colour) {
@@ -139,18 +116,18 @@
                     </div>
                 </div>
             </div>
-            <h1 id="title" class="page-title">Welcome to My Website!</h1>
+            <h1 id="title" class="gradient-title webpage-title">Welcome to My Website!</h1>
             <img class="page-header-image" src="/resources/homepage/cucumber.webp" title="slice it off">
             <div class="width-conforming">
-                <h2 id="hello-header">Hi! I'm Deniz~</h2>
-                <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out my projects down below!</p>
+                <h2 id="hello-header" class="gradient-title">Hi! I'm Deniz~</h2>
+                <p>This page is currently under construction, as I have yet to figure out what I want to do with this website, but please feel free to check out my projects down below!</p>
                 <p>I'll use both English 🇬🇧 and German 🇩🇪 on this website, depending on which fits a given context better.</p>
                 <p>~denizk0461 ☺︎</p>
-                <h2 id="projects-header">My Disordered Projects</h2>
+                <h2 id="projects-header" class="gradient-title">My Disordered Projects</h2>
                 <h3 class="supporting-header">(ordered chronologically)</h3>
                 <div id="card-container"></div>
             </div>
         </div>
-        <img class="bottom-rat" src="/resources/rat/spookyrat.webp">
+        <div id="rat-footer"></div>
     </body>
 </html>

@@ -10,7 +10,7 @@ var projectData = [
                 link: "https://github.com/denizk0461/platformer",
             },
         ],
-        imgLink: "/resources/projects/n5.webp",
+        imgLink: "/resources/projects/projectn5/icon.webp",
     },
     {
         title: "Courageschulen in der Stadt Bremen",
@@ -23,7 +23,7 @@ var projectData = [
                 link: "/statistics/hb-courageschulen.html",
             },
         ],
-        imgLink: "/resources/datingsim2/spacerat.png",
+        imgLink: "/resources/projects/hb-courageschulen/icon.webp",
     },
     {
         title: "Swords & Stuff",
@@ -36,24 +36,13 @@ var projectData = [
                 link: "/swordsnstuff",
             },
         ],
-        imgLink: "/resources/projects/sns.jpg",
+        imgLink: "/resources/projects/swordsnstuff/icon.webp",
     },
     {
         title: "Totally Accurate Dating Simulator",
         subtitle: "The authentic dating experience",
-        description: "<b>Totally Accurate Dating Simulator</b> was created as a joke, spawning from a conversation between a friend and myself. It <i>totally</i> represents my <i>accurate</i> dating experience. This experience has been converted into a HTML website for your pleasure.<br><br><b>TADS 2</b> gives you a choice in seeking female or male partners – which is not very inclusive, I know – and a total of 28 endings! Which one will <i>you</i> get?<br><br>A third release, featuring more intricate conversation paths and a greater count of endings, is in planning, but has not yet progressed much in development.",
         link: "/projects/tads.html",
-        buttons: [
-            {
-                text: "Play TADS",
-                link: "/dumbstuff/datingsim.html",
-            },
-            {
-                text: "Play TADS 2",
-                link: "/dumbstuff/datingsim2.html",
-            },
-        ],
-        imgLink: "/resources/projects/tads.jpg",
+        imgLink: "/resources/projects/tads/icon.webp",
     },
     {
         title: "WeserPlaner",
@@ -66,7 +55,7 @@ var projectData = [
                 link: "https://play.google.com/store/apps/details?id=com.denizk0461.weserplaner",
             },
         ],
-        imgLink: "/resources/projects/weserplaner.webp",
+        imgLink: "/resources/projects/weserplaner/icon.webp",
     },
     {
         title: "Soundcloud Demo Dump",
@@ -79,7 +68,7 @@ var projectData = [
                 link: "https://soundcloud.com/denizk0461",
             },
         ],
-        imgLink: "/resources/projects/sc.jpg",
+        imgLink: "/resources/projects/scdemodump/icon.webp",
     },
     {
         title: "Text Basic",
@@ -92,7 +81,7 @@ var projectData = [
                 link: "https://play.google.com/store/apps/details?id=com.denizk0461.textbasic",
             },
         ],
-        imgLink: "/resources/projects/textbasic.webp",
+        imgLink: "/resources/projects/textbasic/icon.webp",
     },
     {
         title: "Dreamworld",
@@ -105,7 +94,7 @@ var projectData = [
                 link: "https://open.spotify.com/album/3JTMNd0YfTj4TD2kFAsPHw",
             },
         ],
-        imgLink: "/resources/projects/dreamworld.jpg",
+        imgLink: "/resources/projects/dreamworld/icon.webp",
     },
     {
         title: "A New Beginning",
@@ -118,7 +107,7 @@ var projectData = [
                 link: "https://open.spotify.com/album/1OKwmD2ir1mnEOlsh01Woy",
             },
         ],
-        imgLink: "/resources/projects/anewbeginning.jpg",
+        imgLink: "/resources/projects/anewbeginning/icon.webp",
     },
     {
         title: "Qwark – Grade Log",
@@ -131,7 +120,7 @@ var projectData = [
                 link: "https://github.com/denizk0461/qwark",
             },
         ],
-        imgLink: "/resources/projects/qwark.webp",
+        imgLink: "/resources/projects/qwark/icon.webp",
     },
     {
         title: "AvH-Vertretungsplan",
@@ -144,7 +133,7 @@ var projectData = [
                 link: "https://github.com/denizk0461/avh-substitution-plan",
             },
         ],
-        imgLink: "/resources/projects/avh.webp",
+        imgLink: "/resources/projects/avh/icon.webp",
     },
     {
         title: "Soundcloud Archive",
@@ -157,6 +146,6 @@ var projectData = [
                 link: "https://soundcloud.com/djd4rkn355",
             },
         ],
-        imgLink: "/resources/projects/scarchive.jpg",
+        imgLink: "/resources/projects/scarchive/icon.webp",
     },
 ];
