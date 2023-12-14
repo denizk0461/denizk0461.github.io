@@ -40,8 +40,8 @@
                 margin-bottom: 2px;
                 line-height: 1;
             }
-            .link-card-subtitle {
-                margin-top: 2px;
+            .link-card-subheader {
+                margin-top: 8px;
                 margin-bottom: 2px;
                 line-height: 1;
             }
@@ -63,7 +63,7 @@
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-        <script type="text/javascript" src="resources/homepage/Cards.js"></script>
+        <script type="text/javascript" src="resources/projects/Projects.js"></script>
         <script>
             var gradientColours = ["3DD6D0", "85FF9E", "D36582", "2B59C3", "ff00ff", "C9A690", "47E5BC", "DB5461", "FDE74C", "90A959"];
             const colorThief = new ColorThief();
@@ -81,8 +81,8 @@
                     document.getElementById("projects-header"),
                 ]);
 
-                for (var i = 0; i < cardData.length; i += 1) {
-                    generateCard(cardData[i]);
+                for (var i = 0; i < projectData.length; i += 1) {
+                    generateCard(projectData[i]);
                 }
             });
 
@@ -118,20 +118,11 @@
 
                 newCard.getElementsByClassName("link-card-header")[0].innerText = data.title;
                 newCard.getElementsByClassName("link-card-subheader")[0].innerText = data.subtitle;
-                newCard.getElementsByClassName("link-card-text")[0].innerHTML = data.description;
+                // newCard.getElementsByClassName("link-card-text")[0].innerHTML = data.description;
                 newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
                 newCard.onclick = function() {
-                    var display = window.getComputedStyle(newCard.getElementsByClassName("link-card-expandable-container")[0], null).display;
-                    console.log(display);
-                    if (display == "block") {
-                        newCard.getElementsByClassName("link-card-expandable-container")[0].style.display = "none";
-                    } else {
-                        newCard.getElementsByClassName("link-card-expandable-container")[0].style.display = "block";
-                    }
+                    location.href = data.link;
                 };
-                newCard.getElementsByClassName("link-card-button")[0].onclick = function() {
-                    location.href = data.buttonLink;
-                }
             }
         </script>
     </head>
@@ -147,10 +138,6 @@
                             <p class="link-card-subheader"></p>
                         </div>
                     </div>
-                    <div class="link-card-expandable-container">
-                        <p class="link-card-text"></p>
-                        <button class="link-card-button styled-button">Link</button>
-                    </div>
                 </div>
             </div>
             <h1 id="title" class="page-title">Welcome to My Website!</h1>
@@ -158,7 +145,7 @@
             <div class="width-conforming">
                 <h2 id="hello-header">Hi! I'm Deniz~</h2>
                 <p>This page is currently under construction, as I have yet to figure out what I want to do with this page, but please feel free to check out my projects down below!</p>
-                <p>Since I'm bilingual (🇩🇪 & 🇬🇧), both languages will be used on this website, depending on which fits a given context better.</p>
+                <p>I'll use both English 🇬🇧 and German 🇩🇪 on this website, depending on which fits a given context better.</p>
                 <p>~denizk0461 :)</p>
                 <h2 id="projects-header">My Disordered Projects</h2>
                 <div id="card-container"></div>
