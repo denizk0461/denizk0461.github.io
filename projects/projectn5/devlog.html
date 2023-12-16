@@ -21,11 +21,14 @@
         <style>
             .horizontally-aligned {
                 display: flex;
+            }
+            .horizontally-centre-aligned {
+                display: flex;
                 justify-content: center;
                 margin-left: auto;
                 margin-right: auto;
             }
-            .horizontally-aligned img {
+            .horizontally-centre-aligned img {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -45,6 +48,14 @@
                 // TODO implement width-reducing functionality
                 // document.getElementById("main-container").style.maxWidth = "20cm";
             });
+
+            function changeWidth(reduceWidth) {
+                if (reduceWidth) {
+                    document.getElementById("main-container").style.maxWidth = "20cm"
+                } else {
+                    document.getElementById("main-container").style.maxWidth = "35cm"
+                }
+            }
         </script>
     </head>
     <body>
@@ -53,6 +64,14 @@
             <div id="main-container" class="width-conforming">
                 <h1 id="title" class="gradient-title page-title">Project N5; Develop&shy;ment Log</h1>
                 <p>This is the development log for my game <b>Project N5</b>. Updates are shown in reverse chronological order.</p>
+
+                <div class="horizontally-aligned">
+                    <label class="switch">
+                        <input type="checkbox" onchange="changeWidth(this.checked)">
+                        <span class="slider round"></span>
+                    </label>
+                    <p style="margin-top: auto; margin-bottom: auto; margin-left: 16px;">Reduce width</p>
+                </div>
 
                 <h2 class="gradient-title">December 2023</h2>
 
@@ -134,7 +153,7 @@
 
                 <h3 class="gradient-title">A Star is Born</h3>
                 <p>I begun modelling my protagonist! I didn't progress far, as I currently lack a vision for where I really want my character to go in detail. I have slight ideas – inspirations are, for example, <a href="https://hero.fandom.com/wiki/Merc_and_Green">Merc & Green from Ratchet: Gladiator</a>, and <a href="/resources/projects/projectn5/devlog/2023-11/denholm.webp">Denholm Reynholm</a>. I quite liked the idea of having glowing tubes on the character's back; I got the inspiration from a Blender tutorial that was randomly recommended to me one morning.</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-11_05.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-12_01.webp">
                 </div>
@@ -147,7 +166,7 @@
                 <h3 class="gradient-title">Gearing Up</h3>
                 <p>Lots of progress on the 3D models! I modelled the first weapon for the game, the N5 Blaster, from start to finish!</p>
                 <p>The earliest version was based on an 8-sided cylinder. After some feedback from friends, I remade the weapon, using a 16-sided cylinder, and also adding more details to the weapon overall. More attention went into the grip, which now resembled a weapon grip more so than a stick.</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-05_00.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-03_01.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-05_03.webp">
@@ -163,7 +182,7 @@
                 <p>In my first attempt at creating this icon, I took a picture of the wireframed icosphere that's in the weapon, and I tried to vectorise it using Inkscape. That didn't work the way I wanted, so I hand-traced all the lines from the icosphere. I was confused as to why it's not symmetrical, but I later realised that that's just how the icosphere looks.</p>
                 <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/n5blaster_icon.webp">
                 <p>I also continued work on the battle axe, giving it more character. It's still not close to being finished, but it's now a bit less of a rough draft.</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-01_01.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-01_06.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-01_09.webp">
@@ -172,7 +191,7 @@
                 <p>Another idea, though more as an unlockable extra, is Derek the crowbar.</p>
                 <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-06_02.webp">
                 <p>I also worked on the upgrade for the N5 Blaster, the N5 Cannon. Progress on that one has been a bit slow, since I have yet to figure out what kind of weapon I want the upgraded version to be.</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-12_04.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-11/2023-11-12_02.webp">
                 </div>
@@ -198,7 +217,7 @@
 
                 <h3 class="gradient-title">Heavy Weaponry</h3>
                 <p>In order to get started with the 3D models I'll need to create for the game, I attempted to begin the process of modelling the weapon of the protagonist! It's supposed to become a battle axe, though I have not yet finalised whether I'll keep with the idea.</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-10/2023-10-22_02.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-10/2023-10-22_04.webp">
                     <img class="image-block centred width-restricted" src="/resources/projects/projectn5/devlog/2023-10/2023-10-22_05.webp">
@@ -227,7 +246,7 @@
                     My code is fucked bro
                 </video>
                 <p>The health bar even aligns properly for 5 and 6 max health points, reducing the max points displayed per line from 4 to 3!</p>
-                <div class="horizontally-aligned width-restricted">
+                <div class="horizontally-centre-aligned width-restricted">
                     <img class="image-block" src="/resources/projects/projectn5/devlog/2023-10/2023-10-07_01.webp">
                     <img class="image-block" src="/resources/projects/projectn5/devlog/2023-10/2023-10-07_02.webp">
                 </div>
