@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+        <title>Project N5; Development Log – denizk0461</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script type="text/javascript" src="/common/GradientHeaders.js"></script>
+        <script>
+            $(function(){
+                $("#banner").load("/common/banner.html");
+                $("#rat-footer").load("/common/rat-footer.html");
+
+                // randomise page title gradient colours
+                applyGradientHeaders(document);
+            });
+        </script>
+        <style>
+            a {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="banner"></div>
+        <div class="body-container">
+            <div id="main-container" class="width-conforming">
+                <h1 class="gradient-title page-title">The Link Grave&shy;yard</h1>
+                <p>This is a collection of URLs to different pages on this website that otherwise don't connect to anything.</p>
+
+                <h2 class="gradient-title">StugA Lehr&shy;amt GO</h2>
+                <a href="/terminfindung-go.html">StugA GO-Terminfindung</a>
+                <a href="/terminscanner-go.html">StugA GO-Terminscanner</a>
+
+                <h2 class="gradient-title">Privacy Policies</h2>
+                <a href="/privacy.html">Text Basic – old</a>
+                <a href="/privacy/textbasic.html">Text Basic – current</a>
+                <a href="/weserplaner_privacy_policy.html">WeserPlaner</a>
+
+                <h2 class="gradient-title">Miscellaneous</h2>
+                <a href="/404.html">404 page</a>
+                <a href="/projects.html">Former projects page</a>
+                <a href="/dumbstuff/lovetester.html">Love tester</a>
+                <a href="/blog/editor.html">Planned blog entry editor</a>
+        </div>
+        <div id="rat-footer"></div>
+    </body>
+</html>

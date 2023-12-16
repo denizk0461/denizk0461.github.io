@@ -67,8 +67,15 @@
                 applyGradientHeaders(document);
 
                 for (var i = 0; i < projectData.length; i += 1) {
-                    generateCard(projectData[i]);
+                    generateCard("card-container", projectData[i]);
                 }
+
+                generateCard("card-container-graveyard", {
+                    title: "The Link Graveyard",
+                    subtitle: "Where abandoned pages go to die",
+                    link: "/graveyard.html",
+                    imgLink: "/resources/homepage/manincoffin.webp",
+                });
             });
 
             function onImageLoad(img) {
@@ -85,8 +92,8 @@
                 }
             }
 
-            function generateCard(data) {
-                var container = document.getElementById("card-container");
+            function generateCard(container, data) {
+                var container = document.getElementById(container);
                 var newCard = document.getElementsByClassName("link-card")[0].cloneNode(true);
                 container.appendChild(newCard);
 
@@ -113,16 +120,18 @@
                     </div>
                 </div>
             </div>
-            <h1 id="title" class="gradient-title webpage-title">Welcome to My Website!</h1>
+            <h1 class="gradient-title webpage-title">Welcome to My Website!</h1>
             <img class="page-header-image" src="/resources/homepage/cucumber.webp" title="slice it off">
             <div class="width-conforming">
-                <h2 id="hello-header" class="gradient-title">Hi! I'm Deniz~</h2>
+                <h2 class="gradient-title">Hi! I'm Deniz~</h2>
                 <p>This page is currently under construction, as I have yet to figure out what I want to do with this website, but please feel free to check out my projects down below!</p>
                 <p>I'll use both English 🇬🇧 and German 🇩🇪 on this website, depending on which fits a given context better.</p>
                 <p>~denizk0461 ☺︎</p>
-                <h2 id="projects-header" class="gradient-title">My Disordered Projects</h2>
+                <h2 class="gradient-title">My Disordered Projects</h2>
                 <h3 class="supporting-header">(ordered chronologically)</h3>
                 <div id="card-container"></div>
+                <h2 class="gradient-title">The Link Graveyard</h2>
+                <div id="card-container-graveyard"></div>
             </div>
         </div>
         <div id="rat-footer"></div>

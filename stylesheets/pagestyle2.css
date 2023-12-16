@@ -32,6 +32,7 @@ code {
     padding-right: 6px;
 }
 .body-container {
+    height: 100%;
     container-type: inline-size;
 }
 .supporting-header {
