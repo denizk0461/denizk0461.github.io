@@ -100,6 +100,16 @@ span {
 }
 .gradient-title {
 }
+.width-restricted {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+@container (max-width: 20cm) {   
+    .hide-on-mobile {
+        display: none;
+    }
+}
 @container (min-width: 10cm) {
     .webpage-title {
         font-size: 4em;
@@ -124,6 +134,9 @@ span {
     }
     .page-title {
         font-size: 6.5em;
+    }
+    .width-restricted {
+        width: 80%;
     }
 }
 @container (min-width: 25cm) {
@@ -165,7 +178,6 @@ a:hover {
 .page-content {
     margin: 0px 32px;
 }
-
 .width-conforming {
     max-width: 35cm;
     margin: auto;
