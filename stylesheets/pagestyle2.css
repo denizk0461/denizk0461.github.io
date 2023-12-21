@@ -239,4 +239,20 @@ a:hover {
   }
   .slider.round:before {
     border-radius: 50%;
-  } 
+  }
+  .horizontally-aligned {
+      display: flex;
+  }
+  .horizontally-centre-aligned {
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .horizontally-centre-aligned img {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .light-background {
+      background-color: #efefef;
+  }
