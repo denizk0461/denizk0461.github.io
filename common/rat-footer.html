@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
+        <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <style>
-            .footer-padding {
-                height: 320px;
-            }
             .bottom-rat {
-                position: fixed;
-                right: 0px;
+                position: absolute;
+                width: 20%;
+                max-width: 100px;
+                right: 0;
                 bottom: 0;
-                display: inline-block;
             }
-            @media (max-width: 18cm) {           
-                .bottom-rat {
-                    max-width: 30%;
-                }
-                .footer-padding {
-                    height: 160px;
-                }
+            footer {
+                background-color: #161D17;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+            }
+            .footer-text-content {
+                width: 100%;
+                margin: auto;
+                padding: 0 24px;
+            }
+            .footer-text-content p {
+                font-size: 0.9rem;
+                width: fit-content;
             }
         </style>
     </head>
     <body>
-        <div class="footer-padding"></div>
-        <img class="bottom-rat" src="/resources/rat/spookyrat.webp">
+        <footer>
+            <div class="footer-text-content body-container">
+                <p>&copy; 2023 denizk0461</p>
+            </div>
+            <a href="https://youtu.be/7qEwJuTc9SA?t=17" title="the bottom rat">
+                <img class="bottom-rat" src="/resources/rat/spookyrat.webp">
+            </a>
+        </footer>
     </body>
 </html>

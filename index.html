@@ -3,135 +3,44 @@
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width'>
-        <title>Deniz' Website</title>
+        <title>denizk0641's website</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/stylesheets/pagestyle2.css">
+        <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <style>
-            .link-card {
-                background-color: #292929;
-                border-radius: 32px;
-                margin-top: 12px;
-                margin-bottom: 12px;
-            }
-            .link-card-primary-container {
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-            }
-            .link-card-img {
-                float: left;
-                width: 20%;
-                pointer-events: none;
-                border-radius: 32px;
-            }
-            .link-card-text-container {
-                padding: 16px;
-                float: left;
-                width: 70%;
-            }
-            .link-card-header {
-                margin-top: 2px;
-                margin-bottom: 2px;
-                line-height: 1;
-            }
-            .link-card-subheader {
-                margin-top: 8px;
-                margin-bottom: 2px;
-                line-height: 1;
-            }
-            .link-card-text {
-                margin-left: 0px;
-                margin-right: 0px;
-                margin-top: 0px;
-                margin-bottom: 16px;
-                line-height: 1.4;
-            }
-            .link-card-expandable-container {
-                display: none;
-                padding: 32px
+            .gradient-title {
+                width: fit-content;
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-        <script type="text/javascript" src="/resources/projects/Projects.js"></script>
-        <script type="text/javascript" src="/common/GradientHeaders.js"></script>
         <script>
-            const colorThief = new ColorThief();
-            
             $(function(){
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
 
-                // randomise page title gradient colours
-                applyGradientHeaders(document);
-
-                for (var i = 0; i < projectData.length; i += 1) {
-                    generateCard("card-container", projectData[i]);
-                }
-
-                generateCard("card-container-graveyard", {
-                    title: "The Link Graveyard",
-                    subtitle: "Where abandoned pages go to die",
-                    link: "/graveyard.html",
-                    imgLink: "/resources/homepage/manincoffin.webp",
-                });
+                document.getElementById("moin").style = "background: -webkit-linear-gradient(0deg, #96C9DC, #9CE391, #E03E59);\n" +
+                    "background-clip: text;\n" +
+                    "-webkit-background-clip: text;\n" +
+                    "-webkit-text-fill-color: transparent;";
             });
-
-            function onImageLoad(img) {
-                var parent = img.parentElement.parentElement;
-                applyColour(parent, parent.getElementsByClassName("link-card-button"), colorThief.getColor(img));
-            }
-
-            function applyColour(element, buttons, colour) {
-                var c = "rgba(" + colour.join(", ");
-                element.style = "background-color: " + c + ", 0.4);";
-
-                for (var b = 0; b < buttons.length; b += 1) {
-                    buttons[b].style = "border-color: " + c + ", 1.0);"
-                }
-            }
-
-            function generateCard(container, data) {
-                var container = document.getElementById(container);
-                var newCard = document.getElementsByClassName("link-card")[0].cloneNode(true);
-                container.appendChild(newCard);
-
-                newCard.getElementsByClassName("link-card-header")[0].innerText = data.title;
-                newCard.getElementsByClassName("link-card-subheader")[0].innerText = data.subtitle;
-                newCard.getElementsByClassName("link-card-img")[0].src = data.imgLink;
-                newCard.onclick = function() {
-                    location.href = data.link;
-                };
-            }
         </script>
     </head>
     <body>
         <div id="banner"></div>
         <div class="body-container">
-            <div id="hidden" style="display: none;">
-                <div class="link-card clickable">
-                    <div class="link-card-primary-container">
-                        <img class="link-card-img" onload="onImageLoad(this)">
-                        <div class="link-card-text-container">
-                            <h3 class="link-card-header"></h3>
-                            <p class="link-card-subheader"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h1 class="gradient-title webpage-title">Welcome to My Website!</h1>
-            <img class="page-header-image" src="/resources/homepage/cucumber.webp" title="slice it off">
             <div class="width-conforming">
-                <h2 class="gradient-title">Hi! I'm Deniz~</h2>
-                <p>This page is currently under construction, as I have yet to figure out what I want to do with this website, but please feel free to check out my projects down below!</p>
-                <p>I'll use both English 🇬🇧 and German 🇩🇪 on this website, depending on which fits a given context better.</p>
-                <p>~denizk0461 ☺︎</p>
-                <h2 class="gradient-title">My Disordered Projects</h2>
-                <h3 class="supporting-header">(ordered chronologically)</h3>
+                <h1 class="page-title">denizk0461's website</h1>
+                <hr class="hr-header">
+                <h1 id="moin" class="gradient-title">Moin! Na?</h1>
+                <div class="callout-box">
+                    <p>This page is currently under construction, but please feel free to browse around the construction site and check out my projects and further links down below!</p>
+                    <p>~denizk0461 ʕ•ﻌ•ʔ</p>
+                </div>
+                <h2 class="">My Disordered Projects</h2>
+                <p>[coming soon]</p>
                 <div id="card-container"></div>
-                <h2 class="gradient-title">The Link Graveyard</h2>
-                <div id="card-container-graveyard"></div>
+                <h2><a href="/cool-links.html">Cool Links</a></h2>
+                <h2><a href="/graveyard.html">The Link Graveyard</a></h2>
             </div>
         </div>
         <div id="rat-footer"></div>

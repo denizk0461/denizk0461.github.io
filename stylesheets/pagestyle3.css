@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Kanit:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --phoneWidth: (max-width: 684px);
+    --tabletWidth: (max-width: 900px);
+    --color-background: #1F2920;
+    --color-background-highlight: #232F24;
+    --color-background-divider: #384C3A;
+    --color-highlight: #9CE391;
+    --color-text: #e0e0e0;
+
+    --color-link-unvisited: #c2e8ff;
+    --color-link-visited: #ffd7f0;
+    --color-link-hovered: #ffdad5;
+}
+html {
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 24px 100px;
+    /* bottom = footer height */
+    background-color: var(--color-background);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+.body-container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kanit', 'Lato', sans-serif;
+    color: var(--color-text);
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.4rem;
+}
+h4, h5, h6 {
+    font-size: 1.2rem;
+}
+.page-title {
+    color: var(--color-highlight);
+}
+p {
+    color: var(--color-text);
+    margin-top: 12px;
+    margin-bottom: 12px;
+    line-height: 1.7rem;
+}
+.callout-box {
+    background-color: var(--color-background-highlight);
+    border: var(--color-highlight);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* unvisited link */
+a:link {
+    color: var(--color-link-unvisited);
+}
+/* visited link */
+a:visited {
+    color: var(--color-link-visited);
+}
+/* mouse over link */
+a:hover {
+    color: var(--color-link-hovered);
+}
+hr {
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+}
+.hr-header {
+    border-top: 2px dashed var(--color-highlight);
+    margin-top: 0px;
+}
+.hr-divider {
+    background: var(--color-background-divider);
+}
+.centred {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.width-restricted {
+    width: 100%;
+    max-width: 960px;
+}
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+li::before {
+    content: '–';
+    color: var(--color-highlight);
+    padding-right: 8px;
+}
+li {
+    color: var(--color-text);
+    /* font-weight: 600; */
+    display: flex;
+    padding-left: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+/* li a {
+    font-weight: 500;
+} */
