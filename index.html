@@ -15,8 +15,8 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             $(function(){
-                $("#banner").load("/common/banner.html");
-                $("#rat-footer").load("/common/rat-footer.html");
+                // $("#banner").load("/common/banner.html");
+                // $("#rat-footer").load("/common/rat-footer.html");
 
                 document.getElementById("moin").style = "background: -webkit-linear-gradient(0deg, #96C9DC, #9CE391, #E03E59);\n" +
                     "background-clip: text;\n" +
@@ -26,7 +26,9 @@
         </script>
     </head>
     <body>
-        <div id="banner"></div>
+        <div id="banner">
+            {% include /common/banner.html %}
+        </div>
         <div class="body-container">
             <div class="width-conforming">
                 <h1 class="page-title">denizk0461's website</h1>
