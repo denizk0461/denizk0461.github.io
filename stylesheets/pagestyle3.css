@@ -34,6 +34,12 @@ body {
 img {
     width: 100%;
 }
+.img-in-paragraph {
+    float: right;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    width: 40%;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Kanit', 'Lato', sans-serif;
     color: var(--color-text);
@@ -164,6 +170,9 @@ li a:hover {
     .img-gallery-column {
         flex: 100%;
         max-width: 100%;
+    }
+    .img-in-paragraph {
+        width: 100%;
     }
 }
 code {
