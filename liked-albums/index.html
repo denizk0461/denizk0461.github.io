@@ -8,10 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="/libraries/table-of-contents.js"></script>
         <script>
-            $(function(){
+            $(function() {
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
+
+                generateTableOfContents(document, document.getElementById("table-of-contents"));
             });
         </script>
     </head>
@@ -24,7 +27,12 @@
                 <div class="callout-box">
                     <p>This page is a work-in-progress.</p>
                 </div>
-                <p>This is a listing of some albums I like.</p>
+                <p>This is a listing of some albums I like. Ordered by artist, then by release date.</p>
+                <div id="table-of-contents"></div>
+
+                <h2 id="ihtsc">it's hard to see color [When You're So Impossibly Far Away*]</h2>
+                <p>by Jaron</p>
+                <p></p>
             </div>
         </div>
         <div id="rat-footer"></div>

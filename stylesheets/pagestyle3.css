@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;900&family=Kanit:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,700;1,400&display=swap');
 
 :root {
     --phoneWidth: (max-width: 684px);
@@ -188,4 +189,22 @@ code {
     background-color: #efefef;
     border-radius: 12px;
     padding: 8px;
+}
+.small-width {
+    max-width: 512px;
+}
+.quote-container {
+    background-color: var(--color-background-highlight-lighter);
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 16px;
+}
+.quote-text {
+    font-style: italic;
+    font-family: "Space Mono", monospace;
+}
+.quote-by {
+    font-size: 1rem;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
 }

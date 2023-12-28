@@ -8,10 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="/libraries/table-of-contents.js"></script>
         <script>
             $(function(){
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
+
+                generateTableOfContents(document, document.getElementById("table-of-contents"));
             });
         </script>
     </head>
@@ -22,7 +25,8 @@
                 <h1 class="page-title">A Few Cool Links</h1>
                 <hr class="hr-header">
                 <p>Here are a few links to pages on the internet that I enjoy! Updated occasionally.</p>
-                <h2>Random</h2>
+                <div id="table-of-contents"></div>
+                <h2 id="random">Random</h2>
                 <p>A non-ordered collection of neat tools and resources that I deemed interesting at some point.</p>
                 <ul>
                     <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Main/CrateExpectations">TV Tropes: <strong>Crate Expectations</strong></a></li>
@@ -33,7 +37,7 @@
                     <li><a href="https://www.mp3tag.de/en/">Audio tagging tool: <strong>Mp3tag</strong> 🇩🇪</a></li>
                 </ul>
                 <hr class="hr-divider">
-                <h2>Creation Tools</h2>
+                <h2 id="creation-tools">Creation Tools</h2>
                 <p>Some great tools for creating media!</p>
                 <ul>
                     <li><a href="https://www.blender.org/">3D model creation tool: <strong>Blender</strong></a></li>

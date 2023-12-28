@@ -13,8 +13,9 @@
             }
         </style>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="/libraries/quotes.js"></script>
         <script>
-            $(function(){
+            $(function() {
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
 
@@ -22,6 +23,10 @@
                     "background-clip: text;\n" +
                     "-webkit-background-clip: text;\n" +
                     "-webkit-text-fill-color: transparent;";
+                
+                var quote = quotes[Math.floor(Math.random() * quotes.length)];
+                document.getElementById("quote-text").innerHTML = quote.text;
+                document.getElementById("quote-by").innerText = `— ${quote.by}, « ${quote.from} »`;
             });
         </script>
     </head>
@@ -35,6 +40,12 @@
                 <div class="callout-box">
                     <p>This page is currently under construction, but please feel free to browse around the construction site and check out my projects and further links down below!</p>
                     <p>~denizk0461 ʕ•ﻌ•ʔ</p>
+                </div>
+                <div class="quote-container">
+                    <div class="centred small-width">
+                        <p class="quote-text" id="quote-text"></p>
+                        <p class="quote-by" id="quote-by"></p>
+                    </div>
                 </div>
                 <ul>
                     <li><a href="/internet-alive/">An Appeal to All Creatives</a></li>
