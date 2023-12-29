@@ -30,15 +30,23 @@
                 width: fit-content;
             }
         </style>
+        <script>
+            var ratCounter = 0;
+            function playSound() {
+                new Audio(`/common/rat-footer-sfx/bolt${ratCounter}.wav`).play();
+                ratCounter += 1;
+                if (ratCounter == 3) {
+                    ratCounter = 0;
+                }
+            }
+        </script>
     </head>
     <body>
         <footer>
             <div class="footer-text-content body-container">
                 <p>&copy; 2023 denizk0461</p>
             </div>
-            <a href="https://youtu.be/7qEwJuTc9SA?t=17" title="the bottom rat">
-                <img class="bottom-rat" src="/resources/rat/spookyrat.webp">
-            </a>
+            <img onclick="playSound()" title="the bottom rat" class="bottom-rat clickable" src="/resources/rat/spookyrat.webp">
         </footer>
     </body>
 </html>

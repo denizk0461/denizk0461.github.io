@@ -228,3 +228,12 @@ code {
 .album-img {
     border-radius: 16px;
 }
+.clickable {
+    cursor: pointer;
+}
+.text-link:link {
+    color: var(--color-text);
+}
+.text-link:visited {
+    color: var(--color-text);
+}
