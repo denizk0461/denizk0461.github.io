@@ -27,7 +27,7 @@
                     node.classList.add("album-entry");
                     var squishedTitle = a.title.replace(/\W/g, '').toLowerCase().substring(0, 12);
                     var entry = `<h2 id="${squishedTitle}">${a.artist} – ${a.title}</h2>\n`;
-                    entry += `<img class="img-in-paragraph-left" src="${a.img}.webp"></img>`;
+                    entry += `<img class="img-in-paragraph-left album-img" src="${a.img}.webp"></img>`;
                     entry += `<p class="album-release special-text">Released: <span class="special-text-highlight">${a.released}</span></p>`;
 
                     var paragraphs = a.content.split("\n");

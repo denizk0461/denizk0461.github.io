@@ -202,7 +202,7 @@ code {
 .quote-container {
     background-color: var(--color-background-highlight-lighter);
     border-radius: 16px;
-    padding: 12px;
+    padding: 20px;
     margin-top: 16px;
 }
 .quote-text {
@@ -224,4 +224,7 @@ code {
     font-family: "Space Mono", monospace;
     font-weight: 700;
     font-style: italic;
+}
+.album-img {
+    border-radius: 16px;
 }

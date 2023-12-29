@@ -5,7 +5,7 @@ var albums = [
         "released": "2013-09-13",
         "img": "true",
         "content": "This album gets a special place at the top of this page.",
-        "fav": "",
+        "fav": "Wake Me Up",
     },
     {
         "title": "10,000 gecs",
@@ -21,7 +21,7 @@ var albums = [
         "released": "2017-08-10",
         "img": "avici01",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Friend Of Mine",
     },
     {
         "title": "create together vol. 3",
@@ -37,7 +37,7 @@ var albums = [
         "released": "2022-12-02",
         "img": "hypochondriac",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "5g",
     },
     {
         "title": "NOT TiGHT",
@@ -77,7 +77,7 @@ var albums = [
         "released": "2023-10-20",
         "img": "censusdesignated",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Video",
     },
     {
         "title": "it's hard to see color [When You're So Impossibly Far Away*]",
@@ -93,15 +93,15 @@ var albums = [
         "released": "2020-10-23",
         "img": "paracosm",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Talk Slow",
     },
     {
         "title": "Good Faith",
         "artist": "Madeon",
         "released": "2019-11-15",
         "img": "goodfaith",
-        "content": "Sample Text",
-        "fav": "",
+        "content": "worth listening to the album with The Prince and Love You Back",
+        "fav": "Miracle?",
     },
     {
         "title": "Nurture",
@@ -109,7 +109,7 @@ var albums = [
         "released": "2023-04-23",
         "img": "nurture",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Mirror",
     },
     {
         "title": "Wide-Eyed",
@@ -117,7 +117,7 @@ var albums = [
         "released": "2018-07-20",
         "img": "wideeyed",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Superstar",
     },
     {
         "title": "Sentiment",
@@ -125,7 +125,7 @@ var albums = [
         "released": "2022-02-18",
         "img": "sentiment",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "Spider",
     },
     {
         "title": "album1",
@@ -141,7 +141,7 @@ var albums = [
         "released": "2020-03-27",
         "img": "stayvibrant",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "idk anything (demo)",
     },
     {
         "title": "bb u ok?",
@@ -160,28 +160,20 @@ var albums = [
         "fav": "",
     },
     {
-        "title": "Where U Are",
-        "artist": "Throttle",
-        "released": "2019-10-11",
-        "img": "whereuare",
-        "content": "Sample Text",
-        "fav": "",
-    },
-    {
         "title": "fishmonger",
         "artist": "underscores",
         "released": "2021-03-25",
         "img": "fishmonger",
-        "content": "Sample Text",
-        "fav": "",
+        "content": "<strong>fishmonger</strong> is a significant album in my journey of developing my musical taste. Initially, I was deterred by the album's substantial use of instruments over synthesisers, as I had previously listened to a lot of electronic music. A few songs stuck with me though, so I kept listening, and over the course of these listens, I grew from somewhat liking a few passages to loving the album from its first second to its very end. <strong>fishmonger</strong> reminds me of my times working my first job to pay student life, but it also reminds me of significant low points in my life. Whether that might be in identifying with more jovial-sounding songs such as <i>Bozo bozo bozo</i>, daydreaming alongside the second half of <i>Dry land 2001</i>, or drowning in the emotional impact of <i>Del mar county fair 2008</i>.",
+        "fav": "Kinko's field trip 2006",
     },
     {
         "title": "Wallsocket",
         "artist": "underscores",
         "released": "2023-09-22",
         "img": "wallsocket",
-        "content": "Sample Text",
-        "fav": "",
+        "content": "Since the albums I usually listen to are most often based on real problems the artist faces, <strong>Wallsocket</strong> is quite refreshing, as it is based on fictional stories.",
+        "fav": "Uncanny long arms",
     },
     {
         "title": "Virtual Self",
