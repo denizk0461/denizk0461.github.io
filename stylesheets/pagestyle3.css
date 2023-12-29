@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;900&family=Kanit:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
     --phoneWidth: (max-width: 684px);
@@ -38,6 +38,12 @@ img {
 .img-in-paragraph {
     float: right;
     margin-left: 16px;
+    margin-bottom: 16px;
+    width: 40%;
+}
+.img-in-paragraph-left {
+    float: left;
+    margin-right: 16px;
     margin-bottom: 16px;
     width: 40%;
 }
@@ -207,4 +213,15 @@ code {
     font-size: 1rem;
     font-family: "Space Mono", monospace;
     font-weight: 700;
+}
+.album-entry {
+    /* width: 100%; */
+}
+.special-text {
+    font-family: 'Space Mono', monospace;
+}
+.special-text-highlight {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
 }

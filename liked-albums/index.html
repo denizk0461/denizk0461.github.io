@@ -9,16 +9,47 @@
         <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="/libraries/table-of-contents.js"></script>
+        <script src="/liked-albums/liked-albums.js"></script>
         <script>
             $(function() {
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
 
+                generateAlbumList(albums, document.getElementById("album-container"));
+
                 generateTableOfContents(document, document.getElementById("table-of-contents"));
             });
+
+            function generateAlbumList(albums, into) {
+                for (var i = 0; i < albums.length; i += 1) {
+                    var a = albums[i];
+                    var node = document.createElement("div");
+                    node.classList.add("album-entry");
+                    var squishedTitle = a.title.replace(/\W/g, '').toLowerCase().substring(0, 12);
+                    var entry = `<h2 id="${squishedTitle}">${a.artist} – ${a.title}</h2>\n`;
+                    entry += `<img class="img-in-paragraph-left" src="${a.img}.webp"></img>`;
+                    entry += `<p class="album-release special-text">Released: <span class="special-text-highlight">${a.released}</span></p>`;
+
+                    var paragraphs = a.content.split("\n");
+                    for (var j = 0; j < paragraphs.length; j += 1) {
+                        entry += `<p>${paragraphs[j]}</p>\n`;
+                    }
+
+                    entry += `<p class="special-text">Favourite track: <span class="special-text-highlight">${a.fav}</span></p>`;
+
+                    // if (i != albums.length - 1) {
+                        entry += "<hr class='hr-divider'>\n";
+                    // }
+                    node.innerHTML = entry;
+                    into.appendChild(node);
+                }
+            }
         </script>
     </head>
     <body>
+        <div style="display: none;">
+            <img class="img-in-paragraph-left">
+        </div>
         <div id="banner"></div>
         <div class="body-container">
             <div id="main-container" class="width-conforming">
@@ -29,10 +60,8 @@
                 </div>
                 <p>This is a listing of some albums I like. Ordered by artist, then by release date.</p>
                 <div id="table-of-contents"></div>
-
-                <h2 id="ihtsc">it's hard to see color [When You're So Impossibly Far Away*]</h2>
-                <p>by Jaron</p>
-                <p></p>
+                <hr class="hr-divider">
+                <div id="album-container"></div>
             </div>
         </div>
         <div id="rat-footer"></div>
