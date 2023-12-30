@@ -53,4 +53,10 @@ var quotes = [
         "from": "Quit Screen Message",
         "link": "https://youtu.be/0twDETh6QaI?t=6723",
     },
+    {
+        "text": "2500 No, it thought I said dog again.",
+        "by": "Xem92",
+        "from": "This Mod Kills Me If I Answer Trivia Questions Wrong",
+        "link": "https://youtu.be/UUmfeBi4ewo?si=zNc-g-NVQDbQb9RH&t=2928",
+    },
 ]

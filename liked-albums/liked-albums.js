@@ -104,7 +104,7 @@ var albums = [
         "released": "2020-10-23",
         "img": "paracosm",
         "content": "Sample Text",
-        "fav": "Talk Slow",
+        "fav": "Talk Slow (& Noomi)",
         "feelings": "relaxing, slow-paced, melancholic",
     },
     {
@@ -112,7 +112,7 @@ var albums = [
         "artist": "Kaskade",
         "released": "2018-11-30",
         "img": "kaskadechristmas",
-        "content": "Usually, Christmas is the time where one is flooded with the Christmas mainstay songs by the likes of Mariah Carey and Wham!, among many others. A few years ago, however, I stumbled upon this gem of an album: <strong>Kaskade Christmas</strong>. An EDM Christmas album?? And what's more – it's actually good?!\n<strong>Kaskade Christmas</strong>, to me, is an album that respectfully keeps the spirit of traditional Christmas songs while putting a refreshingly modern spin on them. It doesn't even need to be December to listen to these bangers; though of course that's when they hit hardest.",
+        "content": "Usually, Christmas is the time where one is flooded with Christmas mainstay songs by the likes of Mariah Carey and Wham!, among many others. A few years ago, however, I stumbled upon this gem of an album: <strong>Kaskade Christmas</strong>. An EDM Christmas album?? And what's more – it's actually good?!\n<strong>Kaskade Christmas</strong>, to me, is an album that respectfully keeps the spirit of traditional Christmas songs while putting a refreshingly modern spin on them. It doesn't even need to be December to listen to these bangers; though of course that's when they hit hardest.",
         "fav": "God Rest Ye (feat. Debra Fotheringham)",
         "feelings": "christmas-y",
     },
@@ -140,7 +140,7 @@ var albums = [
         "released": "2018-07-20",
         "img": "wideeyed",
         "content": "Sample Text",
-        "fav": "Superstar",
+        "fav": "Superstar (& Dabin, Linn)",
         "feelings": "",
     },
     {
@@ -149,7 +149,7 @@ var albums = [
         "released": "2022-02-18",
         "img": "sentiment",
         "content": "Sample Text",
-        "fav": "Spider",
+        "fav": "Spider (& Boy In Space)",
         "feelings": "",
     },
     {
