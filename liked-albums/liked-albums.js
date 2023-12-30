@@ -6,6 +6,7 @@ var albums = [
         "img": "true",
         "content": "This album gets a special place at the top of this page.",
         "fav": "Wake Me Up",
+        "feelings": "",
     },
     {
         "title": "10,000 gecs",
@@ -14,6 +15,7 @@ var albums = [
         "img": "10kgecs",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "AVĪCI (01)",
@@ -21,7 +23,8 @@ var albums = [
         "released": "2017-08-10",
         "img": "avici01",
         "content": "Sample Text",
-        "fav": "Friend Of Mine",
+        "fav": "Friend Of Mine (feat. Vargas & Lagola)",
+        "feelings": "",
     },
     {
         "title": "create together vol. 3",
@@ -30,6 +33,7 @@ var albums = [
         "img": "createtogether3",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "hypochondriac",
@@ -38,6 +42,7 @@ var albums = [
         "img": "hypochondriac",
         "content": "Sample Text",
         "fav": "5g",
+        "feelings": "",
     },
     {
         "title": "NOT TiGHT",
@@ -45,7 +50,8 @@ var albums = [
         "released": "2022-06-29",
         "img": "nottight",
         "content": "Sample Text",
-        "fav": "",
+        "fav": "DUKE",
+        "feelings": "jazzy, relaxing, leaned-back",
     },
     {
         "title": "Awake",
@@ -54,6 +60,7 @@ var albums = [
         "img": "awake",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "ASCEND",
@@ -62,6 +69,7 @@ var albums = [
         "img": "ascend",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "Frailty",
@@ -70,14 +78,16 @@ var albums = [
         "img": "frailty",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "Census Designated",
         "artist": "Jane Remover",
         "released": "2023-10-20",
         "img": "censusdesignated",
-        "content": "Sample Text",
+        "content": "Sample Text, something about lips",
         "fav": "Video",
+        "feelings": "distressing, haunting, emotional, powerful",
     },
     {
         "title": "it's hard to see color [When You're So Impossibly Far Away*]",
@@ -86,6 +96,7 @@ var albums = [
         "img": "ihtsc",
         "content": "Sample Text",
         "fav": "WIRES222",
+        "feelings": "",
     },
     {
         "title": "The Making of a Paracosm",
@@ -94,6 +105,16 @@ var albums = [
         "img": "paracosm",
         "content": "Sample Text",
         "fav": "Talk Slow",
+        "feelings": "relaxing, slow-paced, melancholic",
+    },
+    {
+        "title": "Kaskade Christmas Deluxe",
+        "artist": "Kaskade",
+        "released": "2018-11-30",
+        "img": "kaskadechristmas",
+        "content": "Usually, Christmas is the time where one is flooded with the Christmas mainstay songs by the likes of Mariah Carey and Wham!, among many others. A few years ago, however, I stumbled upon this gem of an album: <strong>Kaskade Christmas</strong>. An EDM Christmas album?? And what's more – it's actually good?!\n<strong>Kaskade Christmas</strong>, to me, is an album that respectfully keeps the spirit of traditional Christmas songs while putting a refreshingly modern spin on them. It doesn't even need to be December to listen to these bangers; though of course that's when they hit hardest.",
+        "fav": "God Rest Ye (feat. Debra Fotheringham)",
+        "feelings": "christmas-y",
     },
     {
         "title": "Good Faith",
@@ -102,6 +123,7 @@ var albums = [
         "img": "goodfaith",
         "content": "worth listening to the album with The Prince and Love You Back",
         "fav": "Miracle?",
+        "feelings": "",
     },
     {
         "title": "Nurture",
@@ -110,6 +132,7 @@ var albums = [
         "img": "nurture",
         "content": "Sample Text",
         "fav": "Mirror",
+        "feelings": "empowering",
     },
     {
         "title": "Wide-Eyed",
@@ -118,6 +141,7 @@ var albums = [
         "img": "wideeyed",
         "content": "Sample Text",
         "fav": "Superstar",
+        "feelings": "",
     },
     {
         "title": "Sentiment",
@@ -126,6 +150,7 @@ var albums = [
         "img": "sentiment",
         "content": "Sample Text",
         "fav": "Spider",
+        "feelings": "",
     },
     {
         "title": "album1",
@@ -134,6 +159,7 @@ var albums = [
         "img": "album1",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "stay vibrant",
@@ -142,6 +168,7 @@ var albums = [
         "img": "stayvibrant",
         "content": "Sample Text",
         "fav": "idk anything (demo)",
+        "feelings": "",
     },
     {
         "title": "bb u ok?",
@@ -150,14 +177,16 @@ var albums = [
         "img": "bbuok",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "Illusion of Perfection",
         "artist": "Spencer Brown",
         "released": "2018-05-11",
         "img": "illusion",
-        "content": "Sample Text",
-        "fav": "",
+        "content": "Progressive House is the EDM style that prevailed in my music playlists for a very long time. It's what I predominantly grew up with post-2013, and it's what served as the main inspiration for the music I have produced myself. There are so many tracks that I love... that are incredibly hard to share with others, since they really, truly often are just an 8-bar beat and a melody repeating for 10 minutes straight. The same kind of applies to Spencer Brown's <strong>Illusion of Perfection</strong>, really. But it's so entrancing. Sometimes I really am in the mood to listen to an hour-long, incredibly cohesive piece of work like this.\nDon't get me wrong – this album is far from boring. It's thematically great, it's varied, the sound design is great, and the overall tracks are very creative. It's just a type of album that requires a fairly long attention span. Something I can rarely say for myself. But when I am in the mood for it, I'm loving every second of it.",
+        "fav": "Audio (& Liam Hathaway)",
+        "feelings": "entrancing, motivating, focussed",
     },
     {
         "title": "fishmonger",
@@ -166,6 +195,7 @@ var albums = [
         "img": "fishmonger",
         "content": "<strong>fishmonger</strong> is a significant album in my journey of developing my musical taste. Initially, I was deterred by the album's substantial use of instruments over synthesisers, as I had previously listened to a lot of electronic music. A few songs stuck with me though, so I kept listening, and over the course of these listens, I grew from somewhat liking a few passages to loving the album from its first second to its very end. <strong>fishmonger</strong> reminds me of my times working my first job to pay student life, but it also reminds me of significant low points in my life. Whether that might be in identifying with more jovial-sounding songs such as <i>Bozo bozo bozo</i>, daydreaming alongside the second half of <i>Dry land 2001</i>, or drowning in the emotional impact of <i>Del mar county fair 2008</i>.",
         "fav": "Kinko's field trip 2006",
+        "feelings": "energetic to melancholic",
     },
     {
         "title": "Wallsocket",
@@ -173,7 +203,8 @@ var albums = [
         "released": "2023-09-22",
         "img": "wallsocket",
         "content": "Since the albums I usually listen to are most often based on real problems the artist faces, <strong>Wallsocket</strong> is quite refreshing, as it is based on fictional stories.",
-        "fav": "Uncanny long arms",
+        "fav": "Uncanny long arms (with Jane Remover)",
+        "feelings": "",
     },
     {
         "title": "Virtual Self",
@@ -182,6 +213,7 @@ var albums = [
         "img": "virtualself",
         "content": "Sample Text",
         "fav": "",
+        "feelings": "",
     },
     {
         "title": "nintendo 64",
@@ -190,5 +222,6 @@ var albums = [
         "img": "n64",
         "content": "wes mills tried to create a nostalgic-sounding EP with <strong>nintendo 64</strong>, and even though I had not even been alive during the reign of the N64, wes mills' nostalgia is tangible through this 4-track release. Big recommendation.\n<a href='https://youtu.be/XK27UYX4zs0'>The</a> <a href='https://youtu.be/TGQR0yoyx4I'>music</a> <a href='https://youtu.be/SxOxL5mASgY'>videos</a> are absolutely worth a watch as well; their playful and amateurish vibe (which I earnestly mean in the best way possible!!) really evokes the feeling of being a child and immersing yourself in your favourite activities. This 10-minute EP is truly a breath of fresh air.",
         "fav": "finish line",
+        "feelings": "",
     },
 ];

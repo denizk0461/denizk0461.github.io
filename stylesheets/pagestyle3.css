@@ -93,6 +93,10 @@ p {
     padding-left: 20px;
     padding-right: 20px;
 }
+.callout-box-alt {
+    background-color: var(--color-background-highlight-lighter);
+    border-style: none;
+}
 
 /* unvisited link */
 a:link {

@@ -35,7 +35,10 @@
                         entry += `<p>${paragraphs[j]}</p>\n`;
                     }
 
-                    entry += `<p class="special-text">Favourite track: <span class="special-text-highlight">${a.fav}</span></p>`;
+                    entry += '<div class="callout-box callout-box-alt">';
+                    entry += `<p class="special-text">Feelings: <span class="special-text-highlight">${a.feelings}</span><br>`;
+                    entry += `Favourite track: <span class="special-text-highlight">${a.fav}</span></p>`;
+                    entry += "</div>"
 
                     // if (i != albums.length - 1) {
                         entry += "<hr class='hr-divider'>\n";
@@ -59,6 +62,7 @@
                     <p>This page is a work-in-progress.</p>
                 </div>
                 <p>This is a listing of some albums I like. Ordered by artist, then by release date.</p>
+                TODO introduction about how I prefer full-length albums over shuffled playlists
                 <div id="table-of-contents"></div>
                 <hr class="hr-divider">
                 <div id="album-container"></div>
