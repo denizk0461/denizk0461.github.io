@@ -5,7 +5,7 @@ var albums = [
         "released": "2013-09-13",
         "img": "true",
         "content": "This album gets a special place at the top of this page.",
-        "fav": "Wake Me Up",
+        "fav": "Wake Me Up (feat. Aloe Blacc)",
         "feelings": "",
     },
     {
@@ -52,6 +52,15 @@ var albums = [
         "content": "Sample Text",
         "fav": "DUKE",
         "feelings": "jazzy, relaxing, leaned-back",
+    },
+    {
+        "title": "Healers Vol. 1",
+        "artist": "Duskus",
+        "released": "2023-11-??",
+        "img": "healers1",
+        "content": "Sample Text",
+        "fav": "Hope",
+        "feelings": "dreamy",
     },
     {
         "title": "Awake",
