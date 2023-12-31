@@ -56,11 +56,11 @@ var albums = [
     {
         "title": "Healers Vol. 1",
         "artist": "Duskus",
-        "released": "2023-11-??",
+        "released": "2023-11-10",
         "img": "healers1",
-        "content": "Sample Text",
+        "content": "There are few albums that I like from start to finish after the first listen, but this is one of them. <strong>Healers Vol. 1</strong> captures a calm, dreamlike feeling that has made me listen to the entire work more times than I can count in the past few days. I really love this EP. Big recommendation.",
         "fav": "Hope",
-        "feelings": "dreamy",
+        "feelings": "calm, dreamy, healing, hopeful",
     },
     {
         "title": "Awake",
