@@ -15,37 +15,34 @@
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
 
-                generateAlbumList(albums, document.getElementById("album-container"));
+                generateAlbumList2(albums, document.getElementById("album-container"));
 
                 generateTableOfContents(document, document.getElementById("table-of-contents"));
             });
 
-            function generateAlbumList(albums, into) {
-                for (var i = 0; i < albums.length; i += 1) {
-                    var a = albums[i];
-                    var node = document.createElement("div");
-                    node.classList.add("album-entry");
-                    var squishedTitle = a.title.replace(/\W/g, '').toLowerCase().substring(0, 12);
-                    var entry = `<h2 id="${squishedTitle}">${a.artist} – ${a.title}</h2>\n`;
-                    entry += `<img class="img-in-paragraph-left album-img" src="${a.img}.webp"></img>`;
-                    entry += `<p class="album-release special-text">Released: <span class="special-text-highlight">${a.released}</span></p>`;
-
-                    var paragraphs = a.content.split("\n");
-                    for (var j = 0; j < paragraphs.length; j += 1) {
-                        entry += `<p>${paragraphs[j]}</p>\n`;
-                    }
-
-                    entry += '<div class="callout-box callout-box-alt">';
-                    entry += `<p class="special-text">Feelings: <span class="special-text-highlight">${a.feelings}</span><br>`;
-                    entry += `Favourite track: <span class="special-text-highlight">${a.fav}</span></p>`;
-                    entry += "</div>"
-
-                    // if (i != albums.length - 1) {
-                        entry += "<hr class='hr-divider'>\n";
-                    // }
-                    node.innerHTML = entry;
-                    into.appendChild(node);
+            function splitList(list, index, step) {
+                var newList = [];
+                for (var i = index; i < albums.length; i += step) {
+                    if (list[i] == null) break;
+                    newList.push(`<a href='${list[i].link}'><img class='album-img' title="${list[i].title} by ${list[i].artist}" src='${list[i].img}.webp'></a>`);
                 }
+                return newList;
+            }
+
+            function generateAlbumList2(albums, into) {
+                var counter = 0;
+                var newList0 = splitList(albums, 0, 3);
+                var newList1 = splitList(albums, 1, 3);
+                var newList2 = splitList(albums, 2, 3);
+                var content = "";
+                var node = document.createElement("div");
+                content += '<div class="img-gallery-row">';
+                content += `<div class="img-gallery-column-thirds">${newList0.join("")}</div>`;
+                content += `<div class="img-gallery-column-thirds">${newList1.join("")}</div>`;
+                content += `<div class="img-gallery-column-thirds">${newList2.join("")}</div>`;
+                content += '</div>';
+                node.innerHTML = content;
+                into.appendChild(node);
             }
         </script>
     </head>
@@ -66,6 +63,7 @@
                 <div id="table-of-contents"></div>
                 <hr class="hr-divider">
                 <div id="album-container"></div>
+                <p class="centred-text">– ♡ –</p>
             </div>
         </div>
         <div id="rat-footer"></div>

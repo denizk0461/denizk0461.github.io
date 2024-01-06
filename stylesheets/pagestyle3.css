@@ -168,6 +168,11 @@ li a:hover {
     max-width: 50%;
     padding: 0 4px;
 }
+.img-gallery-column-thirds {
+    flex: 25%;
+    max-width: 33%;
+    padding: 0 4px;
+}
 .img-gallery-row {
     display: flex;
     flex-wrap: wrap;
@@ -240,4 +245,19 @@ code {
 }
 .text-link:visited {
     color: var(--color-text);
+}
+.centred-text {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+.mouse-box {
+    width: 6em;
+    height: 6em;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
+    transition: 0.05s ease-out;
 }
