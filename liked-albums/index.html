@@ -15,9 +15,7 @@
                 $("#banner").load("/common/banner.html");
                 $("#rat-footer").load("/common/rat-footer.html");
 
-                generateAlbumList2(albums, document.getElementById("album-container"));
-
-                generateTableOfContents(document, document.getElementById("table-of-contents"));
+                generateAlbumList3(albums, document.getElementById("album-container"));
             });
 
             function splitList(list, index, step) {
@@ -44,23 +42,28 @@
                 node.innerHTML = content;
                 into.appendChild(node);
             }
+
+            function generateAlbumList3(albums, into) {
+                var node = document.createElement("div");
+                var content = "";
+
+                for (var i = 0; i < albums.length; i += 1) {
+                    // <div class='album-img-text'><p>asdf</p></div>
+                    content += `<div class="album-img-sized"><a href='${albums[i].link}'><img class='album-img' title="${albums[i].title} by ${albums[i].artist}" src='${albums[i].img}.webp'></a></div>\n`;
+                }
+
+                node.innerHTML = content;
+                into.appendChild(node);
+            }
         </script>
     </head>
     <body>
-        <div style="display: none;">
-            <img class="img-in-paragraph-left">
-        </div>
         <div id="banner"></div>
         <div class="body-container">
             <div id="main-container" class="width-conforming">
                 <h1 class="page-title">Albums I Like</h1>
                 <hr class="hr-header">
-                <div class="callout-box">
-                    <p>This page is a work-in-progress.</p>
-                </div>
-                <p>This is a listing of some albums I like. Ordered by artist, then by release date.</p>
-                TODO introduction about how I prefer full-length albums over shuffled playlists
-                <div id="table-of-contents"></div>
+                <p>I really like listening to albums instead of playlists, since I think that albums often carry a cohesive narrative the artist intended for the listeners to experience. I also don't skip songs in albums. This page here is a listing of some albums I like. Ordered by artist, then by release date.</p>
                 <hr class="hr-divider">
                 <div id="album-container"></div>
                 <p class="centred-text">– ♡ –</p>

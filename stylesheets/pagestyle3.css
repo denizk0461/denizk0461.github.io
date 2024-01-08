@@ -182,12 +182,36 @@ li a:hover {
     margin-top: 2px;
     margin-bottom: 2px;
 }
+.album-img {
+    border-radius: 24px;
+    transition-duration: 0.1s;
+}
+.album-img:hover {
+    border-radius: 0px;
+}
+.album-img-text {
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
+}
+.album-img-sized {
+    width: 33%;
+    display: inline-block;
+}
 @media screen and (max-width: 600px) {
     .img-gallery-column {
         flex: 100%;
         max-width: 100%;
     }
     .img-in-paragraph {
+        width: 100%;
+    }
+    .album-img-sized {
         width: 100%;
     }
 }
@@ -233,9 +257,6 @@ code {
     font-family: "Space Mono", monospace;
     font-weight: 700;
     font-style: italic;
-}
-.album-img {
-    border-radius: 16px;
 }
 .clickable {
     cursor: pointer;
