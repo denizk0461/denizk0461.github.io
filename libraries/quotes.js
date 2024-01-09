@@ -57,6 +57,12 @@ var quotes = [
         "text": "2500 No, it thought I said dog again.",
         "by": "Xem92",
         "from": "This Mod Kills Me If I Answer Trivia Questions Wrong",
-        "link": "https://youtu.be/UUmfeBi4ewo?si=zNc-g-NVQDbQb9RH&t=2928",
+        "link": "https://youtu.be/UUmfeBi4ewo?t=2928",
+    },
+    {
+        "text": "INDIGNITY (from the anagram 'dignity')",
+        "by": "ChatGPT",
+        "from": "Can Chatgpt Solve a Crossword?",
+        "link": "https://youtu.be/A1QzVQn8hH8?t=136",
     },
 ]
