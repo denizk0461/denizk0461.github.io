@@ -3,61 +3,20 @@
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width'>
-        <title>denizk0641's website</title>
+        <title>denizk0641's old website</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/stylesheets/pagestyle3.css">
         <style>
-            .gradient-title {
-                width: fit-content;
+            body {
+                font-family: 'Lato', sans-serif;
+                max-width: 1024px;
+                margin-left: auto;
+                margin-right: auto;
             }
         </style>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="/libraries/quotes.js"></script>
-        <script>
-            $(function() {
-                $("#banner").load("/common/banner.html");
-                $("#rat-footer").load("/common/rat-footer.html");
-
-                document.getElementById("moin").style = "background: -webkit-linear-gradient(0deg, #96C9DC, #9CE391, #E03E59);\n" +
-                    "background-clip: text;\n" +
-                    "-webkit-background-clip: text;\n" +
-                    "-webkit-text-fill-color: transparent;";
-                
-                var quote = quotes[Math.floor(Math.random() * quotes.length)];
-                document.getElementById("quote-text").innerHTML = quote.text;
-                document.getElementById("quote-by").innerHTML = `— ${quote.by}, « <a class="text-link" href="${quote.link}">${quote.from}</a> »`;
-            });
-        </script>
     </head>
     <body>
-        <div id="banner"></div>
-        <div class="body-container">
-            <div class="width-conforming">
-                <h1 class="page-title">denizk0461's website</h1>
-                <hr class="hr-header">
-                <h1 id="moin" class="gradient-title">Moin! Na?</h1>
-                <div class="callout-box">
-                    <p>This page is currently under construction, but please feel free to browse around the construction site and check out my projects and further links down below!</p>
-                    <p>~denizk0461 ʕ•ﻌ•ʔ</p>
-                </div>
-                <div class="quote-container">
-                    <div class="centred small-width">
-                        <p class="quote-text" id="quote-text"></p>
-                        <p class="quote-by" id="quote-by"></p>
-                    </div>
-                </div>
-                <ul>
-                    <li><a href="/liked-albums">Albums I Like</a></li>
-                    <!-- <li><a href="/blog">Blog</a></li> -->
-                    <li><a href="/projects">My Disordered Projects</a></li>
-                    <li><a href="/cool-links">A Few Cool Links</a></li>
-                    <li><a href="/questionable-gallery">Questionable Gallery</a></li>
-                    <li><a href="/graveyard">The Link Graveyard</a></li>
-                    <li><a href="/aboutme">About Me</a></li>
-                </ul>
-            </div>
-        </div>
-        <div id="rat-footer"></div>
+        <h1 id="moin">Moin! Na?</h1>
+        <p>This page has been migrated to Codeberg. Visit by clicking <a href="https://denizk0461.codeberg.page/">here!</a></p>
     </body>
 </html>
